@@ -1,0 +1,41 @@
+{
+  "name": "tvg-gtm",
+  "version": "1.0.0",
+  "description": "Manage GTM events triggered in the application",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "lint": "eslint .",
+    "compile": "webpack"
+  },
+  "keywords": [
+    "GTM",
+    "google",
+    "analytics",
+    "tvg",
+    "events"
+  ],
+  "author": "Luis Couto <luis.couto@mindera.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "tvg-conf": "git+ssh://git@bitbucket.org/betfair-us/tvg-conf.git#babel-preset-env",
+    "tvg-mediator": "^0.5.0"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-env": "^1.1.8",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "flow-bin": "^0.38.0",
+    "webpack": "^2.2.1"
+  }
+}

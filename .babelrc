@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "node": "current",
+        "browsers": ["last 3 versions"]
+      },
+    }]
+  ],
+  "plugins": [
+    "transform-flow-strip-types",
+    "transform-object-rest-spread"
+  ]
+}
