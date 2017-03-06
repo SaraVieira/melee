@@ -6,10 +6,21 @@
         "node": "current",
         "browsers": ["last 3 versions"]
       },
-    }]
+      "debug": true
+    }],
+    "react"
   ],
   "plugins": [
-    "transform-flow-strip-types",
+    "syntax-dynamic-import",
     "transform-object-rest-spread"
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-inline-elements",
+        "transform-react-remove-prop-types"
+      ]
+    }
+  }
 }

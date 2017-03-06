@@ -1,41 +1,49 @@
 {
-  "name": "tvg-gtm",
+  "name": "tvg-react-boilerplate",
   "version": "1.0.0",
-  "description": "Manage GTM events triggered in the application",
+  "description": "Basic project to start other TVG frontend projects",
   "main": "index.js",
+  "bin": {
+    "server":  "./bin/server",
+    "server-dev":  "./bin/server-dev"
+  },
   "scripts": {
-    "test": "ava",
+    "test": "jest",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint .",
-    "compile": "webpack"
+    "build": "run-s flow lint build:prod",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:prod": "cross-env NODE_ENV=production webpack",
+    "start": "npm run start:prod",
+    "start:dev": "cross-env NODE_ENV=development ./bin/server-dev --env.environment=${ENVIRONMENT}",
+    "start:prod": "cross-env NODE_ENV=production ./bin/server --env.environment=${ENVIRONMENT}"
   },
   "keywords": [
-    "GTM",
-    "google",
-    "analytics",
-    "tvg",
-    "events"
+    "TVG",
+    "frontend"
   ],
   "author": "Luis Couto <luis.couto@mindera.com>",
   "license": "UNLICENSED",
   "dependencies": {
     "lodash": "^4.17.4",
     "tvg-conf": "git+ssh://git@bitbucket.org/betfair-us/tvg-conf.git#babel-preset-env",
-    "tvg-mediator": "^0.5.0"
+    "tvg-mediator": "^0.6.0"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
-    "babel-core": "^6.22.1",
+    "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.22.0",
-    "babel-preset-env": "^1.1.8",
-    "eslint": "^3.14.1",
-    "eslint-config-airbnb-base": "^11.0.1",
+    "babel-loader": "^6.4.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.3.2",
+    "babel-preset-env": "^1.2.0",
+    "babel-preset-react": "^6.23.0",
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb-base": "^11.1.1",
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "^2.2.0",
-    "flow-bin": "^0.38.0",
+    "flow-bin": "^0.41.0",
+    "jest": "^19.0.2",
     "webpack": "^2.2.1"
   }
 }

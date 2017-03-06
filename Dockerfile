@@ -1,4 +1,4 @@
-FROM node:5.12
+FROM node:6.9.10-slim
 ARG configuration
 
 RUN mkdir -p /usr/opt/gtm
