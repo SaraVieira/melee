@@ -4,6 +4,9 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
+
+const pkg = require('../../package.json');
 
 const toBoolean = x =>
   x === 'true' ? true :
@@ -12,7 +15,8 @@ const toBoolean = x =>
 
 const dir = {
   SOURCE: path.resolve('./src'),
-  BUILD: path.resolve('./build')
+  BUILD: path.resolve('./build'),
+  TMP: path.resolve('./.tmp')
 };
 
 module.exports = (opts) => {
@@ -25,17 +29,14 @@ module.exports = (opts) => {
   return {
 
     entry: {
-      vendors: [
-        'react',
-        'react-router',
-        'react-dom',
-        'lodash',
-        'babel-polyfill'
-      ],
+
+      vendors: Object.keys(pkg.dependencies),
+
       main: [
         !options.optimize && 'react-hot-loader/patch',
         './src/index.js',
       ].filter(Boolean)
+
     },
 
     output: {
@@ -51,16 +52,21 @@ module.exports = (opts) => {
       !options.optimize && new webpack.HotModuleReplacementPlugin(),
       !options.optimize && new webpack.NamedModulesPlugin(),
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
+      new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CleanWebpackPlugin(['build']),
       new CaseSensitivePathsPlugin(),
       new webpack.DefinePlugin({
         'process.env': { 'NODE_ENV': JSON.stringify(options.env) },
         'PRODUCTION': options.optimize
       }),
-      new webpack.optimize.CommonsChunkPlugin({
+      options.optimize && new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
         filename: '[name].[hash].js',
         minChunks: Infinity,
+      }),
+      !options.optimize && new webpack.DllReferencePlugin({
+        context: process.cwd(),
+        manifest: path.join(dir.TMP, 'vendors.manifest.json')
       }),
       new ExtractTextPlugin({
         filename: 'style.[chunkhash].css',
@@ -83,8 +89,16 @@ module.exports = (opts) => {
         {
           test: /\.jsx?$/,
           loader: 'babel-loader',
-          include: dir.SOURCE,
           options: { cacheDirectory: true }
+        },
+        {
+          test: /\.svg$/,
+          loaders: ['babel-loader', 'svg-react-loader']
+        },
+        {
+          test: /\.(jpe?g|png|gif)/,
+          loader: 'url-loader',
+          options: { limit: 10000 }
         },
         {
           test: /\.(css|less)?$/,
@@ -115,5 +129,6 @@ module.exports = (opts) => {
     cache: true,
 
     bail: true
+
   };
 };

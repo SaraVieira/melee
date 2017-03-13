@@ -7,18 +7,8 @@
     "server": "./bin/server",
     "server-dev": "./bin/server-dev"
   },
-  "scripts": {
-    "test": "jest",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "lint": "eslint .",
-    "build": "run-s flow lint build:prod",
-    "build:dev": "webpack --env.optimize=false",
-    "build:prod": "webpack --env.optimize=true",
-    "server:dev": "./bin/server-dev",
-    "server:prod": "./bin/server-dev",
-    "start": "npm run start:prod",
-    "start:dev": "./bin/server-dev",
-    "start:prod": "run-s build:prod server:prod"
+  "engines": {
+    "node": ">=6.9.10"
   },
   "keywords": [
     "TVG",
@@ -26,12 +16,28 @@
   ],
   "author": "Luis Couto <luis.couto@mindera.com>",
   "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "npm run build:dll",
+    "test": "jest",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "lint": "eslint .",
+    "build": "run-s flow lint build:prod",
+    "build:dll": "webpack --config config/webpack/dll.config.js --env.optimize=false",
+    "build:dev": "webpack --config config/webpack/client.config.js --env.optimize=false",
+    "build:prod": "webpack --config config/webpack/client.config.js --env.optimize=true",
+    "server:dev": "./bin/server-dev",
+    "server:prod": "./bin/server",
+    "start": "npm run start:prod",
+    "start:dev": "./bin/server-dev",
+    "start:prod": "run-s build:prod server:prod"
+  },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0",
+    "redux": "^3.6.0",
     "tvg-conf": "git+ssh://git@bitbucket.org/betfair-us/tvg-conf.git#babel-preset-env",
     "tvg-mediator": "^0.6.0"
   },
@@ -46,6 +52,7 @@
     "babel-preset-env": "^1.2.0",
     "babel-preset-react": "^6.23.0",
     "case-sensitive-paths-webpack-plugin": "^1.1.4",
+    "circular-dependency-plugin": "^2.0.0",
     "clean-webpack-plugin": "^0.1.15",
     "eslint": "^3.17.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -64,7 +71,6 @@
     "postcss-nested": "^1.0.0",
     "postcss-smart-import": "^0.6.10",
     "react-hot-loader": "next",
-    "uglify-js": "github:mishoo/UglifyJS2#harmony",
     "webpack": "^2.2.1"
   },
   "browserslist": [
