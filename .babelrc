@@ -2,11 +2,11 @@
   "presets": [
     ["env", {
       "modules": false,
+      "debug": true,
       "targets": {
         "node": "current",
         "browsers": ["last 3 versions"]
-      },
-      "debug": true
+      }
     }],
     "react"
   ],

@@ -12,7 +12,7 @@
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint": "eslint .",
     "build": "run-s flow lint build:prod",
-    "build:dev": "webpack --env.optimze=false",
+    "build:dev": "webpack --env.optimize=false",
     "build:prod": "webpack --env.optimize=true",
     "server:dev": "./bin/server-dev",
     "server:prod": "./bin/server-dev",
@@ -48,16 +48,26 @@
     "case-sensitive-paths-webpack-plugin": "^1.1.4",
     "clean-webpack-plugin": "^0.1.15",
     "eslint": "^3.17.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.41.0",
     "jest": "^19.0.2",
     "npm-run-all": "^4.0.2",
     "postcss-cssnext": "^2.9.0",
     "postcss-less-vars": "^1.2.5",
+    "postcss-nested": "^1.0.0",
     "postcss-smart-import": "^0.6.10",
+    "react-hot-loader": "next",
+    "uglify-js": "github:mishoo/UglifyJS2#harmony",
     "webpack": "^2.2.1"
-  }
+  },
+  "browserslist": [
+    "last 3 versions"
+  ]
 }

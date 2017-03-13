@@ -1,8 +1,6 @@
 
 # Created by https://www.gitignore.io/api/nodejs,osx,node,intellij,vim,webstorm,linux,windows
 
-#!! ERROR: nodejs is undefined. Use list command to see defined gitignore types !!#
-
 ### OSX ###
 *.DS_Store
 .AppleDouble
@@ -217,3 +215,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/nodejs,osx,node,intellij,vim,webstorm,linux,windows
+build
+reports
+dist
+coverage

@@ -1,11 +1,17 @@
 module.exports = {
   "parser": "babel-eslint",
-  "extends": "airbnb-base",
+  "extends": "airbnb",
   "plugins": [
+    "react",
+    "jsx-a11y",
     "import",
-    "flowtype"
+    "flowtype",
+    "compat"
   ],
   "extends": [
     "plugin:flowtype/recommended"
-  ]
+  ],
+  "rules": {
+    "compat/compat": 2
+  }
 };

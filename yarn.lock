@@ -111,6 +111,12 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+aria-query@^0.3.0:
+  version "0.3.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/aria-query/-/aria-query-0.3.0.tgz#cb8a9984e2862711c83c80ade5b8f5ca0de2b467"
+  dependencies:
+    ast-types-flow "0.0.7"
+
 arr-diff@^2.0.0:
   version "2.0.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/arr-diff/-/arr-diff-2.0.0.tgz#8f3b827f955a8bd669697e4a4256ac3ceae356cf"
@@ -151,6 +157,13 @@ array-unique@^0.2.1:
   version "0.2.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
 
+array.prototype.find@^2.0.1:
+  version "2.0.3"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/array.prototype.find/-/array.prototype.find-2.0.3.tgz#08c3ec33e32ec4bab362a2958e686ae92f59271d"
+  dependencies:
+    define-properties "^1.1.2"
+    es-abstract "^1.7.0"
+
 arrify@^1.0.0, arrify@^1.0.1:
   version "1.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
@@ -184,6 +197,10 @@ assert@^1.1.1:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
   dependencies:
     util "0.10.3"
+
+ast-types-flow@0.0.7:
+  version "0.0.7"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
 
 async-each@^1.0.0:
   version "1.0.1"
@@ -790,7 +807,7 @@ babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-template@^6.16.0, babel-template@^6.22.0, babel-template@^6.23.0:
+babel-template@^6.16.0, babel-template@^6.22.0, babel-template@^6.23.0, babel-template@^6.7.0:
   version "6.23.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-template/-/babel-template-6.23.0.tgz#04d4f270adbb3aa704a8143ae26faa529238e638"
   dependencies:
@@ -949,6 +966,13 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
+browserslist@1.7.5:
+  version "1.7.5"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/browserslist/-/browserslist-1.7.5.tgz#eca4713897b51e444283241facf3985de49a9e2b"
+  dependencies:
+    caniuse-db "^1.0.30000624"
+    electron-to-chromium "^1.2.3"
+
 browserslist@^1.0.0, browserslist@^1.0.1, browserslist@^1.4.0, browserslist@^1.7.6:
   version "1.7.6"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/browserslist/-/browserslist-1.7.6.tgz#af98589ce6e7ab09618d29451faacb81220bd3ba"
@@ -1023,11 +1047,15 @@ caniuse-api@^1.3.2:
     lodash.memoize "^4.1.0"
     lodash.uniq "^4.3.0"
 
+caniuse-db@1.0.30000626:
+  version "1.0.30000626"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000626.tgz#44363dc86857efaf758fea9faef6a15ed93d8f33"
+
 caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000634:
   version "1.0.30000634"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000634.tgz#439f4b95e715b1fd105196d40c681edd7122e622"
 
-caniuse-db@^1.0.30000631:
+caniuse-db@^1.0.30000624, caniuse-db@^1.0.30000631:
   version "1.0.30000632"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000632.tgz#12e3f5c114d19de58e74dec478a327fb2eeb6bcb"
 
@@ -1301,6 +1329,10 @@ d@^0.1.1, d@~0.1.1:
   dependencies:
     es5-ext "~0.10.2"
 
+damerau-levenshtein@^1.0.0:
+  version "1.0.3"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/damerau-levenshtein/-/damerau-levenshtein-1.0.3.tgz#ae4f4ce0b62acae10ff63a01bb08f652f5213af2"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -1398,6 +1430,10 @@ doctrine@1.5.0, doctrine@^1.2.2:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
+dom-walk@^0.1.0:
+  version "0.1.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
+
 domain-browser@^1.1.1:
   version "1.1.7"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
@@ -1412,7 +1448,7 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-electron-to-chromium@^1.1.0, electron-to-chromium@^1.2.5:
+electron-to-chromium@^1.1.0, electron-to-chromium@^1.2.3, electron-to-chromium@^1.2.5:
   version "1.2.5"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/electron-to-chromium/-/electron-to-chromium-1.2.5.tgz#d373727228843dfd8466c276089f13b40927a952"
 
@@ -1427,6 +1463,10 @@ elliptic@^6.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
+
+emoji-regex@^6.1.0:
+  version "6.1.3"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/emoji-regex/-/emoji-regex-6.1.3.tgz#ec79a3969b02d2ecf2b72254279bf99bc7a83932"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -1459,7 +1499,13 @@ error-ex@^1.2.0:
   dependencies:
     is-arrayish "^0.2.1"
 
-es-abstract@^1.4.3:
+error-stack-parser@^1.3.6:
+  version "1.3.6"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/error-stack-parser/-/error-stack-parser-1.3.6.tgz#e0e73b93e417138d1cd7c0b746b1a4a14854c292"
+  dependencies:
+    stackframe "^0.3.1"
+
+es-abstract@^1.4.3, es-abstract@^1.7.0:
   version "1.7.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/es-abstract/-/es-abstract-1.7.0.tgz#dfade774e01bfcd97f96180298c449c8623fb94c"
   dependencies:
@@ -1552,9 +1598,15 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@^11.1.1:
+eslint-config-airbnb-base@^11.1.0, eslint-config-airbnb-base@^11.1.1:
   version "11.1.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.1.1.tgz#61e9e89e4eb89f474f6913ac817be9fbb59063e0"
+
+eslint-config-airbnb@^14.1.0:
+  version "14.1.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint-config-airbnb/-/eslint-config-airbnb-14.1.0.tgz#355d290040bbf8e00bf8b4b19f4b70cbe7c2317f"
+  dependencies:
+    eslint-config-airbnb-base "^11.1.0"
 
 eslint-import-resolver-node@^0.2.0:
   version "0.2.3"
@@ -1570,6 +1622,15 @@ eslint-module-utils@^2.0.0:
   dependencies:
     debug "2.2.0"
     pkg-dir "^1.0.0"
+
+eslint-plugin-compat@^1.0.2:
+  version "1.0.2"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint-plugin-compat/-/eslint-plugin-compat-1.0.2.tgz#914a8fb93a96950140ff902ad2890930e901046c"
+  dependencies:
+    babel-runtime "^6.23.0"
+    browserslist "1.7.5"
+    caniuse-db "1.0.30000626"
+    requireindex "^1.1.0"
 
 eslint-plugin-flowtype@^2.30.0:
   version "2.30.0"
@@ -1591,6 +1652,27 @@ eslint-plugin-import@^2.2.0:
     lodash.cond "^4.3.0"
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
+
+eslint-plugin-jsx-a11y@^4.0.0:
+  version "4.0.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-4.0.0.tgz#779bb0fe7b08da564a422624911de10061e048ee"
+  dependencies:
+    aria-query "^0.3.0"
+    ast-types-flow "0.0.7"
+    damerau-levenshtein "^1.0.0"
+    emoji-regex "^6.1.0"
+    jsx-ast-utils "^1.0.0"
+    object-assign "^4.0.1"
+
+eslint-plugin-react@^6.10.0:
+  version "6.10.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint-plugin-react/-/eslint-plugin-react-6.10.0.tgz#9c48b48d101554b5355413e7c64238abde6ef1ef"
+  dependencies:
+    array.prototype.find "^2.0.1"
+    doctrine "^1.2.2"
+    has "^1.0.1"
+    jsx-ast-utils "^1.3.4"
+    object.assign "^4.0.4"
 
 eslint@^3.17.0:
   version "3.17.0"
@@ -1962,6 +2044,13 @@ glob@^7.0.0, glob@^7.0.3, glob@^7.0.5:
     minimatch "^3.0.2"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+global@^4.3.0:
+  version "4.3.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/global/-/global-4.3.1.tgz#5f757908c7cbabce54f386ae440e11e26b7916df"
+  dependencies:
+    min-document "^2.19.0"
+    process "~0.5.1"
 
 globals@^9.0.0, globals@^9.14.0:
   version "9.16.0"
@@ -2707,6 +2796,12 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.3.6"
 
+jsx-ast-utils@^1.0.0, jsx-ast-utils@^1.3.4:
+  version "1.4.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/jsx-ast-utils/-/jsx-ast-utils-1.4.0.tgz#5afe38868f56bc8cc7aeaef0100ba8c75bd12591"
+  dependencies:
+    object-assign "^4.1.0"
+
 kind-of@^3.0.2:
   version "3.1.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/kind-of/-/kind-of-3.1.0.tgz#475d698a5e49ff5e53d14e3e732429dc8bf4cf47"
@@ -2814,7 +2909,7 @@ lodash.uniq@^4.3.0:
   version "4.5.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -2894,6 +2989,12 @@ mime-types@^2.1.12, mime-types@~2.1.7:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/mime-types/-/mime-types-2.1.14.tgz#f7ef7d97583fcaf3b7d282b6f8b5679dab1e94ee"
   dependencies:
     mime-db "~1.26.0"
+
+min-document@^2.19.0:
+  version "2.19.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
+  dependencies:
+    dom-walk "^0.1.0"
 
 minimalistic-assert@^1.0.0:
   version "1.0.0"
@@ -3065,9 +3166,17 @@ object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
-object-keys@^1.0.8:
+object-keys@^1.0.10, object-keys@^1.0.8:
   version "1.0.11"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
+
+object.assign@^4.0.4:
+  version "4.0.4"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/object.assign/-/object.assign-4.0.4.tgz#b1c9cc044ef1b9fe63606fc141abbb32e14730cc"
+  dependencies:
+    define-properties "^1.1.2"
+    function-bind "^1.1.0"
+    object-keys "^1.0.10"
 
 object.omit@^2.0.0:
   version "2.0.1"
@@ -3453,6 +3562,12 @@ postcss-message-helpers@^2.0.0:
   version "2.0.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-message-helpers/-/postcss-message-helpers-2.0.0.tgz#a4f2f4fab6e4fe002f0aed000478cdf52f9ba60e"
 
+postcss-nested@^1.0.0:
+  version "1.0.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-nested/-/postcss-nested-1.0.0.tgz#d136bd4b576bd5632df142c12b2198a9ccf794df"
+  dependencies:
+    postcss "^5.0.2"
+
 postcss-nesting@^2.0.5:
   version "2.3.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-nesting/-/postcss-nesting-2.3.1.tgz#94a6b6a4ef707fbec20a87fee5c957759b4e01cf"
@@ -3568,6 +3683,10 @@ process@^0.11.0:
   version "0.11.9"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/process/-/process-0.11.9.tgz#7bd5ad21aa6253e7da8682264f1e11d11c0318c1"
 
+process@~0.5.1:
+  version "0.5.2"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
+
 progress@^1.1.8:
   version "1.1.8"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
@@ -3648,6 +3767,10 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-deep-force-update@^2.0.1:
+  version "2.0.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
+
 react-dom@^15.4.2:
   version "15.4.2"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
@@ -3655,6 +3778,23 @@ react-dom@^15.4.2:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-hot-loader@next:
+  version "3.0.0-beta.6"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/react-hot-loader/-/react-hot-loader-3.0.0-beta.6.tgz#463fac0bfc8b63a8385258af20c91636abce75f4"
+  dependencies:
+    babel-template "^6.7.0"
+    global "^4.3.0"
+    react-deep-force-update "^2.0.1"
+    react-proxy "^3.0.0-alpha.0"
+    redbox-react "^1.2.5"
+    source-map "^0.4.4"
+
+react-proxy@^3.0.0-alpha.0:
+  version "3.0.0-alpha.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
+  dependencies:
+    lodash "^4.6.1"
 
 react-router@^4.0.0:
   version "4.0.0"
@@ -3749,6 +3889,13 @@ rechoir@^0.6.2:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
   dependencies:
     resolve "^1.1.6"
+
+redbox-react@^1.2.5:
+  version "1.3.4"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/redbox-react/-/redbox-react-1.3.4.tgz#3d882bb62cc7c8f6256279d12f05c6a5a96d24c6"
+  dependencies:
+    error-stack-parser "^1.3.6"
+    object-assign "^4.0.1"
 
 reduce-css-calc@^1.2.6, reduce-css-calc@^1.2.7:
   version "1.3.0"
@@ -3863,6 +4010,10 @@ require-uncached@^1.0.2:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
+
+requireindex@^1.1.0:
+  version "1.1.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
 
 resolve-from@^1.0.0:
   version "1.0.1"
@@ -4074,6 +4225,10 @@ sshpk@^1.7.0:
     jodid25519 "^1.0.0"
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
+
+stackframe@^0.3.1:
+  version "0.3.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/stackframe/-/stackframe-0.3.1.tgz#33aa84f1177a5548c8935533cbfeb3420975f5a4"
 
 stream-browserify@^2.0.1:
   version "2.0.1"
@@ -4310,6 +4465,14 @@ ua-parser-js@^0.7.9:
 uglify-js@^2.6, uglify-js@^2.7.5:
   version "2.8.7"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/uglify-js/-/uglify-js-2.8.7.tgz#e0391911507b6d2e05697a528f1686e90a11b160"
+  dependencies:
+    source-map "~0.5.1"
+    uglify-to-browserify "~1.0.0"
+    yargs "~3.10.0"
+
+"uglify-js@github:mishoo/UglifyJS2#harmony":
+  version "2.8.11"
+  resolved "https://codeload.github.com/mishoo/UglifyJS2/tar.gz/c7063c1f38d13add8a474210a0e827019133cf30"
   dependencies:
     source-map "~0.5.1"
     uglify-to-browserify "~1.0.0"

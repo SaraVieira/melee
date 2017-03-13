@@ -27,13 +27,15 @@ module.exports = (opts) => {
     entry: {
       vendors: [
         'react',
-        'lodash',
         'react-router',
+        'react-dom',
+        'lodash',
         'babel-polyfill'
       ],
       main: [
+        !options.optimize && 'react-hot-loader/patch',
         './src/index.js',
-      ]
+      ].filter(Boolean)
     },
 
     output: {
@@ -46,8 +48,9 @@ module.exports = (opts) => {
     },
 
     plugins: [
+      !options.optimize && new webpack.HotModuleReplacementPlugin(),
       !options.optimize && new webpack.NamedModulesPlugin(),
-      options.optimize && new webpack.NoEmitOnErrorsPlugin(),
+      !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
       new CleanWebpackPlugin(['build']),
       new CaseSensitivePathsPlugin(),
       new webpack.DefinePlugin({
@@ -71,10 +74,7 @@ module.exports = (opts) => {
           global_defs: { PRODUCTION: options.optimize }
         },
         mangle: { screw_ie8: true },
-        output: {
-          comments: false,
-          screw_ie8: true
-        }
+        output: { comments: false, screw_ie8: true }
       }),
     ].filter(Boolean),
 
@@ -94,7 +94,12 @@ module.exports = (opts) => {
             use: [
               {
                 loader: 'css-loader',
-                options: {}
+                options: {
+                  modules: true,
+                  camelCase: true,
+                  sourceMaps: true,
+                  localIdentName: '[local]-[hash:base64:5]',
+                }
               },
               { loader: 'postcss-loader'}
             ]
