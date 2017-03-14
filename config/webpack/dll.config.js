@@ -27,5 +27,7 @@ module.exports = (opts) => ({
   },
 
   profile: false,
-  stats: 'errors-only'
+  stats: 'errors-only',
+  bail: true,
+  cache: true
 });
