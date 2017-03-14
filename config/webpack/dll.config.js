@@ -7,8 +7,6 @@ const dir = {
   TMP: path.resolve('./.tmp')
 };
 
-console.log(Object.keys(pkg.dependencies));
-
 module.exports = (opts) => ({
   entry: {
     vendors: Object.keys(pkg.dependencies)

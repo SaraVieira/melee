@@ -1,4 +1,4 @@
-// flow-typed signature: e9a297edcdec3bd0ab16e9f43b0d3ac7
+// flow-typed signature: a86e3685abc2c2b8e5a148a8602b6a56
 // flow-typed version: <<STUB>>/css-loader_v^0.27.2/flow_v0.41.0
 
 /**
@@ -23,10 +23,6 @@ declare module 'css-loader' {
  * needed.
  */
 declare module 'css-loader/lib/compile-exports' {
-  declare module.exports: any;
-}
-
-declare module 'css-loader/lib/convert-source-map' {
   declare module.exports: any;
 }
 
@@ -67,9 +63,6 @@ declare module 'css-loader/index.js' {
 }
 declare module 'css-loader/lib/compile-exports.js' {
   declare module.exports: $Exports<'css-loader/lib/compile-exports'>;
-}
-declare module 'css-loader/lib/convert-source-map.js' {
-  declare module.exports: $Exports<'css-loader/lib/convert-source-map'>;
 }
 declare module 'css-loader/lib/css-base.js' {
   declare module.exports: $Exports<'css-loader/lib/css-base'>;

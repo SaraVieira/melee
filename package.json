@@ -46,8 +46,11 @@
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.0",
+    "babel-plugin-dynamic-import-node": "^1.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
@@ -64,10 +67,12 @@
     "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.41.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^19.0.2",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.0.2",
@@ -78,10 +83,24 @@
     "postcss-nested": "^1.0.0",
     "postcss-smart-import": "^0.6.10",
     "react-hot-loader": "next",
+    "react-test-renderer": "^15.4.2",
     "style-loader": "^0.13.2",
     "webpack": "^2.2.1"
   },
   "browserslist": [
     "last 3 versions"
-  ]
+  ],
+  "jest": {
+    "cacheDirectory": ".tmp/jest",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html",
+      "text"
+    ],
+    "coverageDirectory": "reports/coverage/",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  }
 }
