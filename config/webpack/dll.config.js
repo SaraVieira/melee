@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 const pkg = require('../../package.json');
 
 const dir = {
@@ -15,6 +16,7 @@ module.exports = (opts) => ({
     path: path.resolve('./build')
   },
   plugins: [
+    new NyanProgressPlugin({ }),
     new webpack.DllPlugin({
       name: '[name]',
       path: path.join(dir.TMP, '[name].manifest.json')
@@ -23,4 +25,7 @@ module.exports = (opts) => ({
   performance: {
     hints: false
   },
+
+  profile: false,
+  stats: 'none'
 });

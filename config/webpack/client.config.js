@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const pkg = require('../../package.json');
@@ -14,16 +13,15 @@ const toBoolean = x =>
   Boolean(x);
 
 const dir = {
-  SOURCE: path.resolve('./src'),
-  BUILD: path.resolve('./build'),
-  TMP: path.resolve('./.tmp')
+  SOURCE: path.resolve(__dirname, '../../src'),
+  BUILD: path.resolve(__dirname, '../../build'),
+  TMP: path.resolve(__dirname, '../../.tmp')
 };
 
-module.exports = (opts) => {
+module.exports = (opts={ optimize: false }) => {
 
   const options = Object.assign({}, opts, {
-    env: process.env.NODE_ENV || 'development',
-    optimize: toBoolean(opts.optimize)
+    optimize: toBoolean(opts.optimize) || process.env.NODE_ENV === 'production'
   });
 
   return {
@@ -34,7 +32,7 @@ module.exports = (opts) => {
 
       main: [
         !options.optimize && 'react-hot-loader/patch',
-        './src/index.js',
+        path.resolve(dir.SOURCE, 'entry'),
       ].filter(Boolean)
 
     },
@@ -53,11 +51,11 @@ module.exports = (opts) => {
       !options.optimize && new webpack.NamedModulesPlugin(),
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
       new CircularDependencyPlugin({ failOnError: options.optimize }),
-      new CleanWebpackPlugin(['build']),
       new CaseSensitivePathsPlugin(),
       new webpack.DefinePlugin({
-        'process.env': { 'NODE_ENV': JSON.stringify(options.env) },
-        'PRODUCTION': options.optimize
+        'process.env': { 'NODE_ENV': JSON.stringify(process.env.NODE_ENV) },
+        'ENVIRONMENT': process.env.ENVIRONMENT || 'development',
+        'DEVELOPMENT': !options.optimize
       }),
       options.optimize && new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
@@ -77,7 +75,7 @@ module.exports = (opts) => {
         compress: {
           screw_ie8: true, // React doesn't support IE8
           warnings: false,
-          global_defs: { PRODUCTION: options.optimize }
+          global_defs: { DEVELOPMENT: !options.optimize }
         },
         mangle: { screw_ie8: true },
         output: { comments: false, screw_ie8: true }
@@ -126,7 +124,7 @@ module.exports = (opts) => {
       'source-map' :
       'cheap-eval-source-map',
 
-    cache: true,
+    cache: !options.optimize,
 
     bail: true
 

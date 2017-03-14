@@ -1,2 +1,4 @@
 build
 cloud
+flow-typed
+config/flowtype
