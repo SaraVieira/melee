@@ -27,5 +27,5 @@ module.exports = (opts) => ({
   },
 
   profile: false,
-  stats: 'none'
+  stats: 'errors-only'
 });
