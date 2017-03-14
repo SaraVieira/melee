@@ -9,4 +9,4 @@ export default () => (
     <h1 className={styles.other}>Other</h1>
     <Video streamName="rosecroft_mbr" />
   </div>
-)
+);

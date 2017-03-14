@@ -4,27 +4,27 @@ const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 const pkg = require('../../package.json');
 
 const dir = {
-  TMP: path.resolve('./.tmp')
+  TMP: path.resolve('./.tmp'),
 };
 
-module.exports = (opts) => ({
+module.exports = () => ({
   entry: {
-    vendors: Object.keys(pkg.dependencies)
+    vendors: Object.keys(pkg.dependencies),
   },
   output: {
     filename: '[name].DllBundle.js',
-    path: dir.TMP
+    path: dir.TMP,
   },
   plugins: [
     new NyanProgressPlugin({ }),
     new webpack.DllPlugin({
       name: '[name]',
-      path: path.join(dir.TMP, '[name].manifest.json')
-    })
+      path: path.join(dir.TMP, '[name].manifest.json'),
+    }),
   ],
   performance: { hints: false },
   profile: false,
   stats: 'errors-only',
   bail: true,
-  cache: true
+  cache: true,
 });

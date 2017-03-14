@@ -1,6 +1,10 @@
 module.exports = {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended",
+    "plugin:jest/recommended"
+  ],
   "env": {
     "jest/globals": true
   },
@@ -12,11 +16,8 @@ module.exports = {
     "compat",
     "jest"
   ],
-  "extends": [
-    "plugin:flowtype/recommended",
-    "plugin:jest/recommended"
-  ],
   "rules": {
-    "compat/compat": 2
+    "compat/compat": 2,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["*.js", "**/*.spec.js", "config/**/*.js"]}]
   }
 };

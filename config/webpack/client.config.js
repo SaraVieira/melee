@@ -7,21 +7,21 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const pkg = require('../../package.json');
 
-const toBoolean = x =>
-  x === 'true' ? true :
-  x === 'false' ? false :
-  Boolean(x);
+const toBoolean = (x) => {
+  if (x === 'true') { return true; }
+  if (x === 'false') { return false; }
+  return Boolean(x);
+};
 
 const dir = {
   SOURCE: path.resolve(__dirname, '../../src'),
   BUILD: path.resolve(__dirname, '../../build'),
-  TMP: path.resolve(__dirname, '../../.tmp')
+  TMP: path.resolve(__dirname, '../../.tmp'),
 };
 
-module.exports = (opts={ optimize: false }) => {
-
+module.exports = (opts = { optimize: false }) => {
   const options = Object.assign({}, opts, {
-    optimize: toBoolean(opts.optimize) || process.env.NODE_ENV === 'production'
+    optimize: toBoolean(opts.optimize) || process.env.NODE_ENV === 'production',
   });
 
   return {
@@ -33,17 +33,17 @@ module.exports = (opts={ optimize: false }) => {
       main: [
         !options.optimize && 'react-hot-loader/patch',
         path.resolve(dir.SOURCE, 'entry'),
-      ].filter(Boolean)
+      ].filter(Boolean),
 
     },
 
     output: {
       filename: options.optimize ? '[name].[hash].js' : '[name].js',
-      path: dir.BUILD
+      path: dir.BUILD,
     },
 
     resolve: {
-      extensions: ['.js', '.jsx', '.json', '.css']
+      extensions: ['.js', '.jsx', '.json', '.css'],
     },
 
     plugins: [
@@ -53,9 +53,9 @@ module.exports = (opts={ optimize: false }) => {
       new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CaseSensitivePathsPlugin(),
       new webpack.DefinePlugin({
-        'process.env': { 'NODE_ENV': JSON.stringify(process.env.NODE_ENV) },
-        'ENVIRONMENT': process.env.ENVIRONMENT || 'development',
-        'DEVELOPMENT': !options.optimize
+        'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
+        ENVIRONMENT: process.env.ENVIRONMENT || 'development',
+        DEVELOPMENT: !options.optimize,
       }),
       options.optimize && new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
@@ -64,39 +64,39 @@ module.exports = (opts={ optimize: false }) => {
       }),
       !options.optimize && new webpack.DllReferencePlugin({
         context: process.cwd(),
-        manifest: path.join(dir.TMP, 'vendors.manifest.json')
+        manifest: path.join(dir.TMP, 'vendors.manifest.json'),
       }),
       new ExtractTextPlugin({
         filename: 'styles.[hash].css',
         allChunks: true,
-        disable: !options.optimize
+        disable: !options.optimize,
       }),
       options.optimize && new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true, // React doesn't support IE8
           warnings: false,
-          global_defs: { DEVELOPMENT: !options.optimize }
+          global_defs: { DEVELOPMENT: !options.optimize },
         },
         mangle: { screw_ie8: true },
-        output: { comments: false, screw_ie8: true }
+        output: { comments: false, screw_ie8: true },
       }),
     ].filter(Boolean),
 
-    module:{
+    module: {
       rules: [
         {
           test: /\.jsx?$/,
           loader: 'babel-loader',
-          options: { cacheDirectory: true }
+          options: { cacheDirectory: true },
         },
         {
           test: /\.svg$/,
-          loaders: ['babel-loader', 'svg-react-loader']
+          loaders: ['babel-loader', 'svg-react-loader'],
         },
         {
           test: /\.(jpe?g|png|gif)/,
           loader: 'url-loader',
-          options: { limit: 10000 }
+          options: { limit: 10000 },
         },
         {
           test: /\.(css|less)?$/,
@@ -111,13 +111,13 @@ module.exports = (opts={ optimize: false }) => {
                   camelCase: true,
                   sourceMaps: true,
                   localIdentName: '[local]-[hash:base64:5]',
-                }
+                },
               },
-              { loader: 'postcss-loader'}
-            ]
-          })
+              { loader: 'postcss-loader' },
+            ],
+          }),
         },
-      ].filter(Boolean)
+      ].filter(Boolean),
     },
 
     devtool: options.optimize ?
@@ -126,7 +126,7 @@ module.exports = (opts={ optimize: false }) => {
 
     cache: !options.optimize,
 
-    bail: true
+    bail: true,
 
   };
 };
