@@ -43,7 +43,7 @@ module.exports = (opts={ optimize: false }) => {
     },
 
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx', '.json', '.css']
     },
 
     plugins: [

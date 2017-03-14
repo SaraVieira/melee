@@ -7,13 +7,15 @@ const dir = {
   TMP: path.resolve('./.tmp')
 };
 
+console.log(Object.keys(pkg.dependencies));
+
 module.exports = (opts) => ({
   entry: {
     vendors: Object.keys(pkg.dependencies)
   },
   output: {
     filename: '[name].DllBundle.js',
-    path: path.resolve('./build')
+    path: dir.TMP
   },
   plugins: [
     new NyanProgressPlugin({ }),
@@ -22,10 +24,7 @@ module.exports = (opts) => ({
       path: path.join(dir.TMP, '[name].manifest.json')
     })
   ],
-  performance: {
-    hints: false
-  },
-
+  performance: { hints: false },
   profile: false,
   stats: 'errors-only',
   bail: true,
