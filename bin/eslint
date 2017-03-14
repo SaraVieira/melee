@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+/* eslint-disable comma-dangle */
+
 const path = require('path');
 const fs = require('fs');
-const mkdirp = require('mkdirp')
-const CLIEngine = require("eslint").CLIEngine;
+const mkdirp = require('mkdirp');
+const CLIEngine = require('eslint').CLIEngine;
 
 const outputDir = path.resolve(__dirname, '../reports/eslint/');
 const outputFile = path.join(outputDir, 'index.html');
@@ -11,23 +13,23 @@ const cli = new CLIEngine({
   cwd: path.resolve(__dirname, '../'),
   configFile: '.eslintrc.js',
   ignorePath: '.eslintignore',
-  extensions: ['.js', '.jsx']
+  extensions: ['.js', '.jsx'],
 });
 
 const report = cli.executeOnFiles(['.']);
 const formatters = {
   stylish: cli.getFormatter('stylish'),
-  html: cli.getFormatter('html')
+  html: cli.getFormatter('html'),
 };
 
 // @FIXME babel-eslint has an output bug
-mkdirp(outputDir, err => {
+mkdirp(outputDir, (err) => {
   if (err) { throw err; }
   fs.writeFile(
     outputFile,
     formatters.html(report.results),
-    err => { if (err) { throw err } }
+    (error) => { if (error) { throw err; } }
   );
 });
 
-console.log(formatters.stylish(report.results));
+process.stdout.write(formatters.stylish(report.results));

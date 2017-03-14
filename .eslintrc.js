@@ -18,6 +18,6 @@ module.exports = {
   ],
   "rules": {
     "compat/compat": 2,
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["*.js", "**/*.spec.js", "config/**/*.js"]}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["*.js", "**/*.spec.js", "config/**/*.js", "bin/*"]}]
   }
 };
