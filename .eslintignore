@@ -1,4 +1,5 @@
 build
 cloud
 flow-typed
-config/flowtype
+reports
+node_modules

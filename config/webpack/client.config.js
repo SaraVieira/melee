@@ -38,7 +38,7 @@ module.exports = (opts={ optimize: false }) => {
     },
 
     output: {
-      filename: '[name].[hash].js',
+      filename: options.optimize ? '[name].[hash].js' : '[name].js',
       path: dir.BUILD
     },
 
@@ -59,7 +59,7 @@ module.exports = (opts={ optimize: false }) => {
       }),
       options.optimize && new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
-        filename: '[name].[hash].js',
+        filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
         minChunks: Infinity,
       }),
       !options.optimize && new webpack.DllReferencePlugin({
@@ -67,7 +67,7 @@ module.exports = (opts={ optimize: false }) => {
         manifest: path.join(dir.TMP, 'vendors.manifest.json')
       }),
       new ExtractTextPlugin({
-        filename: 'style.[chunkhash].css',
+        filename: 'styles.[hash].css',
         allChunks: true,
         disable: !options.optimize
       }),
