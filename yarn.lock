@@ -28,17 +28,13 @@ acorn-jsx@^3.0.0:
   dependencies:
     acorn "^3.0.4"
 
-acorn@4.0.4:
+acorn@4.0.4, acorn@^4.0.3, acorn@^4.0.4:
   version "4.0.4"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
 
 acorn@^3.0.4:
   version "3.3.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
-
-acorn@^4.0.3, acorn@^4.0.4:
-  version "4.0.11"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-4.0.11.tgz#edcda3bd937e7556410d42ed5860f67399c794c0"
 
 ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.1"
@@ -475,6 +471,10 @@ babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
 
+babel-plugin-syntax-class-properties@^6.8.0:
+  version "6.13.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
+
 babel-plugin-syntax-dynamic-import@^6.18.0:
   version "6.18.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-syntax-dynamic-import/-/babel-plugin-syntax-dynamic-import-6.18.0.tgz#8d6a26229c83745a9982a441051572caa179b1da"
@@ -506,6 +506,15 @@ babel-plugin-transform-async-to-generator@^6.8.0:
     babel-helper-remap-async-to-generator "^6.22.0"
     babel-plugin-syntax-async-functions "^6.8.0"
     babel-runtime "^6.22.0"
+
+babel-plugin-transform-class-properties@^6.23.0:
+  version "6.23.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.23.0.tgz#187b747ee404399013563c993db038f34754ac3b"
+  dependencies:
+    babel-helper-function-name "^6.23.0"
+    babel-plugin-syntax-class-properties "^6.8.0"
+    babel-runtime "^6.22.0"
+    babel-template "^6.23.0"
 
 babel-plugin-transform-es2015-arrow-functions@^6.3.13:
   version "6.22.0"
@@ -998,14 +1007,14 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
-browserslist@1.7.5, browserslist@^1.4.0:
+browserslist@1.7.5:
   version "1.7.5"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/browserslist/-/browserslist-1.7.5.tgz#eca4713897b51e444283241facf3985de49a9e2b"
   dependencies:
     caniuse-db "^1.0.30000624"
     electron-to-chromium "^1.2.3"
 
-browserslist@^1.0.0, browserslist@^1.0.1, browserslist@^1.5.2, browserslist@^1.7.6:
+browserslist@^1.0.0, browserslist@^1.0.1, browserslist@^1.4.0, browserslist@^1.5.2, browserslist@^1.7.6:
   version "1.7.6"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/browserslist/-/browserslist-1.7.6.tgz#af98589ce6e7ab09618d29451faacb81220bd3ba"
   dependencies:
@@ -1079,11 +1088,11 @@ caniuse-api@^1.3.2, caniuse-api@^1.5.2:
     lodash.memoize "^4.1.0"
     lodash.uniq "^4.3.0"
 
-caniuse-db@1.0.30000626, caniuse-db@^1.0.30000624:
+caniuse-db@1.0.30000626:
   version "1.0.30000626"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000626.tgz#44363dc86857efaf758fea9faef6a15ed93d8f33"
 
-caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000631, caniuse-db@^1.0.30000634:
+caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000624, caniuse-db@^1.0.30000631, caniuse-db@^1.0.30000634:
   version "1.0.30000635"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000635.tgz#ea159dfa062e00f25f97af3791baef93f17904a1"
 
@@ -1619,8 +1628,8 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
 
 electron-to-chromium@^1.1.0, electron-to-chromium@^1.2.3, electron-to-chromium@^1.2.5:
-  version "1.2.6"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/electron-to-chromium/-/electron-to-chromium-1.2.6.tgz#f38ad51d1919b06bc07275c62629db803ddca05a"
+  version "1.2.7"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/electron-to-chromium/-/electron-to-chromium-1.2.7.tgz#4f748061407e478c76256d04496972b71f647407"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -1635,8 +1644,8 @@ elliptic@^6.0.0:
     minimalistic-crypto-utils "^1.0.0"
 
 emoji-regex@^6.1.0:
-  version "6.1.3"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/emoji-regex/-/emoji-regex-6.1.3.tgz#ec79a3969b02d2ecf2b72254279bf99bc7a83932"
+  version "6.2.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/emoji-regex/-/emoji-regex-6.2.0.tgz#6e2889a6803d85141ce01d189ec6b88022ea2122"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -2397,8 +2406,8 @@ ieee754@^1.1.4:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
 ignore@^3.2.0:
-  version "3.2.4"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/ignore/-/ignore-3.2.4.tgz#4055e03596729a8fabe45a43c100ad5ed815c4e8"
+  version "3.2.5"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/ignore/-/ignore-3.2.5.tgz#6437903354653e32ebbf562c45e68e4922a95df6"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -3702,6 +3711,12 @@ postcss-calc@^5.0.0, postcss-calc@^5.2.0:
     postcss-message-helpers "^2.0.0"
     reduce-css-calc "^1.2.6"
 
+postcss-caralho@^1.0.0:
+  version "1.0.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-caralho/-/postcss-caralho-1.0.0.tgz#3172306e571bea19a2a7a2844e7b05e2998f2316"
+  dependencies:
+    postcss "^5.0.2"
+
 postcss-color-function@^2.0.0:
   version "2.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-color-function/-/postcss-color-function-2.0.1.tgz#9ad226f550e8a7c7f8b8a77860545b6dd7f55241"
@@ -4403,8 +4418,8 @@ read-pkg@^2.0.0:
     path-type "^2.0.0"
 
 "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.1.0, readable-stream@^2.2.2:
-  version "2.2.4"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/readable-stream/-/readable-stream-2.2.4.tgz#1a8da72653a38450ba275eca1f3c602027afda0a"
+  version "2.2.5"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/readable-stream/-/readable-stream-2.2.5.tgz#a0b187304e05bab01a4ce2b4cc9c607d5aa1d606"
   dependencies:
     buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
@@ -5124,8 +5139,8 @@ tvg-mediator@^0.6.0:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-mediator/-/tvg-mediator-0.6.0.tgz#316983204911b3775e85546deabccfd73a7cc874"
 
 tvg-ui-bootstrap@^2.0.0:
-  version "2.0.2"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-2.0.2.tgz#ff8292a50d0b5274f5e120bd73784a7b2cd1436c"
+  version "2.0.4"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-2.0.4.tgz#5c72b33d2a4f331c59ca290061e9a6443d322cbc"
   dependencies:
     axios "^0.15.3"
     classnames "^2.2.5"
