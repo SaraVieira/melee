@@ -4,4 +4,6 @@ const express = require('express');
 
 const app = express();
 
-const server = app.listen();
+const server = app.listen(8080, () => {
+  process.stdout.write(`Server is running on: ${server.address().address}:${server.address().port}`);
+});

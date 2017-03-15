@@ -10,9 +10,14 @@ const dir = {
   TMP: path.resolve('./.tmp'),
 };
 
+// ifNotMatches :: Array String => String => Boolean
+const ifNotMatches = list => entry => (list.indexOf(entry) === -1);
+
 module.exports = () => ({
   entry: {
-    vendors: Object.keys(pkg.dependencies),
+    vendors: Object
+      .keys(pkg.dependencies)
+      .filter(ifNotMatches(['express'])),
   },
   output: {
     filename: '[name].DllBundle.js',
@@ -39,4 +44,5 @@ module.exports = () => ({
   stats: 'errors-only',
   bail: true,
   cache: true,
+
 });

@@ -1,10 +1,28 @@
 #!/usr/bin/env node
-
+/* eslint-disable comma-dangle */
 const express = require('express');
+const path = require('path');
+const http = require('http');
+
 const app = express();
+const clientManifest = require('../build/client.manifest.json');
+const bundledServer = require('../build/server.js');
+console.log(bundledServer);
 
 
-const server = app.listen(8080, () => {
-  process.stdout.write(server.address().address);
-  process.stdout.write(server.address().port);
+app.set('env', process.env.NODE_ENV || 'production');
+app.set('x-powered-by', false);
+app.use('/', express.static(path.join(__dirname, '../build')));
+
+app.get('*', (req, res) => bundledServer
+  .render(req, res, clientManifest)
+  .then(html => res.send(html))
+  .catch(error => next(error))
+);
+
+app.use((err, req, res, next) => (console.log(err), res.send(err)));
+
+const server = http.createServer(app);
+server.listen(8080, () => {
+  process.stdout.write(`Server listening on: ${server.address().address}:${server.address().port}`);
 });

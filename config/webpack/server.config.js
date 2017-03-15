@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const AssetsWebpackPlugin = require('assets-webpack-plugin');
 
 const toBoolean = (x) => {
   if (x === 'true') { return true; }
@@ -29,17 +28,20 @@ module.exports = (opts = { optimize: false }) => {
 
       // vendors: Object.keys(pkg.dependencies).filter(ifNotMatches(['express'])),
 
-      main: [
+      server: [
         !options.optimize && 'react-hot-loader/patch',
-        path.resolve(dir.SOURCE, 'entry-client.jsx'),
+        path.resolve(dir.SOURCE, 'entry-server.jsx'),
       ].filter(Boolean),
 
     },
 
     output: {
-      filename: options.optimize ? '[name].[hash].js' : '[name].js',
+      filename: '[name].js',
       path: dir.BUILD,
+      libraryTarget: 'commonjs2',
     },
+
+    target: 'node',
 
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.css'],
@@ -56,11 +58,6 @@ module.exports = (opts = { optimize: false }) => {
         ENVIRONMENT: process.env.ENVIRONMENT || 'development',
         DEVELOPMENT: !options.optimize,
       }),
-      options.optimize && new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendors',
-        filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
-        minChunks: Infinity,
-      }),
       !options.optimize && new webpack.DllReferencePlugin({
         context: process.cwd(),
         manifest: path.join(dir.TMP, 'vendors.manifest.json'),
@@ -68,22 +65,6 @@ module.exports = (opts = { optimize: false }) => {
       new ExtractTextPlugin({
         filename: 'styles.[hash].css',
         allChunks: true,
-        disable: !options.optimize,
-      }),
-      options.optimize && new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          screw_ie8: true, // React doesn't support IE8
-          warnings: false,
-          global_defs: { DEVELOPMENT: !options.optimize },
-        },
-        mangle: { screw_ie8: true },
-        output: { comments: false, screw_ie8: true },
-      }),
-      options.optimize && new AssetsWebpackPlugin({
-        filename: 'client.manifest.json',
-        path: dir.BUILD,
-        includeManifest: 'manifest',
-        prettyPrint: true,
       }),
     ].filter(Boolean),
 
