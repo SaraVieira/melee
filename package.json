@@ -87,7 +87,7 @@
     "postcss-smart-import": "^0.6.10",
     "react-hot-loader": "next",
     "react-test-renderer": "^15.4.2",
-    "style-loader": "^0.13.2",
+    "style-loader": "^0.14.0",
     "svg-react-loader": "github:Couto/svg-react-loader#version-0.4.0",
     "webpack": "^2.2.1"
   },
