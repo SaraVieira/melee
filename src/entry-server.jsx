@@ -15,17 +15,16 @@ export function render(
   res: express$Response,
   manifest: Manifest,
 ): Promise<string> {
-  return phtml({
+  return Promise.resolve(html({
     title: 'webpack',
     head: '',
     body: ReactDOMServer.renderToString(
       <Router location={req.url} context={{ req, res }}>
         <Root />
-      </Router>),
+      </Router>,
+    ),
     manifest,
-  })
-  .then(console.log)
-  .catch(console.log);
+  }));
 }
 
 export function renderError(
