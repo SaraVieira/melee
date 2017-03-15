@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Basic project to start other TVG frontend projects",
   "main": "src/index.js",
+  "browser": "src/index.js",
   "bin": {
     "server": "./bin/server",
     "server-dev": "./bin/server-dev"
@@ -85,10 +86,12 @@
     "react-hot-loader": "next",
     "react-test-renderer": "^15.4.2",
     "style-loader": "^0.13.2",
+    "svg-react-loader": "github:Couto/svg-react-loader#version-0.4.0",
     "webpack": "^2.2.1"
   },
   "browserslist": [
-    "last 3 versions"
+    "last 3 versions",
+    "last 4 iOS versions"
   ],
   "jest": {
     "cacheDirectory": ".tmp/jest",

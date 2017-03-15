@@ -1,8 +1,10 @@
-#!/usr/bin/env nodejs
+#!/usr/bin/env node
 
-const express = require('express')
+const express = require('express');
 const app = express();
 
 
-
-const server = app.listen()
+const server = app.listen(8080, () => {
+  process.stdout.write(server.address().address);
+  process.stdout.write(server.address().port);
+});

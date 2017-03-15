@@ -4,7 +4,10 @@
       "modules": false,
       "targets": {
         "node": "current",
-        "browsers": ["last 3 versions"]
+        "browsers": [
+          "last 3 versions",
+          "last 4 iOS versions"
+        ]
       }
     }],
     "react"

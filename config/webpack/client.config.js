@@ -100,7 +100,6 @@ module.exports = (opts = { optimize: false }) => {
         },
         {
           test: /\.(css|less)?$/,
-          include: dir.SOURCE,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
