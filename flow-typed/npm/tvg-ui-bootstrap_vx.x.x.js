@@ -1,4 +1,4 @@
-// flow-typed signature: ed020c7532b66db8f53c859f47c8843f
+// flow-typed signature: 04e1e28953b7025f043e670f8078ff0d
 // flow-typed version: <<STUB>>/tvg-ui-bootstrap_v^2.0.0/flow_v0.41.0
 
 /**
@@ -290,14 +290,6 @@ declare module 'tvg-ui-bootstrap/styleguide.config' {
   declare module.exports: any;
 }
 
-declare module 'tvg-ui-bootstrap/styleguide/build/0' {
-  declare module.exports: any;
-}
-
-declare module 'tvg-ui-bootstrap/styleguide/build/bundle' {
-  declare module.exports: any;
-}
-
 // Filename aliases
 declare module 'tvg-ui-bootstrap/Colors/index.js' {
   declare module.exports: $Exports<'tvg-ui-bootstrap/Colors/index'>;
@@ -499,10 +491,4 @@ declare module 'tvg-ui-bootstrap/postcss.config.js' {
 }
 declare module 'tvg-ui-bootstrap/styleguide.config.js' {
   declare module.exports: $Exports<'tvg-ui-bootstrap/styleguide.config'>;
-}
-declare module 'tvg-ui-bootstrap/styleguide/build/0.js' {
-  declare module.exports: $Exports<'tvg-ui-bootstrap/styleguide/build/0'>;
-}
-declare module 'tvg-ui-bootstrap/styleguide/build/bundle.js' {
-  declare module.exports: $Exports<'tvg-ui-bootstrap/styleguide/build/bundle'>;
 }
