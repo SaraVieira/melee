@@ -6,6 +6,8 @@ module.exports = {
     "plugin:jest/recommended"
   ],
   "env": {
+    "browser": true,
+    "node": true,
     "jest/globals": true
   },
   "plugins": [

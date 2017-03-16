@@ -27,7 +27,7 @@ export default ({ title, head, body, manifest }: HTMLParts): string =>
     ${head}
   </head>
   <body>
-    <div class="root">${body}</div>
+    <div id="root">${body}</div>
     ${toScriptTag(manifest.vendors.js)}
     ${toScriptTag(manifest.main.js)}
   </body>

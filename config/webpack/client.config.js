@@ -27,7 +27,7 @@ module.exports = (opts = { optimize: false }) => {
 
     entry: {
 
-      // vendors: Object.keys(pkg.dependencies).filter(ifNotMatches(['express'])),
+      // vendors: [],
 
       main: [
         !options.optimize && 'react-hot-loader/patch',
@@ -39,6 +39,7 @@ module.exports = (opts = { optimize: false }) => {
     output: {
       filename: options.optimize ? '[name].[hash].js' : '[name].js',
       path: dir.BUILD,
+      publicPath: '/assets/',
     },
 
     resolve: {
@@ -92,7 +93,7 @@ module.exports = (opts = { optimize: false }) => {
         {
           test: /\.jsx?$/,
           loader: 'babel-loader',
-          options: { cacheDirectory: true },
+          options: { cacheDirectory: path.join(dir.TMP, 'babel') },
         },
         {
           test: /\.svg$/,

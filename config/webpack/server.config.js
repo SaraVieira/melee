@@ -39,6 +39,7 @@ module.exports = (opts = { optimize: false }) => {
       filename: '[name].js',
       path: dir.BUILD,
       libraryTarget: 'commonjs2',
+      publicPath: '/assets/',
     },
 
     target: 'node',
