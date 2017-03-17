@@ -3,29 +3,27 @@ const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
-const pkg = require('../../package.json');
 const clientConfig = require('./client.config');
 
 const dir = {
-  TMP: path.resolve('./.tmp'),
+  BUILD: path.resolve(__dirname, '../../build'),
+  TMP: path.resolve(__dirname, '../../.tmp'),
 };
-
-// ifNotMatches :: Array String => String => Boolean
-const ifNotMatches = list => entry => (list.indexOf(entry) === -1);
 
 module.exports = () => ({
   entry: {
-    vendors: Object
-      .keys(pkg.dependencies)
-      .filter(ifNotMatches(['express'])),
+    vendors: clientConfig().entry.vendors,
   },
   output: {
     filename: '[name].DllBundle.js',
     path: dir.TMP,
+    libraryTarget: 'commonjs2',
   },
+
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.css'],
   },
+
   plugins: [
     new NyanProgressPlugin({ }),
     new webpack.DllPlugin({

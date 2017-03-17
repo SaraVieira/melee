@@ -7,6 +7,9 @@ const http = require('http');
 const logger = require('./utils/logger');
 
 const app = express();
+
+// @NOTE this requires only work after the first build
+// @TODO find a way to validate that a correct build is present
 const clientManifest = require('../build/client.manifest.json');
 const bundledServer = require('../build/server.js');
 

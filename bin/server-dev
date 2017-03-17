@@ -1,9 +1,47 @@
 #!/usr/bin/env node
 
+/* eslint-disable comma-dangle */
 const express = require('express');
+const path = require('path');
+const http = require('http');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const logger = require('./utils/logger');
+const toManifest = require('./utils/toManifest');
+
+const webpackClientConfig = require('../config/webpack/client.config');
+const webpackServerConfig = require('../config/webpack/server.config');
+
+const compiler = {
+  client: webpack(webpackClientConfig({ optimize: false })),
+  server: webpack(webpackServerConfig({ optimize: false }))
+};
+
+// @TODO this instance must be updated after the compiler.server finishes
+const bundledServer = require('../build/server.js');
 
 const app = express();
 
-const server = app.listen(8080, () => {
-  process.stdout.write(`Server is running on: ${server.address().address}:${server.address().port}`);
+app.set('env', 'DEBUG');
+
+app.use(webpackDevMiddleware(compiler.client, {
+  publicPath: '/assets/',
+  noInfo: true,
+  serverSideRender: true
+}));
+
+app.use(logger.request);
+app.use((req, res, next) => bundledServer
+  .render(req, res, toManifest(res.locals.webpackStats.toJson()))
+  .then(html => res.send(html))
+  .catch(error => next(error))
+);
+
+app.use(logger.requestError);
+app.use((err, req, res) => res.send(err));
+
+const server = http.createServer(app);
+server.listen(8080, () => {
+  logger.info(`Server started with environment: ${app.settings.env}`);
+  logger.info(`Server started on: ${server.address().address}:${server.address().port}`);
 });

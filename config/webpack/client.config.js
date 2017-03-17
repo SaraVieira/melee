@@ -27,7 +27,18 @@ module.exports = (opts = { optimize: false }) => {
 
     entry: {
 
-      // vendors: [],
+      vendors: [
+        'babel-polyfill',
+        'lodash',
+        'react',
+        'react-dom',
+        'react-router',
+        'react-router-dom',
+        'redux',
+        'tvg-conf',
+        'tvg-mediator',
+        'tvg-ui-bootstrap',
+      ],
 
       main: [
         !options.optimize && 'react-hot-loader/patch',
@@ -42,6 +53,8 @@ module.exports = (opts = { optimize: false }) => {
       publicPath: '/assets/',
     },
 
+    recordsPath: path.join(dir.BUILD, 'client.recordsPath.json'),
+
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.css'],
     },
@@ -50,27 +63,34 @@ module.exports = (opts = { optimize: false }) => {
       !options.optimize && new webpack.HotModuleReplacementPlugin(),
       !options.optimize && new webpack.NamedModulesPlugin(),
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
+
       new CircularDependencyPlugin({ failOnError: options.optimize }),
+
       new CaseSensitivePathsPlugin(),
+
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
         ENVIRONMENT: process.env.ENVIRONMENT || 'development',
         DEVELOPMENT: !options.optimize,
       }),
-      options.optimize && new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendors',
-        filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
-        minChunks: Infinity,
-      }),
-      !options.optimize && new webpack.DllReferencePlugin({
-        context: process.cwd(),
-        manifest: path.join(dir.TMP, 'vendors.manifest.json'),
-      }),
+
       new ExtractTextPlugin({
         filename: 'styles.[hash].css',
         allChunks: true,
         disable: !options.optimize,
       }),
+
+      options.optimize && new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendors',
+        filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
+        minChunks: Infinity,
+      }),
+
+      !options.optimize && new webpack.DllReferencePlugin({
+        context: process.cwd(),
+        manifest: path.join(dir.TMP, 'vendors.manifest.json'),
+      }),
+
       options.optimize && new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true, // React doesn't support IE8
@@ -80,12 +100,14 @@ module.exports = (opts = { optimize: false }) => {
         mangle: { screw_ie8: true },
         output: { comments: false, screw_ie8: true },
       }),
+
       options.optimize && new AssetsWebpackPlugin({
         filename: 'client.manifest.json',
         path: dir.BUILD,
         includeManifest: 'manifest',
         prettyPrint: true,
       }),
+
     ].filter(Boolean),
 
     module: {

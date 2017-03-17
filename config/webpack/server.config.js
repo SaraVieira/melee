@@ -25,9 +25,6 @@ module.exports = (opts = { optimize: false }) => {
   return {
 
     entry: {
-
-      // vendors: Object.keys(pkg.dependencies).filter(ifNotMatches(['express'])),
-
       server: [
         !options.optimize && 'react-hot-loader/patch',
         path.resolve(dir.SOURCE, 'entry-server.jsx'),
@@ -42,6 +39,8 @@ module.exports = (opts = { optimize: false }) => {
       publicPath: '/assets/',
     },
 
+    recordsPath: path.join(dir.BUILD, 'server.recordsPath.json'),
+
     target: 'node',
 
     resolve: {
@@ -54,19 +53,23 @@ module.exports = (opts = { optimize: false }) => {
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
       new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CaseSensitivePathsPlugin(),
+
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
         ENVIRONMENT: process.env.ENVIRONMENT || 'development',
         DEVELOPMENT: !options.optimize,
       }),
-      !options.optimize && new webpack.DllReferencePlugin({
-        context: process.cwd(),
-        manifest: path.join(dir.TMP, 'vendors.manifest.json'),
-      }),
+
       new ExtractTextPlugin({
         filename: 'styles.[hash].css',
         allChunks: true,
       }),
+
+      // !options.optimize && new webpack.DllReferencePlugin({
+      //   context: process.cwd(),
+      //   manifest: path.join(dir.TMP, 'vendors.manifest.json'),
+      // }),
+
     ].filter(Boolean),
 
     module: {
