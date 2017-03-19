@@ -3,7 +3,6 @@
 const toLinkTag = (url: string): string => `<link rel="stylesheet" href="${url}">`;
 const toScriptTag = (url: string): string => `<script src="${url}" charset="utf-8"></script>`;
 
-
 type HTMLParts = {
   title: string,
   manifest: Manifest,

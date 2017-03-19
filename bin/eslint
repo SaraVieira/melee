@@ -14,6 +14,9 @@ const cli = new CLIEngine({
   configFile: '.eslintrc.js',
   ignorePath: '.eslintignore',
   extensions: ['.js', '.jsx'],
+  parserOptions: {
+    codeFrame: false
+  }
 });
 
 const report = cli.executeOnFiles(['.']);

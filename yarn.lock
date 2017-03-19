@@ -301,12 +301,6 @@ axios@^0.15.3:
   dependencies:
     follow-redirects "1.0.0"
 
-babar@0.1.0:
-  version "0.1.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babar/-/babar-0.1.0.tgz#b4fdb15e6ba8ed7a4096df66f23bf6171f60efc0"
-  dependencies:
-    colors "~0.6.2"
-
 babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
   version "6.22.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-code-frame/-/babel-code-frame-6.22.0.tgz#027620bee567a88c32561574e7fd0801d33118e4"
@@ -339,9 +333,9 @@ babel-core@^6.0.0, babel-core@^6.23.1, babel-core@^6.24.0:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@^7.1.1:
+"babel-eslint@github:Couto/babel-eslint":
   version "7.1.1"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-eslint/-/babel-eslint-7.1.1.tgz#8a6a884f085aa7060af69cfc77341c2f99370fb2"
+  resolved "https://codeload.github.com/Couto/babel-eslint/tar.gz/32a3fac2846e4f32452e93a7e51d0b46763f7d12"
   dependencies:
     babel-code-frame "^6.16.0"
     babel-traverse "^6.15.0"
@@ -1354,10 +1348,6 @@ colors@1.0.x:
   version "1.0.3"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
 
-colors@~0.6.2:
-  version "0.6.2"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/colors/-/colors-0.6.2.tgz#2423fe6678ac0c5dae8852e5d0e5be08c997abcc"
-
 colors@~1.1.2:
   version "1.1.2"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
@@ -1671,13 +1661,13 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@2.2.0, debug@^2.2.0, debug@~2.2.0:
+debug@2.2.0, debug@~2.2.0:
   version "2.2.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
 
-debug@2.6.1, debug@^2.1.1:
+debug@2.6.1, debug@^2.1.1, debug@^2.2.0:
   version "2.6.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
@@ -4202,12 +4192,6 @@ pbkdf2@^3.0.3:
   dependencies:
     create-hmac "^1.1.2"
 
-"performance-budget-plugin@github:Couto/performance-budget-plugin":
-  version "1.0.2"
-  resolved "https://codeload.github.com/Couto/performance-budget-plugin/tar.gz/5c459eafc8c56ffecc9f8878d8f38cf5480ac14c"
-  dependencies:
-    babar "0.1.0"
-
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
@@ -5967,9 +5951,9 @@ tvg-mediator@^0.6.0:
   version "0.6.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-mediator/-/tvg-mediator-0.6.0.tgz#316983204911b3775e85546deabccfd73a7cc874"
 
-tvg-ui-bootstrap@^2.0.5:
-  version "2.0.5"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-2.0.5.tgz#edb8ca987b671a0cfd436fbcde0e35ebc90f6528"
+tvg-ui-bootstrap@^3.0.1:
+  version "3.0.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-3.0.1.tgz#b1f41adbfce332982dfd69e0d43ae619f457d1a6"
   dependencies:
     axios "^0.15.3"
     classnames "^2.2.5"
