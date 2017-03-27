@@ -19,11 +19,8 @@
   ],
   "env": {
     "production": {
-      "plugins": [
-        "transform-react-constant-elements",
-        "transform-react-inline-elements",
-        "transform-react-remove-prop-types"
-      ]
+      //@SEE https://medium.com/doctolib-engineering/improve-react-performance-with-babel-16f1becfaa25#.5epmw122s
+      "presets": ["react-optimize"]
     },
     "test": {
       "plugins": [
