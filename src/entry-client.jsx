@@ -3,9 +3,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Root from './pages/index';
+import Sightline from './Sightline';
 
 export default render(
-  <Router><Root /></Router>,
+  <Router>
+    <Sightline user={{ accountId: 1, email: 'hello@mindera.com' }} />
+  </Router>,
   document.getElementById('root'),
 );
