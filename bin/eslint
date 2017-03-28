@@ -25,14 +25,19 @@ const formatters = {
   html: cli.getFormatter('html'),
 };
 
-// @FIXME babel-eslint has an output bug
 mkdirp(outputDir, (err) => {
   if (err) { throw err; }
   fs.writeFile(
     outputFile,
     formatters.html(report.results),
-    (error) => { if (error) { throw err; } }
+    (error) => {
+      if (error) { throw error; }
+
+      process.stdout.write(formatters.stylish(report.results));
+      // We need to fail if eslint fails
+      if (report.errorCount) {
+        process.exit(1);
+      }
+    }
   );
 });
-
-process.stdout.write(formatters.stylish(report.results));
