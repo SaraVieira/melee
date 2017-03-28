@@ -1,7 +1,6 @@
+# TVG-React-Boilerplate
 
-![tvg-logo](https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/TVG_logo.svg/180px-TVG_logo.svg.png)
-
-# TVG-Deposits
+![Skeletor Mirror Exit](http://i.imgur.com/KEN2jpA.gif)
 
 ---
 
@@ -14,6 +13,15 @@
 | [css-modules](https://github.com/css-modules/css-modules) | [React](https://facebook.github.io/react/) |                                    | [Winston-GKE](https://github.com/dannydavidson/winston-gke) | [TVG-Cloud-SDK](https://bitbucket.org/betfair-us/tvg-cloud-sdk) |
 | [stylelint](https://stylelint.io/)                        | [ESlint](http://eslint.org/)               |                                    |                                                             |                                                                 |
 |                                                           | [Jest](https://facebook.github.io/jest/)   |                                    |                                                             |                                                                 |
+
+## How to use this repository
+
+1. Create your repository on bitbucket, in order to get a git url.
+1. Clone this repository: `git clone git@bitbucket.org:betfair-us/tvg-react-boilerplate tvg-<your-new-app>`
+1. `cd tvg-<your-new-app>`
+1. Change the origin remote to point to your repository: `git remote set-url origin git@bitbucket.org:betfair-us/tvg-<your-new-app>`
+1. If you wish to receive updates from future changes on the boilerplate. Add a new remote to point to this project: `git remote add boilerplate git@bitbucket.org:betfair-us/tvg-react-boilerplate`
+1. `yarn install`
 
 ## Notes
 
