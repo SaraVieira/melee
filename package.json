@@ -39,6 +39,7 @@
     "start:prod": "run-s build server:prod"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-polyfill": "^6.23.0",
     "express": "^4.15.2",
     "express-winston": "^2.3.0",
