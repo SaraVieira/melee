@@ -19,12 +19,11 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run start:prod",
-    "test": "run-p flow eslint stylelint:report test",
+    "test": "run-p flow eslint stylelint jest",
     "flow": "flow --temp-dir=./.tmp/flow/; test $? -eq 0 -o $? -eq 2",
     "eslint": "./bin/eslint",
     "stylelint": "./bin/stylelint",
     "jest": "jest",
-    "validate": "run-p flow eslint stylelint",
     "build": "run-s validate build:prod",
     "build:dev": "run-p build:dev:*",
     "build:prod": "run-p build:prod:*",
