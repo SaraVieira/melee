@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
+const HappyPack = require('happypack');
 const clientConfig = require('./client.config');
 
 const dir = {
@@ -26,6 +27,15 @@ module.exports = () => ({
 
   plugins: [
     new NyanProgressPlugin({ }),
+    new HappyPack({
+      id: 'js',
+      loaders: [{
+        loader: 'babel-loader',
+        options: { cacheDirectory: path.join(dir.TMP, 'babel') },
+      }],
+      tempDir: path.resolve(dir.TMP, 'happypack'),
+      enabled: true,
+    }),
     new webpack.DllPlugin({
       name: '[name]',
       path: path.join(dir.TMP, '[name].manifest.json'),

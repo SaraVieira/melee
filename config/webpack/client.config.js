@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const AssetsWebpackPlugin = require('assets-webpack-plugin');
+const HappyPack = require('happypack');
 
 const toBoolean = (x) => {
   if (x === 'true') { return true; }
@@ -68,6 +69,16 @@ module.exports = (opts = { optimize: false }) => {
 
       new CaseSensitivePathsPlugin(),
 
+      new HappyPack({
+        id: 'js',
+        loaders: [{
+          loader: 'babel-loader',
+          options: { cacheDirectory: path.join(dir.TMP, 'babel') },
+        }],
+        tempDir: path.resolve(dir.TMP, 'happypack'),
+        enabled: true,
+      }),
+
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
         ENVIRONMENT: process.env.ENVIRONMENT || 'development',
@@ -114,8 +125,7 @@ module.exports = (opts = { optimize: false }) => {
       rules: [
         {
           test: /\.jsx?$/,
-          loader: 'babel-loader',
-          options: { cacheDirectory: path.join(dir.TMP, 'babel') },
+          loader: 'happypack/loader?id=js',
         },
         {
           test: /\.svg$/,

@@ -254,6 +254,10 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
+async@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-1.5.0.tgz#2796642723573859565633fc6274444bee2f8ce3"
+
 async@^1.4.0, async@^1.4.2:
   version "1.5.2"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
@@ -757,7 +761,7 @@ babel-plugin-transform-object-rest-spread@^6.23.0:
     babel-plugin-syntax-object-rest-spread "^6.8.0"
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-react-constant-elements@^6.23.0, babel-plugin-transform-react-constant-elements@^6.5.0:
+babel-plugin-transform-react-constant-elements@^6.5.0:
   version "6.23.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-transform-react-constant-elements/-/babel-plugin-transform-react-constant-elements-6.23.0.tgz#2f119bf4d2cdd45eb9baaae574053c604f6147dd"
   dependencies:
@@ -769,7 +773,7 @@ babel-plugin-transform-react-display-name@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-react-inline-elements@^6.22.0, babel-plugin-transform-react-inline-elements@^6.6.5:
+babel-plugin-transform-react-inline-elements@^6.6.5:
   version "6.22.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-transform-react-inline-elements/-/babel-plugin-transform-react-inline-elements-6.22.0.tgz#6687211a32b49a52f22c573a2b5504a25ef17c53"
   dependencies:
@@ -806,10 +810,6 @@ babel-plugin-transform-react-pure-class-to-function@^1.0.1:
 babel-plugin-transform-react-remove-prop-types@^0.2.5:
   version "0.2.12"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.2.12.tgz#3406696df0b8b456089f9d726d27e7e123d2f929"
-
-babel-plugin-transform-react-remove-prop-types@^0.3.2:
-  version "0.3.2"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.3.2.tgz#6da8d834c6d7ad8ab02f956509790cfaa01ffe19"
 
 babel-plugin-transform-regenerator@^6.22.0:
   version "6.22.0"
@@ -2592,6 +2592,15 @@ handlebars@^4.0.3:
   optionalDependencies:
     uglify-js "^2.6"
 
+happypack@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/happypack/-/happypack-3.0.3.tgz#22f78c87a325cdb798c958cf4ec383fcd4d6fdc7"
+  dependencies:
+    async "1.5.0"
+    json-stringify-safe "5.0.1"
+    loader-utils "0.2.16"
+    mkdirp "0.5.1"
+
 har-schema@^1.0.5:
   version "1.0.5"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/har-schema/-/har-schema-1.0.5.tgz#d263135f43307c02c602afc8fe95970c0151369e"
@@ -3369,7 +3378,7 @@ json-stable-stringify@^1.0.0, json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
-json-stringify-safe@~5.0.1:
+json-stringify-safe@5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
@@ -3477,6 +3486,15 @@ loader-runner@^2.3.0:
 loader-utils@0.2.15:
   version "0.2.15"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/loader-utils/-/loader-utils-0.2.15.tgz#c7df3342a9d4e2103dddc97d4060daccc246d6ac"
+  dependencies:
+    big.js "^3.1.3"
+    emojis-list "^2.0.0"
+    json5 "^0.5.0"
+    object-assign "^4.0.1"
+
+loader-utils@0.2.16:
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.16.tgz#f08632066ed8282835dff88dfb52704765adee6d"
   dependencies:
     big.js "^3.1.3"
     emojis-list "^2.0.0"
@@ -3822,7 +3840,7 @@ minimist@^1.1.0, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0:
   version "1.2.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
-"mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
+mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
@@ -4294,12 +4312,6 @@ postcss-calc@^5.0.0, postcss-calc@^5.2.0:
     postcss-message-helpers "^2.0.0"
     reduce-css-calc "^1.2.6"
 
-postcss-caralho@^1.0.1:
-  version "1.1.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-caralho/-/postcss-caralho-1.1.0.tgz#31de24d10ce5a137148a4786ca91f60c7ddb80f4"
-  dependencies:
-    postcss "^5.0.2"
-
 postcss-color-function@^2.0.0:
   version "2.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-color-function/-/postcss-color-function-2.0.1.tgz#9ad226f550e8a7c7f8b8a77860545b6dd7f55241"
@@ -4495,12 +4507,6 @@ postcss-initial@^1.3.1:
     lodash.template "^4.2.4"
     postcss "^5.0.19"
 
-postcss-less-vars@^1.2.5:
-  version "1.2.5"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-less-vars/-/postcss-less-vars-1.2.5.tgz#d2b8595a6ff59e8d85cfa5c1cbcbd307a2131303"
-  dependencies:
-    postcss "5.*"
-
 postcss-less@^0.14.0:
   version "0.14.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-less/-/postcss-less-0.14.0.tgz#c631b089c6cce422b9a10f3a958d2bedd3819324"
@@ -4636,12 +4642,6 @@ postcss-modules-values@^1.1.0:
   dependencies:
     icss-replace-symbols "^1.0.2"
     postcss "^5.0.14"
-
-postcss-nested@^1.0.0:
-  version "1.0.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss-nested/-/postcss-nested-1.0.0.tgz#d136bd4b576bd5632df142c12b2198a9ccf794df"
-  dependencies:
-    postcss "^5.0.2"
 
 postcss-nesting@^2.0.5:
   version "2.3.1"
@@ -4813,7 +4813,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@5.*, postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.18, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.20, postcss@^5.0.21, postcss@^5.0.3, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.1.1, postcss@^5.2.0, postcss@^5.2.12, postcss@^5.2.13, postcss@^5.2.15, postcss@^5.2.16, postcss@^5.2.4:
+postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.18, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.20, postcss@^5.0.21, postcss@^5.0.3, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.1.1, postcss@^5.2.0, postcss@^5.2.12, postcss@^5.2.13, postcss@^5.2.15, postcss@^5.2.16, postcss@^5.2.4:
   version "5.2.16"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/postcss/-/postcss-5.2.16.tgz#732b3100000f9ff8379a48a53839ed097376ad57"
   dependencies:
