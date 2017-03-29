@@ -85,6 +85,7 @@
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.42.0",
+    "happypack": "^3.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^19.0.2",
     "mkdirp": "^0.5.1",

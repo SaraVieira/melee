@@ -254,9 +254,9 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
-async@^1.4.0:
-  version "1.5.2"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+async@1.5.0, async@^1.4.0:
+  version "1.5.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async/-/async-1.5.0.tgz#2796642723573859565633fc6274444bee2f8ce3"
 
 async@^2.1.2, async@^2.1.4:
   version "2.2.0"
@@ -1073,14 +1073,14 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
-browserslist@1.7.5, browserslist@^1.0.0, browserslist@^1.0.1, browserslist@^1.4.0:
+browserslist@1.7.5:
   version "1.7.5"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/browserslist/-/browserslist-1.7.5.tgz#eca4713897b51e444283241facf3985de49a9e2b"
   dependencies:
     caniuse-db "^1.0.30000624"
     electron-to-chromium "^1.2.3"
 
-browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.5.2, browserslist@^1.7.6:
+browserslist@^1.0.0, browserslist@^1.0.1, browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.4.0, browserslist@^1.5.2, browserslist@^1.7.6:
   version "1.7.7"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/browserslist/-/browserslist-1.7.7.tgz#0bd76704258be829b2398bb50e4b62d1a166b0b9"
   dependencies:
@@ -1165,11 +1165,11 @@ caniuse-api@^1.5.2, caniuse-api@^1.5.3:
     lodash.memoize "^4.1.0"
     lodash.uniq "^4.3.0"
 
-caniuse-db@1.0.30000626, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000624:
+caniuse-db@1.0.30000626:
   version "1.0.30000626"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000626.tgz#44363dc86857efaf758fea9faef6a15ed93d8f33"
 
-caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
+caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000624, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000644"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000644.tgz#9d7eccf1ef1d11cbd6741b9fb390f9923ff42261"
 
@@ -2608,6 +2608,15 @@ handlebars@^4.0.3:
   optionalDependencies:
     uglify-js "^2.6"
 
+happypack@^3.0.3:
+  version "3.0.3"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/happypack/-/happypack-3.0.3.tgz#22f78c87a325cdb798c958cf4ec383fcd4d6fdc7"
+  dependencies:
+    async "1.5.0"
+    json-stringify-safe "5.0.1"
+    loader-utils "0.2.16"
+    mkdirp "0.5.1"
+
 har-schema@^1.0.5:
   version "1.0.5"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/har-schema/-/har-schema-1.0.5.tgz#d263135f43307c02c602afc8fe95970c0151369e"
@@ -3379,7 +3388,7 @@ json-stable-stringify@^1.0.0, json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
-json-stringify-safe@~5.0.1:
+json-stringify-safe@5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
@@ -3487,6 +3496,15 @@ loader-runner@^2.3.0:
 loader-utils@0.2.15:
   version "0.2.15"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/loader-utils/-/loader-utils-0.2.15.tgz#c7df3342a9d4e2103dddc97d4060daccc246d6ac"
+  dependencies:
+    big.js "^3.1.3"
+    emojis-list "^2.0.0"
+    json5 "^0.5.0"
+    object-assign "^4.0.1"
+
+loader-utils@0.2.16:
+  version "0.2.16"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/loader-utils/-/loader-utils-0.2.16.tgz#f08632066ed8282835dff88dfb52704765adee6d"
   dependencies:
     big.js "^3.1.3"
     emojis-list "^2.0.0"
@@ -3832,7 +3850,7 @@ minimist@^1.1.0, minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0:
   version "1.2.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
-"mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
+mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
