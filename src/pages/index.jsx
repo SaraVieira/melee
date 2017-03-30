@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import type { Element } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import About from './About';
@@ -9,12 +10,12 @@ import Other from './Other';
 
 import styles from './styles.css';
 
-export default (): React.Element<*> => (
+export default (): Element<*> => (
   <div className={styles.root}>
     <Link to="/">Home</Link>
     <nav>
       <ul>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/about">About 2</Link></li>
         <li><Link to="/menu">Menu</Link></li>
         <li><Link to="/other">Other</Link></li>
       </ul>
