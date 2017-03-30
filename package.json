@@ -34,7 +34,7 @@
     "build:prod:server": "cross-env NODE_ENV=production webpack --config config/webpack/server.config.js",
     "server:dev": "./bin/server-dev",
     "server:prod": "cross-env NODE_ENV=production ./bin/server",
-    "start:dev": "npm run server:dev",
+    "start:dev": "server:dev",
     "start:prod": "run-s build:prod server:prod",
     "postinstall": "run-s createtmp build:dll",
     "createtmp": "mkdirp .tmp reports"
