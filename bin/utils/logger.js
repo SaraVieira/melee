@@ -24,6 +24,7 @@ module.exports.request = winstonExpress.logger({
   winstonInstance,
   expressFormat,
   colorize,
+  meta: false
 });
 
 module.exports.requestError = winstonExpress.errorLogger({
