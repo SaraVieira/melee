@@ -1,36 +1,39 @@
-// @flow
+const script = publicPath => url => `<script src="${publicPath}${url}" charset="utf-8"></script>`;
+const link = publicPath => href => `<link rel="stylesheet" href="${publicPath}${href}">`;
 
-const toLinkTag = (url: string): string => `<link rel="stylesheet" href="${url}">`;
-const toScriptTag = (url: string): string => `<script src="${url}" charset="utf-8"></script>`;
+const walkManifest = (manifest, predicate) => Object
+  .keys(manifest)
+  .map(key => [].concat(manifest[key]))
+  .reduce((a, b) => a.concat(b), [])
+  .filter(Boolean)
+  .filter(predicate);
 
-type HTMLParts = {
-  title: string,
-  manifest: Manifest,
-  head: string,
-  body: string,
-};
-
-export default ({ title, head, body, manifest }: HTMLParts): string => {
-  const renderStyles = (entries: Manifest): string =>
-    Object
-    .keys(entries)
-    .reduce((acc, key) => (entries[key].css ?
-      acc.concat(toLinkTag(entries[key].css)) :
-      acc
-    ), '');
-
-  return `<!DOCTYPE html>
+module.exports = ({ manifest, publicPath = '', body = '', dll = false }) => (`
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>${title}</title>
-    ${renderStyles(manifest)}
-    ${head}
+    <title></title>
+    ${walkManifest(manifest, file => file.endsWith('.css'))
+        .map(link(publicPath))
+        .join('\n')
+    }
   </head>
   <body>
-    <div id="root">${body}</div>
-    ${toScriptTag(manifest.vendors.js)}
-    ${toScriptTag(manifest.main.js)}
+    <div id="app">${body}</div>
+    ${(dll ? script(publicPath)(dll) : '')}
+    ${manifest.vendors ?
+      [].concat(manifest.vendors)
+        .filter(file => file.endsWith('.js'))
+        .map(script(publicPath))
+        .join('\n') : ''
+    }
+    ${manifest.main ?
+      [].concat(manifest.main)
+        .filter(file => file.endsWith('.js'))
+        .map(script(publicPath))
+        .join('\n') : ''
+    }
   </body>
-</html>`;
-};
+</html>
+`);

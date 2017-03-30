@@ -4,8 +4,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const AssetsWebpackPlugin = require('assets-webpack-plugin');
 const HappyPack = require('happypack');
+const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 const toBoolean = (x) => {
   if (x === 'true') { return true; }
@@ -26,9 +26,12 @@ module.exports = (opts = { optimize: false }) => {
 
   return {
 
-    entry: {
+    name: 'client',
 
-      vendors: [
+    target: 'web',
+
+    entry: Object.assign({}, (options.optimize ? {
+      vendors: options.optimize && [
         'babel-polyfill',
         'lodash',
         'react',
@@ -40,13 +43,13 @@ module.exports = (opts = { optimize: false }) => {
         'tvg-mediator',
         'tvg-ui-bootstrap',
       ],
-
+    } : {}), {
       main: [
         !options.optimize && 'react-hot-loader/patch',
+        !options.optimize && 'webpack-hot-middleware/client',
         path.resolve(dir.SOURCE, 'entry-client.jsx'),
       ].filter(Boolean),
-
-    },
+    }),
 
     output: {
       filename: options.optimize ? '[name].[hash].js' : '[name].js',
@@ -64,11 +67,13 @@ module.exports = (opts = { optimize: false }) => {
       !options.optimize && new webpack.HotModuleReplacementPlugin(),
       !options.optimize && new webpack.NamedModulesPlugin(),
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
+      !options.optimize && new webpack.DllReferencePlugin({
+        context: process.cwd(),
+        manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),
+      }),
 
       new CircularDependencyPlugin({ failOnError: options.optimize }),
-
       new CaseSensitivePathsPlugin(),
-
       new HappyPack({
         id: 'js',
         loaders: [{
@@ -78,13 +83,11 @@ module.exports = (opts = { optimize: false }) => {
         tempDir: path.resolve(dir.TMP, 'happypack'),
         enabled: true,
       }),
-
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
         ENVIRONMENT: process.env.ENVIRONMENT || 'development',
         DEVELOPMENT: !options.optimize,
       }),
-
       new ExtractTextPlugin({
         filename: 'styles.[hash].css',
         allChunks: true,
@@ -97,11 +100,6 @@ module.exports = (opts = { optimize: false }) => {
         minChunks: Infinity,
       }),
 
-      !options.optimize && new webpack.DllReferencePlugin({
-        context: process.cwd(),
-        manifest: path.join(dir.TMP, 'vendors.manifest.json'),
-      }),
-
       options.optimize && new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true, // React doesn't support IE8
@@ -112,13 +110,9 @@ module.exports = (opts = { optimize: false }) => {
         output: { comments: false, screw_ie8: true },
       }),
 
-      options.optimize && new AssetsWebpackPlugin({
+      new StatsWriterPlugin({
         filename: 'client.manifest.json',
-        path: dir.BUILD,
-        includeManifest: 'manifest',
-        prettyPrint: true,
       }),
-
     ].filter(Boolean),
 
     module: {

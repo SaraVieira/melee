@@ -5,38 +5,21 @@ import { StaticRouter as Router } from 'react-router-dom';
 import ReactDOMServer from 'react-dom/server';
 import type { $Request, $Response } from 'express';
 
-import Sightline from './Sightline';
-import html from './index.html';
-import type { Manifest } from './index.html';
+import { Deposit as SightlineDeposit } from './Sightline/';
 
-export function render(
-  req: $Request,
-  res: $Response,
-  manifest: Manifest,
-): Promise<string> {
-  return Promise.resolve(html({
-    title: 'webpack',
-    head: '',
-    body: ReactDOMServer.renderToString(
-      <Router location={req.url} context={{ req, res }}>
-        <Sightline user={{ accountId: 1, email: 'hello@mindera.com' }} />
-      </Router>,
-    ),
-    manifest,
-  }));
+export function render(req: $Request, res: $Response): string {
+  return ReactDOMServer.renderToString(
+    <Router location={req.url} context={{ req, res }}>
+      <SightlineDeposit user={{ accountId: 1, email: 'hello@mindera.com' }} />
+    </Router>,
+  );
 }
 
-export function renderError(
-  req: $Request,
-  res: $Response,
-): Promise<string> {
-  return Promise.resolve(html({
-    title: 'webpack',
-    head: '',
-    body: ReactDOMServer.renderToString(
-      <Router location={req.url} context={{ req, res }}>
-        <Sightline user={{ accountId: 1, email: 'hello@mindera.com' }} />
-      </Router>),
-    chunks: [],
-  }));
+export function renderError(req: $Request, res: $Response): string {
+  // @TODO Find a decent error page
+  return ReactDOMServer.renderToString(
+    <Router location={req.url} context={{ req, res }}>
+      <SightlineDeposit user={{ accountId: 1, email: 'hello@mindera.com' }} />
+    </Router>,
+  );
 }

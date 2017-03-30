@@ -25,9 +25,12 @@ module.exports = (opts = { optimize: false }) => {
 
   return {
 
+    name: 'server',
+
+    target: 'node',
+
     entry: {
       server: [
-        !options.optimize && 'react-hot-loader/patch',
         path.resolve(dir.SOURCE, 'entry-server.jsx'),
       ].filter(Boolean),
 
@@ -42,14 +45,11 @@ module.exports = (opts = { optimize: false }) => {
 
     recordsPath: path.join(dir.BUILD, 'server.recordsPath.json'),
 
-    target: 'node',
-
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.css'],
     },
 
     plugins: [
-      !options.optimize && new webpack.HotModuleReplacementPlugin(),
       !options.optimize && new webpack.NamedModulesPlugin(),
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
       new CircularDependencyPlugin({ failOnError: options.optimize }),
@@ -76,7 +76,7 @@ module.exports = (opts = { optimize: false }) => {
 
       // !options.optimize && new webpack.DllReferencePlugin({
       //   context: process.cwd(),
-      //   manifest: path.join(dir.TMP, 'vendors.manifest.json'),
+      //   manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),
       // }),
 
     ].filter(Boolean),

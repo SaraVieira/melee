@@ -4,10 +4,7 @@
       "modules": false,
       "targets": {
         "node": "current",
-        "browsers": [
-          "last 3 versions",
-          "last 4 iOS versions"
-        ]
+        "browsers": [ "last 3 versions", "last 4 iOS versions" ]
       }
     }],
     "react"
@@ -18,6 +15,9 @@
     "transform-class-properties"
   ],
   "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    },
     "production": {
       //@SEE https://medium.com/doctolib-engineering/improve-react-performance-with-babel-16f1becfaa25#.5epmw122s
       "presets": ["react-optimize"]

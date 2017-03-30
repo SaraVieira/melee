@@ -13,12 +13,25 @@ const dir = {
 
 module.exports = () => ({
   entry: {
-    vendors: clientConfig().entry.vendors,
+    vendors: [
+      'babel-polyfill',
+      'lodash',
+      'react',
+      'react-dom',
+      'react-router',
+      'react-router-dom',
+      'redux',
+      'tvg-conf',
+      'tvg-mediator',
+      'tvg-ui-bootstrap',
+    ],
   },
+
   output: {
-    filename: '[name].DllBundle.js',
-    path: dir.TMP,
-    libraryTarget: 'commonjs2',
+    filename: '[name].dll.js',
+    path: dir.BUILD,
+    library: 'vendors',
+    libraryTarget: 'umd',
   },
 
   resolve: {
@@ -38,7 +51,7 @@ module.exports = () => ({
     }),
     new webpack.DllPlugin({
       name: '[name]',
-      path: path.join(dir.TMP, '[name].manifest.json'),
+      path: path.join(dir.BUILD, '[name].dll.manifest.json'),
     }),
     new ExtractTextPlugin({
       filename: 'styles.[hash].css',

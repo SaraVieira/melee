@@ -1,41 +1,56 @@
 #!/usr/bin/env node
 
 /* eslint-disable comma-dangle */
-const express = require('express');
 const path = require('path');
+const express = require('express');
 const http = require('http');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
 const logger = require('./utils/logger');
-const toManifest = require('./utils/toManifest');
 
 const webpackClientConfig = require('../config/webpack/client.config');
 const webpackServerConfig = require('../config/webpack/server.config');
+
+const html = require('../src/index.html');
+
+let bundledServer;
 
 const compiler = {
   client: webpack(webpackClientConfig({ optimize: false })),
   server: webpack(webpackServerConfig({ optimize: false }))
 };
 
-// @TODO this instance must be updated after the compiler.server finishes
-const bundledServer = require('../build/server.js');
+compiler.server.watch({}, (err, stats) => {
+  const file = '../build/server.js';
+  delete require.cache[require.resolve(file)];
+  bundledServer = require(file);
+  console.log('Finished building server code');
+});
 
+// @TODO this instance must be updated after the compiler.server finishes
 const app = express();
 
 app.set('env', 'DEBUG');
 
+app.use(logger.request);
+
 app.use(webpackDevMiddleware(compiler.client, {
   publicPath: '/assets/',
-  noInfo: true,
-  serverSideRender: true
+  serverSideRender: true,
+  hot: true
 }));
-
-app.use(logger.request);
-app.use((req, res, next) => bundledServer
-  .render(req, res, toManifest(res.locals.webpackStats.toJson()))
-  .then(html => res.send(html))
-  .catch(error => next(error))
-);
+app.use(webpackHotMiddleware(compiler.client));
+app.use('/assets', express.static(path.join(__dirname, '../build')));
+app.use((req, res) => {
+  res.status(200).send(html({
+    body: bundledServer.render(req, res),
+    manifest: res.locals.webpackStats.toJson().assetsByChunkName,
+    publicPath: '/assets/',
+    dll: 'vendors.dll.js'
+  }));
+});
 
 app.use(logger.requestError);
 app.use((err, req, res) => res.send(err));
