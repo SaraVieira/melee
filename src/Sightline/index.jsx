@@ -1,12 +1,6 @@
 // @flow
 
-import React from 'react';
-import type { Element } from 'react';
+import './styles.css';
 
-
-type User = {
-  accountId: number,
-  email: string
-}
-
-export default ({ user }: {user: User}) => <div>{user}</div>;
+export { default as Deposit } from './Deposit';
+export { default as Withdrawal } from './Withdrawal';
