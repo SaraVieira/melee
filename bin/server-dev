@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-/* eslint-disable comma-dangle */
+/* eslint-disable comma-dangle, import/no-dynamic-require, global-require */
 const path = require('path');
 const express = require('express');
 const http = require('http');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
 const logger = require('./utils/logger');
 
 const webpackClientConfig = require('../config/webpack/client.config');
@@ -22,11 +21,14 @@ const compiler = {
   server: webpack(webpackServerConfig({ optimize: false }))
 };
 
-compiler.server.watch({}, (err, stats) => {
-  const file = '../build/server.js';
-  delete require.cache[require.resolve(file)];
-  bundledServer = require(file);
-  console.log('Finished building server code');
+compiler.server.watch({}, (err) => {
+  if (!err) {
+    const file = '../build/server.js';
+    delete require.cache[require.resolve(file)];
+    bundledServer = require(file);
+  }
+
+  logger.info('Finished building server code');
 });
 
 // @TODO this instance must be updated after the compiler.server finishes
