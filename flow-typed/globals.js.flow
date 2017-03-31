@@ -1,0 +1,8 @@
+// @flow
+
+declare var module: {
+  hot: {
+    accept: (a: string, fn: () => void),
+    reject: (a: string, fn: () => void)
+  }
+};
