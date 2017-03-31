@@ -3,16 +3,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Deposit as SightlineDeposit } from './Sightline';
+import App from './pages';
 
-
-export default render(<SightlineDeposit />, document.getElementById('app'));
+const hotRender = Component => render(
+  <Router><Component /></Router>,
+  document.getElementById('app'),
+);
 
 if (module.hot) {
-  module.hot.accept('./Sightline', () => render(
-    <Router>
-      <SightlineDeposit user={{ accountId: 1, email: 'hello@mindera.com' }} />
-    </Router>,
-    document.getElementById('app'),
-  ));
+  module.hot.accept('./pages', () => hotRender(App));
 }
+
+export default hotRender(App);

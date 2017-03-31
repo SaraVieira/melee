@@ -3,13 +3,15 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
+import type { Element } from 'react';
+
 import About from './About';
 import Menu from './Menu';
 import Other from './Other';
 
 import styles from './styles.css';
 
-export default (): React.Element<*> => (
+export default (): Element<*> => (
   <div className={styles.root}>
     <Link to="/">Home</Link>
     <nav>

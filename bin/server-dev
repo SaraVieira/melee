@@ -31,7 +31,6 @@ compiler.server.watch({}, (err) => {
   logger.info('Finished building server code');
 });
 
-// @TODO this instance must be updated after the compiler.server finishes
 const app = express();
 
 app.set('env', 'DEBUG');
@@ -45,7 +44,9 @@ app.use(webpackDevMiddleware(compiler.client, {
   hot: true
 }));
 app.use(webpackHotMiddleware(compiler.client));
+
 app.use('/assets', express.static(path.join(__dirname, '../build')));
+
 app.use((req, res) => {
   res.status(200).send(html({
     body: bundledServer.render(req, res),

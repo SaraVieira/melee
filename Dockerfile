@@ -1,13 +1,15 @@
-FROM node:6.10.1-slim
+FROM node:6.10.1-alpine
 ARG configuration
 
-RUN mkdir -p /usr/opt/gtm
-WORKDIR /usr/opt/gtm
+RUN mkdir -p /usr/opt/boilerplate
+WORKDIR /usr/opt/boilerplate
 
-COPY package.json
-
+COPY package.json .
+COPY bin bin
+COPY config config
+COPY src src
+COPY build build
 COPY node_modules node_modules
-COPY config/server config/server
 
 EXPOSE 8080
-CMD ["npm", "start"]
+CMD ["npm", "run", "server:prod"]

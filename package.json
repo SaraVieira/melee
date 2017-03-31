@@ -1,7 +1,7 @@
 {
-  "name": "tvg-deposits",
+  "name": "tvg-boilerplate",
   "version": "1.0.0",
-  "description": "TVG micro-application where the user can deposit and withdraw money into/from their TVG Account",
+  "description": "Skeleton repository to help start up other TVG frontend apps",
   "main": "src/index.js",
   "browser": "src/index.js",
   "bin": {

@@ -17,10 +17,20 @@ const bundledServer = require('../build/server.js');
 
 app.set('env', process.env.NODE_ENV || 'production');
 app.set('x-powered-by', false);
+app.use(logger.request);
 
+// Healthcheck
+app.get('/boilerplate/v1/health', (req, res) => res.format({
+  text: () => res.send('OK'),
+  html: () => res.send('<p>OK</p>'),
+  json: () => res.json({ status: 'OK' }),
+  default: () => res.json({ status: 'OK' })
+}));
+
+// Static Files
 app.use('/assets', express.static(path.join(__dirname, '../build')));
 
-app.use(logger.request);
+// React Application Code
 app.use((req, res) => res
   .status(200)
   .send(html({
@@ -30,6 +40,7 @@ app.use((req, res) => res
   }))
 );
 
+// Log and handle errors
 app.use(logger.requestError);
 app.use((err, req, res) => res.send(err));
 

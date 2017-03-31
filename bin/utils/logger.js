@@ -17,6 +17,7 @@ const winstonInstance = isProduction ?
 
 const expressFormat = !isProduction;
 const colorize = !isProduction;
+const meta = isProduction;
 
 module.exports = winstonInstance;
 
@@ -24,11 +25,12 @@ module.exports.request = winstonExpress.logger({
   winstonInstance,
   expressFormat,
   colorize,
-  meta: false
+  meta,
 });
 
 module.exports.requestError = winstonExpress.errorLogger({
   winstonInstance,
   expressFormat,
   colorize,
+  meta,
 });

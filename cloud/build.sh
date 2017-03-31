@@ -1,11 +1,16 @@
 #!/bin/bash
-set -e # ensure that this script will return a non-0 status code if any of rhe commands fail
-set -o pipefail # ensure that this script will return a non-0 status code if any of rhe commands fail
 
-#### BUILD
+# Unofficial Bash Strict Mode
+set -euo pipefail
+IFS=$'\n\t'
+
+# Clean possible previous assets
 rm -rf node_modules
 rm -rf build
+rm -rf repors
+
+# Build new target
 npm install
 npm test
-npm run compile:prod
+npm run build:prod
 npm prune --production
