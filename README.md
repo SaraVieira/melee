@@ -23,6 +23,20 @@
 1. If you wish to receive updates from future changes on the boilerplate. Add a new remote to point to this project: `git remote add boilerplate git@bitbucket.org:betfair-us/tvg-react-boilerplate`
 1. `yarn install`
 
+## You should be aware
+
+* This is opinionated.
+* If you're building a service instead of a React Application, this might be a little overkill.
+* This is a work in progress and there's a lot of room to improve. If you have ideas, open an Issue in bitbucket.
+
+## Goodies
+
+* Server-Side Render with Hot-Module Replacement (in development mode: `yarn start:dev`)
+* Reports. Most commands create reports in the the `reports` folder.
+* Cache. If it can be cached, then is cached. You can see that in the `.tmp` folder
+* DLL Support. All vendors are split in a DLL bundle.
+
+
 ## Notes
 
 1. [Yarn](https://yarnpkg.com/): We're currently trialling it as an alternative to [npm](https://www.npmjs.com/) and this might change in the future.
