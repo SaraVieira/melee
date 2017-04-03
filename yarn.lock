@@ -42,10 +42,6 @@ acorn-jsx@^3.0.0:
   dependencies:
     acorn "^3.0.4"
 
-acorn@4.0.4:
-  version "4.0.4"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
-
 acorn@^3.0.4:
   version "3.3.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
@@ -53,6 +49,10 @@ acorn@^3.0.4:
 acorn@^4.0.3, acorn@^4.0.4:
   version "4.0.11"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-4.0.11.tgz#edcda3bd937e7556410d42ed5860f67399c794c0"
+
+acorn@^5.0.1:
+  version "5.0.3"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
 ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.1"
@@ -200,8 +200,8 @@ array-unique@^0.2.1:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
 
 array.prototype.find@^2.0.1:
-  version "2.0.3"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/array.prototype.find/-/array.prototype.find-2.0.3.tgz#08c3ec33e32ec4bab362a2958e686ae92f59271d"
+  version "2.0.4"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/array.prototype.find/-/array.prototype.find-2.0.4.tgz#556a5c5362c08648323ddaeb9de9d14bc1864c90"
   dependencies:
     define-properties "^1.1.2"
     es-abstract "^1.7.0"
@@ -263,8 +263,8 @@ async@1.5.0, async@^1.4.0:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async/-/async-1.5.0.tgz#2796642723573859565633fc6274444bee2f8ce3"
 
 async@^2.1.2, async@^2.1.4:
-  version "2.2.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async/-/async-2.2.0.tgz#c324eba010a237e4fbd55a12dee86367d5c0ef32"
+  version "2.3.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/async/-/async-2.3.0.tgz#1013d1051047dd320fe24e494d5c66ecaf6147d9"
   dependencies:
     lodash "^4.14.0"
 
@@ -299,9 +299,15 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axios@^0.15.3:
+axios@0.15.3:
   version "0.15.3"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/axios/-/axios-0.15.3.tgz#2c9d638b2e191a08ea1d6cc988eadd6ba5bdc053"
+  dependencies:
+    follow-redirects "1.0.0"
+
+axios@^0.16.0:
+  version "0.16.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/axios/-/axios-0.16.0.tgz#6ed9771d815f429e7510f2838262957c4953d3b6"
   dependencies:
     follow-redirects "1.0.0"
 
@@ -833,8 +839,8 @@ babel-polyfill@^6.23.0:
     regenerator-runtime "^0.10.0"
 
 babel-preset-env@^1.2.0:
-  version "1.2.2"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-preset-env/-/babel-preset-env-1.2.2.tgz#1dbc4d7f8a575691d301f45fa9b2f9698b1e3b92"
+  version "1.3.2"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/babel-preset-env/-/babel-preset-env-1.3.2.tgz#08eabd2bf810c3678069f7e052323419f1448749"
   dependencies:
     babel-plugin-check-es2015-constants "^6.22.0"
     babel-plugin-syntax-trailing-function-commas "^6.22.0"
@@ -864,7 +870,6 @@ babel-preset-env@^1.2.0:
     babel-plugin-transform-exponentiation-operator "^6.22.0"
     babel-plugin-transform-regenerator "^6.22.0"
     browserslist "^1.4.0"
-    electron-to-chromium "^1.2.6"
     invariant "^2.2.2"
 
 babel-preset-flow@^6.23.0:
@@ -1174,12 +1179,12 @@ caniuse-db@1.0.30000626:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000626.tgz#44363dc86857efaf758fea9faef6a15ed93d8f33"
 
 caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000624, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000646"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000646.tgz#c724b90d61df24286e015fc528d062073c00def4"
+  version "1.0.30000649"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/caniuse-db/-/caniuse-db-1.0.30000649.tgz#1ee1754a6df235450c8b7cd15e0ebf507221a86a"
 
-case-sensitive-paths-webpack-plugin@^1.1.4:
-  version "1.1.4"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-1.1.4.tgz#8aaedd5699a86cac2b34cf40d9b4145758978472"
+case-sensitive-paths-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.0.0.tgz#60142d7d0beabdb35676ef0aeace3027da0578ba"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -1249,7 +1254,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@^2.2.5:
+classnames@2.2.5:
   version "2.2.5"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -1484,9 +1489,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2:
     create-hash "^1.1.0"
     inherits "^2.0.1"
 
-cross-env@^3.2.3:
-  version "3.2.4"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/cross-env/-/cross-env-3.2.4.tgz#9e0585f277864ed421ce756f81a980ff0d698aba"
+cross-env@^4.0.0:
+  version "4.0.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/cross-env/-/cross-env-4.0.0.tgz#16083862d08275a4628b0b243b121bedaa55dd80"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
@@ -1683,13 +1688,13 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@2.2.0, debug@^2.1.1, debug@^2.2.0, debug@~2.2.0:
+debug@2.2.0, debug@~2.2.0:
   version "2.2.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
 
-debug@2.6.1:
+debug@2.6.1, debug@^2.1.1, debug@^2.2.0, debug@^2.6.0:
   version "2.6.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
@@ -1846,7 +1851,7 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-electron-to-chromium@^1.2.3, electron-to-chromium@^1.2.6, electron-to-chromium@^1.2.7:
+electron-to-chromium@^1.2.3, electron-to-chromium@^1.2.7:
   version "1.3.2"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/electron-to-chromium/-/electron-to-chromium-1.3.2.tgz#b8ce5c93b308db0e92f6d0435c46ddec8f6363ab"
 
@@ -2085,8 +2090,8 @@ eslint-plugin-react@^6.10.0:
     object.assign "^4.0.4"
 
 eslint@^3.17.0:
-  version "3.18.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint/-/eslint-3.18.0.tgz#647e985c4ae71502d20ac62c109f66d5104c8a4b"
+  version "3.19.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/eslint/-/eslint-3.19.0.tgz#c8fc6201c7f40dd08941b87c085767386a679acc"
   dependencies:
     babel-code-frame "^6.16.0"
     chalk "^1.1.3"
@@ -2125,10 +2130,10 @@ eslint@^3.17.0:
     user-home "^2.0.0"
 
 espree@^3.4.0:
-  version "3.4.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/espree/-/espree-3.4.0.tgz#41656fa5628e042878025ef467e78f125cb86e1d"
+  version "3.4.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/espree/-/espree-3.4.1.tgz#28a83ab4aaed71ed8fe0f5efe61b76a05c13c4d2"
   dependencies:
-    acorn "4.0.4"
+    acorn "^5.0.1"
     acorn-jsx "^3.0.0"
 
 esprima@^2.6.0, esprima@^2.7.1:
@@ -2696,6 +2701,10 @@ hmac-drbg@^1.0.0:
 hoek@2.x.x:
   version "2.16.3"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
+
+hoist-non-react-statics@^1.2.0:
+  version "1.2.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -3446,9 +3455,9 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
-known-css-properties@^0.0.6:
-  version "0.0.6"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/known-css-properties/-/known-css-properties-0.0.6.tgz#71a0b8fde1b6e3431c471efbc3d9733faebbcfbf"
+known-css-properties@^0.0.7:
+  version "0.0.7"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/known-css-properties/-/known-css-properties-0.0.7.tgz#9104343a2adfd8ef3b07bdee7a325e4d44ed9371"
 
 lazy-cache@^1.0.3:
   version "1.0.4"
@@ -3820,7 +3829,7 @@ mime-db@~1.27.0:
   version "1.27.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/mime-db/-/mime-db-1.27.0.tgz#820f572296bbd20ec25ed55e5b5de869e5436eb1"
 
-mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.13, mime-types@~2.1.7:
+mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.7:
   version "2.1.15"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/mime-types/-/mime-types-2.1.15.tgz#a4ebf5064094569237b8cf70046776d09fc92aed"
   dependencies:
@@ -3864,9 +3873,9 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
-moment@^2.18.0:
-  version "2.18.1"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+moment@2.17.1:
+  version "2.17.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
 ms@0.7.1:
   version "0.7.1"
@@ -4002,7 +4011,7 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-normalize.css@^5.0.0:
+normalize.css@5.0.0:
   version "5.0.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/normalize.css/-/normalize.css-5.0.0.tgz#7cec875ce8178a5333c4de80b68ea9c18b9d7c37"
 
@@ -4984,6 +4993,12 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-click-outside@2.2.0:
+  version "2.2.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/react-click-outside/-/react-click-outside-2.2.0.tgz#fb815517cb6144bb5e670f69e1a61d6165338a59"
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+
 react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
@@ -5711,7 +5726,7 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
-stylehacks@^2.3.0:
+stylehacks@^2.3.2:
   version "2.3.2"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/stylehacks/-/stylehacks-2.3.2.tgz#64c83e0438a68c9edf449e8c552a7d9ab6009b0b"
   dependencies:
@@ -5732,22 +5747,25 @@ stylelint-config-standard@^16.0.0:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/stylelint-config-standard/-/stylelint-config-standard-16.0.0.tgz#bb7387bff1d7dd7186a52b3ebf885b2405d691bf"
 
 stylelint@^7.9.0:
-  version "7.9.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/stylelint/-/stylelint-7.9.0.tgz#b8d9ea20f887ab351075c6aded9528de24509327"
+  version "7.10.1"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/stylelint/-/stylelint-7.10.1.tgz#209a7ce5e781fc2a62489fbb31ec0201ec675db2"
   dependencies:
     autoprefixer "^6.0.0"
     balanced-match "^0.4.0"
     chalk "^1.1.1"
     colorguard "^1.2.0"
     cosmiconfig "^2.1.1"
+    debug "^2.6.0"
     doiuse "^2.4.1"
     execall "^1.0.0"
+    file-entry-cache "^2.0.0"
     get-stdin "^5.0.0"
     globby "^6.0.0"
     globjoin "^0.1.4"
     html-tags "^1.1.1"
     ignore "^3.2.0"
-    known-css-properties "^0.0.6"
+    imurmurhash "^0.1.4"
+    known-css-properties "^0.0.7"
     lodash "^4.17.4"
     log-symbols "^1.0.2"
     meow "^3.3.0"
@@ -5765,7 +5783,7 @@ stylelint@^7.9.0:
     specificity "^0.3.0"
     string-width "^2.0.0"
     style-search "^0.1.0"
-    stylehacks "^2.3.0"
+    stylehacks "^2.3.2"
     sugarss "^0.2.0"
     svg-tags "^1.0.0"
     table "^4.0.1"
@@ -5786,7 +5804,7 @@ supports-color@^3.1.0, supports-color@^3.1.2, supports-color@^3.2.3:
   dependencies:
     has-flag "^1.0.0"
 
-svg-inline-react@^2.0.0:
+svg-inline-react@2.0.0:
   version "2.0.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/svg-inline-react/-/svg-inline-react-2.0.0.tgz#401a44af3579b2d779465b9cdabbffb59c17b9f2"
 
@@ -5969,28 +5987,21 @@ tvg-conf@^0.1.0:
     lodash "^4.17.2"
     require-dir "^0.3.1"
 
-"tvg-conf@git+ssh://git@tvg.bitbucket.org/betfair-us/tvg-conf.git":
-  version "0.1.0"
-  resolved "git+ssh://git@tvg.bitbucket.org/betfair-us/tvg-conf.git#105168e80c2ee10efc9a28add5292d61fda69222"
-  dependencies:
-    debug "~2.2.0"
-    lodash "^4.17.2"
-    require-dir "^0.3.1"
-
 tvg-mediator@^0.6.0:
   version "0.6.0"
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-mediator/-/tvg-mediator-0.6.0.tgz#316983204911b3775e85546deabccfd73a7cc874"
 
 tvg-ui-bootstrap@^3.0.1:
-  version "3.1.5"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-3.1.5.tgz#9dd2ef75e5304160ed49133eadd3a2b750db3c2f"
+  version "3.2.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-3.2.0.tgz#ceeb54742fc02049340c75f23532b7d19a3f7d03"
   dependencies:
-    axios "^0.15.3"
-    classnames "^2.2.5"
-    moment "^2.18.0"
-    normalize.css "^5.0.0"
-    svg-inline-react "^2.0.0"
-    tvg-conf "git+ssh://git@tvg.bitbucket.org/betfair-us/tvg-conf.git"
+    axios "0.15.3"
+    classnames "2.2.5"
+    moment "2.17.1"
+    normalize.css "5.0.0"
+    react-click-outside "2.2.0"
+    svg-inline-react "2.0.0"
+    tvg-conf "^0.1.0"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
@@ -6003,11 +6014,11 @@ type-check@~0.3.2:
     prelude-ls "~1.1.2"
 
 type-is@~1.6.14:
-  version "1.6.14"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/type-is/-/type-is-1.6.14.tgz#e219639c17ded1ca0789092dd54a03826b817cb2"
+  version "1.6.15"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/type-is/-/type-is-1.6.15.tgz#cab10fb4909e441c82842eafe1ad646c81804410"
   dependencies:
     media-typer "0.3.0"
-    mime-types "~2.1.13"
+    mime-types "~2.1.15"
 
 typedarray@^0.0.6:
   version "0.0.6"
@@ -6018,8 +6029,8 @@ ua-parser-js@^0.7.9:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
 uglify-js@^2.6, uglify-js@^2.8.5:
-  version "2.8.18"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/uglify-js/-/uglify-js-2.8.18.tgz#925d14bae48ab62d1883b41afe6e2261662adb8e"
+  version "2.8.21"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/uglify-js/-/uglify-js-2.8.21.tgz#1733f669ae6f82fc90c7b25ec0f5c783ee375314"
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
@@ -6171,8 +6182,8 @@ webpack-dev-middleware@^1.10.1:
     range-parser "^1.0.3"
 
 webpack-hot-middleware@^2.17.1:
-  version "2.17.1"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/webpack-hot-middleware/-/webpack-hot-middleware-2.17.1.tgz#0c8fbf6f93ff29c095d684b07ab6d6c0f2f951d7"
+  version "2.18.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/webpack-hot-middleware/-/webpack-hot-middleware-2.18.0.tgz#a16bb535b83a6ac94a78ac5ebce4f3059e8274d3"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
@@ -6194,12 +6205,12 @@ webpack-sources@^0.2.3:
     source-map "~0.5.3"
 
 webpack-stats-plugin@^0.1.4:
-  version "0.1.4"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/webpack-stats-plugin/-/webpack-stats-plugin-0.1.4.tgz#400dd3967e12e54a54eb968ba368c0d7af334eb2"
+  version "0.1.5"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/webpack-stats-plugin/-/webpack-stats-plugin-0.1.5.tgz#29e5f12ebfd53158d31d656a113ac1f7b86179d9"
 
 webpack@^2.2.1:
-  version "2.3.2"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/webpack/-/webpack-2.3.2.tgz#7d521e6f0777a3a58985c69425263fdfe977b458"
+  version "2.3.3"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/webpack/-/webpack-2.3.3.tgz#eecc083c18fb7bf958ea4f40b57a6640c5a0cc78"
   dependencies:
     acorn "^4.0.4"
     acorn-dynamic-import "^2.0.0"
@@ -6233,8 +6244,8 @@ whatwg-fetch@>=0.10.0:
   resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
 
 whatwg-url@^4.3.0:
-  version "4.6.0"
-  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/whatwg-url/-/whatwg-url-4.6.0.tgz#ef98da442273be04cf9632e176f257d2395a1ae4"
+  version "4.7.0"
+  resolved "http://nexus.cloud-corp.tvg.com/content/groups/npm/whatwg-url/-/whatwg-url-4.7.0.tgz#202035ac1955b087cdd20fa8b58ded3ab1cd2af5"
   dependencies:
     tr46 "~0.0.3"
     webidl-conversions "^3.0.0"
