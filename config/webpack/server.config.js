@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const HappyPack = require('happypack');
 
 const toBoolean = (x) => {
@@ -73,7 +74,7 @@ module.exports = (opts = { optimize: false }) => {
         filename: 'styles.[hash].css',
         allChunks: true,
       }),
-
+      options.optimize && new LodashModuleReplacementPlugin(),
       // !options.optimize && new webpack.DllReferencePlugin({
       //   context: process.cwd(),
       //   manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),

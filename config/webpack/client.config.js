@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HappyPack = require('happypack');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 const toBoolean = (x) => {
@@ -93,13 +94,12 @@ module.exports = (opts = { optimize: false }) => {
         allChunks: true,
         disable: !options.optimize,
       }),
-
+      options.optimize && new LodashModuleReplacementPlugin(),
       options.optimize && new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
         filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
         minChunks: Infinity,
       }),
-
       options.optimize && new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true, // React doesn't support IE8

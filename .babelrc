@@ -20,7 +20,8 @@
     },
     "production": {
       //@SEE https://medium.com/doctolib-engineering/improve-react-performance-with-babel-16f1becfaa25#.5epmw122s
-      "presets": ["react-optimize"]
+      "presets": ["react-optimize"],
+      "plugins": ["lodash"]
     },
     "test": {
       "plugins": [
