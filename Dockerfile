@@ -12,4 +12,4 @@ COPY build build
 COPY node_modules node_modules
 
 EXPOSE 8080
-CMD ["npm", "run", "server:prod"]
+CMD ["npm", "run", "server:prod", "--", "--NODE_ENV=${ENVIRONMENT}"]

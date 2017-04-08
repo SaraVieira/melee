@@ -36,6 +36,25 @@
 * Cache. If it can be cached, then is cached. You can see that in the `.tmp` folder
 * DLL Support. All vendors are split in a DLL bundle.
 
+## Configuration Files
+
+Configuration is loaded with [node-config](https://github.com/lorenwest/node-config).
+Which means that you should read its documentation.
+
+However the tl;dr version is this:
+
+Configuration files are loaded according to the `NODE_ENV` variable,
+has is usual with nodejs apps.
+
+However, since our stack uses the `ENVIRONMENT` variable to let applications
+know the current environment. We must tell the server that
+`NODE_ENV=${ENVIRONMENT}`. This is taken care in the Docker image.
+
+If no environment is known, then the `default.js` file is used, this is also
+our "master" configuration file.
+
+You should also be aware that configuration files cascade, which means that you
+only have to override the default properties on a per environment basis.
 
 ## Notes
 
