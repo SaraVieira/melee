@@ -6,3 +6,9 @@ declare var module: {
     reject: (a: string, fn: () => *) => void
   }
 };
+
+declare var System: {
+  import: (s: string) => Promise<*>
+};
+
+declare var DEVELOPMENT: boolean;

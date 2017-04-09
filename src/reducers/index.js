@@ -1,3 +1,6 @@
 // @flow
+import { combineReducers } from 'redux';
 
-export default (state = {}, action) => state;
+export default combineReducers({
+  root: (state = {}, action) => state,
+});

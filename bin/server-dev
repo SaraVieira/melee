@@ -52,18 +52,21 @@ app.use(webpackHotMiddleware(compiler.client));
 // Return static files before attending to any unknown route
 app.use('/assets', express.static(path.join(__dirname, '../build')));
 
-app.use((req, res) => res.format({
+app.use((req, res) => {
+  const { body, preloadedState } = bundledServer.render(req, res);
 
-  html: () => res.send(html({
-    body: bundledServer.render(req, res),
-    manifest: res.locals.webpackStats.toJson().assetsByChunkName,
-    publicPath: '/assets/',
-    dll: 'vendors.dll.js'
-  })),
+  res.format({
+    html: () => res.send(html({
+      body,
+      preloadedState,
+      manifest: res.locals.webpackStats.toJson().assetsByChunkName,
+      publicPath: '/assets/',
+      dll: 'vendors.dll.js'
+    })),
 
-  default: () => res.json({ todo: 'DO ME YEAH!!' }),
-
-}));
+    default: () => res.json({ body, preloadedState }),
+  });
+});
 
 app.use(logger.requestError);
 app.use((err, req, res) => res.send(err));
