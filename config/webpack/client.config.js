@@ -6,6 +6,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HappyPack = require('happypack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 const toBoolean = (x) => {
@@ -18,6 +19,7 @@ const dir = {
   SOURCE: path.resolve(__dirname, '../../src'),
   BUILD: path.resolve(__dirname, '../../build'),
   TMP: path.resolve(__dirname, '../../.tmp'),
+  REPORTS: path.resolve(__dirname, '../../reports'),
 };
 
 module.exports = (opts = { optimize: false }) => {
@@ -31,26 +33,13 @@ module.exports = (opts = { optimize: false }) => {
 
     target: 'web',
 
-    entry: Object.assign({}, (options.optimize ? {
-      vendors: options.optimize && [
-        'babel-polyfill',
-        'lodash',
-        'react',
-        'react-dom',
-        'react-router',
-        'react-router-dom',
-        'redux',
-        'tvg-conf',
-        'tvg-mediator',
-        'tvg-ui-bootstrap',
-      ],
-    } : {}), {
+    entry: {
       main: [
         !options.optimize && 'react-hot-loader/patch',
         !options.optimize && 'webpack-hot-middleware/client',
         path.resolve(dir.SOURCE, 'entry-client.jsx'),
       ].filter(Boolean),
-    }),
+    },
 
     output: {
       filename: options.optimize ? '[name].[hash].js' : '[name].js',
@@ -72,9 +61,9 @@ module.exports = (opts = { optimize: false }) => {
         context: process.cwd(),
         manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),
       }),
-
       new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CaseSensitivePathsPlugin(),
+      new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
       new HappyPack({
         id: 'js',
         loaders: [{
@@ -98,7 +87,7 @@ module.exports = (opts = { optimize: false }) => {
       options.optimize && new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
         filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
-        minChunks: Infinity,
+        minChunks: module => /node_modules/.test(module.resource),
       }),
       options.optimize && new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -110,9 +99,12 @@ module.exports = (opts = { optimize: false }) => {
         output: { comments: false, screw_ie8: true },
       }),
 
-      new StatsWriterPlugin({
-        filename: 'client.manifest.json',
+      options.optimize && new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: path.resolve(dir.REPORTS, 'bundle/index.html'),
       }),
+
+      new StatsWriterPlugin({ filename: 'client.manifest.json' }),
     ].filter(Boolean),
 
     module: {

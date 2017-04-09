@@ -40,6 +40,7 @@ module.exports = () => ({
 
   plugins: [
     new NyanProgressPlugin({ }),
+    new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
     new HappyPack({
       id: 'js',
       loaders: [{

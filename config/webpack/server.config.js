@@ -55,6 +55,7 @@ module.exports = (opts = { optimize: false }) => {
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
       new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CaseSensitivePathsPlugin(),
+      new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
       new HappyPack({
         id: 'js',
         loaders: [{
