@@ -120,7 +120,7 @@ module.exports = (opts = { optimize: false }) => {
 
     devtool: options.optimize ?
       'source-map' :
-      'source-map',
+      'cheap-eval-source-map',
 
     cache: !options.optimize,
 
