@@ -2,13 +2,14 @@
 
 const http = require('http');
 const url = require('url');
+const logger = require('./logger');
 
 const options = Object.assign({},
   url.parse('http://metadata.google.internal/computeMetadata/v1/instance/zone'),
   { headers: { 'Metadata-Flavor': 'Google' } }
 );
 
-const request = () => new Promise((resolve, reject) => {
+const request = () => new Promise((resolve) => {
   const req = http.request(options, (res) => {
     let data = '';
     res.setEncoding('utf8');
@@ -20,7 +21,10 @@ const request = () => new Promise((resolve, reject) => {
     });
   });
 
-  req.on('error', reject);
+  req.on('error', (e) => {
+    logger.warn('Could not retrieve Google Cloud Region/Zone', e);
+    return resolve({ zone: 'default', region: 'default' });
+  });
   req.end();
 });
 

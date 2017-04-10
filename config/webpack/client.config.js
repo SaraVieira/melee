@@ -63,7 +63,7 @@ module.exports = (opts = { optimize: false }) => {
       }),
       new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CaseSensitivePathsPlugin(),
-      new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
+      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
       new HappyPack({
         id: 'js',
         loaders: [{
@@ -109,21 +109,11 @@ module.exports = (opts = { optimize: false }) => {
 
     module: {
       rules: [
-        {
-          test: /\.jsx?$/,
-          loader: 'happypack/loader?id=js',
-        },
-        {
-          test: /\.svg$/,
-          loaders: ['babel-loader', 'svg-react-loader'],
-        },
-        {
-          test: /\.(jpe?g|png|gif)/,
-          loader: 'url-loader',
-          options: { limit: 10000 },
-        },
-        {
-          test: /\.(css|less)?$/,
+        { test: /\.jsx?$/, loader: 'happypack/loader?id=js' },
+        { test: /\.svg$/, loaders: ['babel-loader', 'svg-react-loader'], include: dir.SOURCE },
+        { test: /\.(jpe?g|png|gif)/, loader: 'url-loader', options: { limit: 10000 } },
+        { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
+        { test: /\.(css|less)?$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
@@ -133,6 +123,7 @@ module.exports = (opts = { optimize: false }) => {
                   modules: true,
                   camelCase: true,
                   sourceMaps: true,
+                  importLoaders: 1,
                   localIdentName: '[local]-[hash:base64:5]',
                 },
               },

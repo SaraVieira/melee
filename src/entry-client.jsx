@@ -11,7 +11,9 @@ import App from './pages';
 const preloadedState = window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
 delete window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
 
-const hotRender = (Component, store) => render(
+const store = configureStore(preloadedState);
+
+const hotRender = Component => render(
   <Provider store={store}>
     <Router>
       <Component />
@@ -24,17 +26,11 @@ if (module.hot) {
   module.hot.accept('./pages', () => {
     System
       .import('./pages')
-      .then(AppModule => hotRender(
-        AppModule.default,
-        configureStore(preloadedState),
-      ));
+      .then(AppModule => hotRender(AppModule.default));
     System
       .import('./configureStore')
-      .then(configureStoreModule => hotRender(
-        App,
-        configureStoreModule.default(preloadedState),
-      ));
+      .then(() => hotRender(App));
   });
 }
 
-export default hotRender(App, configureStore(preloadedState));
+export default hotRender(App);

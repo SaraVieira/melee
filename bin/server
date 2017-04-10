@@ -36,7 +36,7 @@ app.get('/boilerplate/v1/health', (req, res) => res.format({
 app.use('/assets', express.static(path.join(__dirname, '../build')));
 
 // React Application Code
-app.use((req, res) => {
+app.get('*', (req, res) => {
   const { body, preloadedState } = bundledServer.render(req, res);
   const manifest = clientManifest.assetsByChunkName;
 

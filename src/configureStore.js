@@ -29,12 +29,8 @@ export default (initialState: *): Store<*, *> => {
 
   if (module.hot) {
     module.hot.accept('./reducers', () =>
-      System.import('./reducers').then((reducerModule) => {
-        const createReducers = reducerModule.default;
-        const nextReducers = createReducers(store.asyncReducers);
-
-        store.replaceReducer(nextReducers);
-      }),
+      System.import('./reducers').then(reducerModule =>
+        store.replaceReducer(reducerModule.default)),
     );
   }
 
