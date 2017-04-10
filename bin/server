@@ -65,8 +65,8 @@ app.use((err, req, res) => res.send(err));
 const server = http.createServer(app);
 
 server.listen(config.get('port'), () => {
-  logger.info(`Express started in production mode: ${app.settings.env === 'production'}`);
-  logger.info(`Server loaded configuration for environment: ${config.util.getEnv('NODE_ENV')}`, config);
+  logger.debug(`Express started in production mode: ${app.settings.env === 'production'}`);
+  logger.debug(`Server loaded configuration for environment: ${config.util.getEnv('NODE_ENV')}`, config);
   logger.info(`Server started on: ${server.address().address}:${server.address().port}`, server.address());
 
   // Fetch Google Cloud Metadata
@@ -74,10 +74,10 @@ server.listen(config.get('port'), () => {
     statful.tags.zone = zone;
     statful.tags.region = region;
 
+    logger.debug('Google Cloud Region:', { zone, region });
     statful.counter('application_start', 1, { sample_rate: 100 });
-  })
-  .catch((e) => {
-    logger.error(e);
+  }).catch((e) => {
+    logger.error('Failed to fetch Google Cloud Region', e);
     statful.counter('application_start_error', 1, { sample_rage: 100 });
   });
 });

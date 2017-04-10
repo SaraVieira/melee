@@ -21,10 +21,7 @@ const request = () => new Promise((resolve) => {
     });
   });
 
-  req.on('error', (e) => {
-    logger.warn('Could not retrieve Google Cloud Region/Zone', e);
-    return resolve({ zone: 'default', region: 'default' });
-  });
+  req.on('error', () => resolve({ zone: 'default', region: 'default' }));
   req.end();
 });
 
