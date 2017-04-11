@@ -102,6 +102,7 @@ module.exports = (opts = { optimize: false }) => {
       options.optimize && new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         reportFilename: path.resolve(dir.REPORTS, 'bundle/index.html'),
+        openAnalyzer: false,
       }),
 
       new StatsWriterPlugin({ filename: 'client.manifest.json' }),

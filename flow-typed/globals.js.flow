@@ -12,3 +12,4 @@ declare var System: {
 };
 
 declare var DEVELOPMENT: boolean;
+declare var ENVIRONMENT: boolean;

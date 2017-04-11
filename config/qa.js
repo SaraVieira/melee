@@ -1,5 +1,5 @@
 module.exports = {
   statful: {
-    enabled: false,
+    dryRun: true,
   },
 };

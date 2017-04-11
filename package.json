@@ -37,7 +37,8 @@
     "start:dev": "npm run server:dev",
     "start:prod": "run-s build:prod server:prod",
     "postinstall": "run-s createtmp build:dll",
-    "createtmp": "mkdirp .tmp reports"
+    "createtmp": "mkdirp .tmp reports",
+    "prepush": "npm test"
   },
   "dependencies": {
     "axios": "^0.16.0",
@@ -94,6 +95,7 @@
     "flow-bin": "^0.43.1",
     "get-port": "^3.1.0",
     "happypack": "^3.0.3",
+    "husky": "^0.13.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^19.0.2",
     "lodash-webpack-plugin": "^0.11.2",
