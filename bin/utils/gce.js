@@ -2,7 +2,6 @@
 
 const http = require('http');
 const url = require('url');
-const logger = require('./logger');
 
 const options = Object.assign({},
   url.parse('http://metadata.google.internal/computeMetadata/v1/instance/zone'),
