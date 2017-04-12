@@ -7,6 +7,7 @@ import Button from 'tvg-ui-bootstrap/components/Buttons';
 import Input from 'tvg-ui-bootstrap/components/Form/Input';
 
 import type { Element } from 'react';
+import type { ActionCreator } from 'redux';
 
 import * as actions from './actions';
 import type { IncrementAction, DecrementAction } from './actions';
@@ -17,8 +18,8 @@ import styles from './styles.css';
 
 type Props = {
   value: number,
-  onIncrement: IncrementAction,
-  onDecrement: DecrementAction
+  onIncrement: ActionCreator<IncrementAction, *>,
+  onDecrement: ActionCreator<DecrementAction, *>
 }
 
 const mapStateToProps = (state: State): CounterState => (state.counter);
