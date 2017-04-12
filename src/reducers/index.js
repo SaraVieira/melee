@@ -10,6 +10,6 @@ export type State = {
 };
 
 export default combineReducers({
-  root: (state = {}, action) => state,
+  root: (state = {}) => state,
   counter,
 });
