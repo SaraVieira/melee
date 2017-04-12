@@ -90,7 +90,7 @@ module.exports = (opts = { optimize: false }) => {
         { test: /\.(jpe?g|png|gif)/, loader: 'url-loader', options: { limit: 10000 } },
         { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
         {
-          test: /\.(css|less)?$/,
+          test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
