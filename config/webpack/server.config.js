@@ -86,7 +86,7 @@ module.exports = (opts = { optimize: false }) => {
     module: {
       rules: [
         { test: /\.jsx?$/, loader: 'happypack/loader?id=js' },
-        { test: /\.svg$/, loaders: ['babel-loader', 'svg-react-loader'], include: dir.SOURCE },
+        { test: /\.svg$/, loaders: ['babel-loader', 'react-svg-loader'], include: dir.SOURCE },
         { test: /\.(jpe?g|png|gif)/, loader: 'url-loader', options: { limit: 10000 } },
         { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
         {
