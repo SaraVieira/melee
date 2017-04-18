@@ -1,3 +1,6 @@
 module.exports = {
-  a: 'staging',
+  statful: {
+    dryRun: false,
+    tags: { environment: 'staging' },
+  },
 };
