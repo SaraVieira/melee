@@ -32,7 +32,7 @@
 ## Goodies
 
 * Server-Side Render with Hot-Module Replacement (in development mode: `yarn start:dev`)
-* Reports. Most commands create reports in the the `reports` folder.
+* Reports. Most commands create reports in the `reports` folder.
 * Cache. If it can be cached, then is cached. You can see that in the `.tmp` folder
 * DLL Support. All vendors are split in a DLL bundle.
 
@@ -50,15 +50,50 @@ However, since our stack uses the `ENVIRONMENT` variable to let applications
 know the current environment. We must tell the server that
 `NODE_ENV=${ENVIRONMENT}`. This is taken care in the Docker image.
 
-If no environment is known, then the `default.js` file is used, this is also
+If the environment variable is not set, then the `default.js` file is used, this is also
 our "master" configuration file.
 
 You should also be aware that configuration files cascade, which means that you
-only have to override the default properties on a per environment basis.
+only need to override the default properties on a per environment basis.
+
+## NPM Repository
+
+We use a private npm registry powered by nexus.
+
+It's address is: [http://registry-npm.tvg.com/](http://registry-npm.tvg.com/),
+and you can login with your TVG Eng account.
+
+For you to be able to use this registry, you'll need to set up some npm configuration first.
+
+1. Create a `.npmrc` file in your home folder. e.g.: `touch ~/.npmrc`
+1. Run the following commands to fill in the `~/.npmrc` (Replace with your information):
+  1. `echo "email=your.email@mindera.com" >> ~/.npmrc`
+  1. `echo "#registry=http://npm-registry.tvg.com/repository/npm/" >> ~/.npmrc`
+  1. `echo "_auth=$(echo -n 'username:password' | openssl base64)" >> ~/.npmrc`
+  1. `echo "always-auth=true" >> ~/.npmrc`
+
+Each project has a local `.npmrc` file stating the registry url, this is for
+your convenience, since this allows you to use the official npmjs registry outside
+of TVG Project folders.
+
+The local `.npmrc` file should set our nexus registry url e.g.:
+
+`echo "registry=http://npm-registry.tvg.com/repository/npm/" > .npmrc`
+
+If you have intentions of publishing your application into the registry,
+you need to set up your `package.json` to point to the correct registry (instead of the official one).
+
+For that you need to add the following property to the `package.json`:
+
+```JavaScript
+"publishConfig": {
+  "registry": "http://npm-registry.tvg.com/repository/npm_internal/"
+},
+```
 
 ## Notes
 
-1. [Yarn](https://yarnpkg.com/): We're currently trialling it as an alternative to [npm](https://www.npmjs.com/) and this might change in the future.
+1. [Yarn](https://yarnpkg.com/): We're trialling it as an alternative to [npm](https://www.npmjs.com/) and this might change in the future.
 
 Keep this updated, or send Merge Requests to include missing tools and/or configuration.
 or else...

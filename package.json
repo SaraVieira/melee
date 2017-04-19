@@ -80,7 +80,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-optimize": "^1.0.1",
     "case-sensitive-paths-webpack-plugin": "^2.0.0",
-    "circular-dependency-plugin": "^2.0.0",
+    "circular-dependency-plugin": "^3.0.0",
     "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -124,9 +124,14 @@
   "jest": {
     "cacheDirectory": ".tmp/jest",
     "collectCoverage": true,
-    "coverageReporters": ["html", "text"],
+    "coverageReporters": [
+      "html",
+      "text"
+    ],
     "coverageDirectory": "reports/coverage/",
-    "transformIgnorePatterns": ["/node_modules/(?!tvg-)/"],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!tvg-)/"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
