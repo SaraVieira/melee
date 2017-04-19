@@ -67,10 +67,11 @@ For you to be able to use this registry, you'll need to set up some npm configur
 
 1. Create a `.npmrc` file in your home folder. e.g.: `touch ~/.npmrc`
 1. Run the following commands to fill in the `~/.npmrc` (Replace with your information):
-  1. `echo "email=your.email@mindera.com" >> ~/.npmrc`
-  1. `echo "#registry=http://npm-registry.tvg.com/repository/npm/" >> ~/.npmrc`
-  1. `echo "_auth=$(echo -n 'username:password' | openssl base64)" >> ~/.npmrc`
-  1. `echo "always-auth=true" >> ~/.npmrc`
+
+    `echo "email=your.email@mindera.com" >> ~/.npmrc`  
+    `echo "#registry=http://npm-registry.tvg.com/repository/npm/" >> ~/.npmrc`  
+    `echo "_auth=$(echo -n 'username:password' | openssl base64)" >> ~/.npmrc`  
+    `echo "always-auth=true" >> ~/.npmrc`
 
 Each project has a local `.npmrc` file stating the registry url, this is for
 your convenience, since this allows you to use the official npmjs registry outside
@@ -78,7 +79,7 @@ of TVG Project folders.
 
 The local `.npmrc` file should set our nexus registry url e.g.:
 
-`echo "registry=http://npm-registry.tvg.com/repository/npm/" > .npmrc`
+  `echo "registry=http://npm-registry.tvg.com/repository/npm/" > .npmrc`
 
 If you have intentions of publishing your application into the registry,
 you need to set up your `package.json` to point to the correct registry (instead of the official one).
