@@ -71,15 +71,16 @@ For you to be able to use this registry, you'll need to set up some npm configur
     `echo "email=your.email@mindera.com" >> ~/.npmrc`  
     `echo "#registry=http://npm-registry.tvg.com/repository/npm/" >> ~/.npmrc`  
     `echo "_auth=$(echo -n 'username:password' | openssl base64)" >> ~/.npmrc`  
-    `echo "always-auth=true" >> ~/.npmrc`
 
 Each project has a local `.npmrc` file stating the registry url, this is for
 your convenience, since this allows you to use the official npmjs registry outside
 of TVG Project folders.
 
-The local `.npmrc` file should set our nexus registry url e.g.:
+The local `.npmrc` file should set our nexus registry url and state that it
+should always authenticate with the server e.g.:
 
   `echo "registry=http://npm-registry.tvg.com/repository/npm/" > .npmrc`
+  `echo "always-auth=true" >> .npmrc`
 
 If you have intentions of publishing your application into the registry,
 you need to set up your `package.json` to point to the correct registry (instead of the official one).
