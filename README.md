@@ -79,7 +79,7 @@ of TVG Project folders.
 The local `.npmrc` file should set our nexus registry url and state that it
 should always authenticate with the server e.g.:
 
-  `echo "registry=http://npm-registry.tvg.com/repository/npm/" > .npmrc`
+  `echo "registry=http://npm-registry.tvg.com/repository/npm/" > .npmrc`  
   `echo "always-auth=true" >> .npmrc`
 
 If you have intentions of publishing your application into the registry,
