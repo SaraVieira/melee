@@ -50,27 +50,6 @@
 
 There are more commands available that you can check in the scripts section of your `package.json` file.
 
-
-## Configuration Files
-
-Configuration is loaded with [node-config](https://github.com/lorenwest/node-config).
-Which means that you should read its documentation.
-
-However the tl;dr version is this:
-
-Configuration files are loaded according to the `NODE_ENV` variable,
-has is usual with nodejs apps.
-
-However, since our stack uses the `ENVIRONMENT` variable to let applications
-know the current environment. We must tell the server that
-`NODE_ENV=${ENVIRONMENT}`. This is taken care in the Docker image.
-
-If the environment variable is not set, then the `default.js` file is used, this is also
-our "master" configuration file.
-
-You should also be aware that configuration files cascade, which means that you
-only need to override the default properties on a per environment basis.
-
 ## NPM Repository
 
 We use a private npm registry powered by nexus.
@@ -107,6 +86,26 @@ For that you need to add the following property to the `package.json`:
   "registry": "http://npm-registry.tvg.com/repository/npm_internal/"
 },
 ```
+
+## Configuration Files
+
+Configuration is loaded with [node-config](https://github.com/lorenwest/node-config).
+Which means that you should read its documentation.
+
+However the tl;dr version is this:
+
+Configuration files are loaded according to the `NODE_ENV` variable,
+has is usual with nodejs apps.
+
+However, since our stack uses the `ENVIRONMENT` variable to let applications
+know the current environment. We must tell the server that
+`NODE_ENV=${ENVIRONMENT}`. This is taken care in the Docker image.
+
+If the environment variable is not set, then the `default.js` file is used, this is also
+our "master" configuration file.
+
+You should also be aware that configuration files cascade, which means that you
+only need to override the default properties on a per environment basis.
 
 ## Notes
 
