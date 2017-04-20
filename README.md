@@ -16,7 +16,7 @@
 
 ## How to use this repository
 
-1. Create your repository on bitbucket, in order to get a git url.
+1. Create your repository on bitbucket.
 1. Clone this repository: `git clone git@bitbucket.org:betfair-us/tvg-react-boilerplate tvg-<your-new-app>`
 1. `cd tvg-<your-new-app>`
 1. Change the origin remote to point to your repository: `git remote set-url origin git@bitbucket.org:betfair-us/tvg-<your-new-app>`
@@ -25,7 +25,7 @@
 
 ## You should be aware
 
-* This is opinionated.
+* This boilerplate is opinionated.
 * If you're building a service instead of a React Application, this might be a little overkill.
 * This is a work in progress and there's a lot of room to improve. If you have ideas, open an Issue in bitbucket.
 
@@ -35,6 +35,21 @@
 * Reports. Most commands create reports in the `reports` folder.
 * Cache. If it can be cached, then is cached. You can see that in the `.tmp` folder
 * DLL Support. All vendors are split in a DLL bundle.
+
+## Basic Commands
+
+  | Command          | Description  |
+  |:-----------------|:-------------|
+  | `yarn start`     | Create an optimized bundle and serve with the production server.  |
+  | `yarn start:dev` | Create an development bundle and serve with the development server. |
+  | `yarn build:dll` | Bundle external dependencies into a static bundle to ensure fast Webpack builds.  |
+  | `yarn test`      | Run quality code tools (Flowtype, ESlint and Jest)  |
+  | `yarn eslint`    | Run ESlint checker  |
+  | `yarn flow`      | Run Flowtype checker  |
+  | `yarn jest`      | Run tests with Jest  |
+
+There are more commands available that you can check in the scripts section of your `package.json` file.
+
 
 ## Configuration Files
 
