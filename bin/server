@@ -36,27 +36,23 @@ app.get('/boilerplate/v1/health', (req, res) => res.format({
 app.use('/assets', express.static(path.join(__dirname, '../build')));
 
 // React Application Code
-app.get('*', (req, res) => {
-  const { body, preloadedState } = bundledServer.render(req, res);
-  const manifest = clientManifest.assetsByChunkName;
+app.get('*', (req, res) => bundledServer.render(req, res)
+    .then(({ body, preloadedState }) => res.format({
 
-  return res.format({
+      html: () => res.send(html({
+        manifest: clientManifest.assetsByChunkName,
+        publicPath: '/assets/',
+        body,
+        preloadedState
+      })),
 
-    html: () => res.send(html({
-      manifest,
-      publicPath: '/assets/',
-      body,
-      preloadedState
-    })),
-
-    default: () => res.json({
-      manifest,
-      publicPath: '/assets/',
-      body,
-      preloadedState
-    })
-  });
-});
+      default: () => res.json({
+        manifest: clientManifest.assetsByChunkName,
+        publicPath: '/assets/',
+        body,
+        preloadedState
+      })
+    })));
 
 // Log and handle errors
 app.use(logger.requestError);

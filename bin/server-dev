@@ -20,42 +20,51 @@ const html = require('../src/index.html');
 
 let bundledServer;
 
+
+const app = express();
+const server = http.createServer(app);
+
 const compiler = {
   client: webpack(webpackClientConfig({ optimize: false })),
   server: webpack(webpackServerConfig({ optimize: false }))
 };
 
-// Keep updating with the newly built bundle
-compiler.server.watch({}, (err) => {
-  if (!err) {
-    const file = '../build/server.js';
-    delete require.cache[require.resolve(file)];
-    bundledServer = require(file);
-  }
-
-  logger.info('Finished building server code');
-});
-
-const app = express();
-
-app.set('env', 'DEBUG');
-
-app.use(logger.request);
-app.use(webpackDevMiddleware(compiler.client, {
+const webpackDevMiddlewareInstance = webpackDevMiddleware(compiler.client, {
   publicPath: '/assets/',
   noInfo: true,
   serverSideRender: true,
   hot: true
-}));
+});
+
+webpackDevMiddlewareInstance.waitUntilValid(() => {
+  logger.info('Finished building client code');
+  if (!bundledServer) { webpackDevMiddlewareInstance.invalidate(); }
+  opn(`http://localhost:${server.address().port}`);
+});
+
+// Keep updating with the newly built bundle
+compiler.server.watch({}, (err) => {
+  if (err) { return logger.error(err); }
+
+  const file = '../build/server.js';
+  delete require.cache[require.resolve(file)];
+  bundledServer = require(file);
+
+  return logger.info('Finished building server code');
+});
+
+
+app.set('env', 'DEBUG');
+
+app.use(logger.request);
+app.use(webpackDevMiddlewareInstance);
 app.use(webpackHotMiddleware(compiler.client));
 
 // Return static files before attending to any unknown route
 app.use('/assets', express.static(path.join(__dirname, '../build')));
 
-app.use((req, res) => {
-  const { body, preloadedState } = bundledServer.render(req, res);
-
-  res.format({
+app.use((req, res, next) => bundledServer.render(req, res)
+  .then(({ body, preloadedState }) => res.format({
     html: () => res.send(html({
       body,
       preloadedState,
@@ -65,16 +74,14 @@ app.use((req, res) => {
     })),
 
     default: () => res.json({ body, preloadedState }),
-  });
-});
+  }))
+  .catch(next));
 
 app.use(logger.requestError);
 app.use((err, req, res) => res.send(err));
 
 
-const server = http.createServer(app);
 getPort(8080).then(port => server.listen(port, () => {
   logger.info(`Server started with environment: ${app.settings.env}`);
   logger.info(`Server started on: ${server.address().address}:${server.address().port}`);
-  opn(`http://localhost:${server.address().port}`);
 }));

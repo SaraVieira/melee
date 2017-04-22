@@ -129,11 +129,11 @@ aproba@^1.0.3:
   resolved "http://npm-registry.tvg.com/repository/npm/aproba/-/aproba-1.1.1.tgz#95d3600f07710aa0e9298c726ad5ecf2eacbabab"
 
 are-we-there-yet@~1.1.2:
-  version "1.1.2"
-  resolved "http://npm-registry.tvg.com/repository/npm/are-we-there-yet/-/are-we-there-yet-1.1.2.tgz#80e470e95a084794fe1899262c5667c6e88de1b3"
+  version "1.1.4"
+  resolved "http://npm-registry.tvg.com/repository/npm/are-we-there-yet/-/are-we-there-yet-1.1.4.tgz#bb5dca382bb94f05e15194373d16fd3ba1ca110d"
   dependencies:
     delegates "^1.0.0"
-    readable-stream "^2.0.0 || ^1.1.13"
+    readable-stream "^2.0.6"
 
 argparse@^1.0.7:
   version "1.0.9"
@@ -258,6 +258,10 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "http://npm-registry.tvg.com/repository/npm/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
+async@0.2.x:
+  version "0.2.10"
+  resolved "http://npm-registry.tvg.com/repository/npm/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
+
 async@1.5.0, async@^1.4.0:
   version "1.5.0"
   resolved "http://npm-registry.tvg.com/repository/npm/async/-/async-1.5.0.tgz#2796642723573859565633fc6274444bee2f8ce3"
@@ -365,14 +369,14 @@ babel-core@~6.13.2:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@^7.2.2:
-  version "7.2.2"
-  resolved "http://npm-registry.tvg.com/repository/npm/babel-eslint/-/babel-eslint-7.2.2.tgz#0da2cbe6554fd0fb069f19674f2db2f9c59270ff"
+babel-eslint@^7.2.3:
+  version "7.2.3"
+  resolved "http://npm-registry.tvg.com/repository/npm/babel-eslint/-/babel-eslint-7.2.3.tgz#b2fe2d80126470f5c19442dc757253a897710827"
   dependencies:
     babel-code-frame "^6.22.0"
     babel-traverse "^6.23.1"
     babel-types "^6.23.0"
-    babylon "^6.16.1"
+    babylon "^6.17.0"
 
 babel-generator@^6.11.4, babel-generator@^6.18.0, babel-generator@^6.24.1:
   version "6.24.1"
@@ -508,14 +512,13 @@ babel-jest@^19.0.0:
     babel-plugin-istanbul "^4.0.0"
     babel-preset-jest "^19.0.0"
 
-babel-loader@^6.4.1:
-  version "6.4.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
+babel-loader@^7.0.0:
+  version "7.0.0"
+  resolved "http://npm-registry.tvg.com/repository/npm/babel-loader/-/babel-loader-7.0.0.tgz#2e43a66bee1fff4470533d0402c8a4532fafbaf7"
   dependencies:
     find-cache-dir "^0.1.1"
-    loader-utils "^0.2.16"
+    loader-utils "^1.0.2"
     mkdirp "^0.5.1"
-    object-assign "^4.0.1"
 
 babel-messages@^6.23.0, babel-messages@^6.8.0:
   version "6.23.0"
@@ -1035,9 +1038,9 @@ babel-types@^6.13.0, babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.23
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
 
-babylon@^6.11.0, babylon@^6.13.0, babylon@^6.15.0, babylon@^6.16.1, babylon@^6.7.0:
-  version "6.16.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/babylon/-/babylon-6.16.1.tgz#30c5a22f481978a9e7f8cdfdf496b11d94b404d3"
+babylon@^6.11.0, babylon@^6.13.0, babylon@^6.15.0, babylon@^6.17.0, babylon@^6.7.0:
+  version "6.17.0"
+  resolved "http://npm-registry.tvg.com/repository/npm/babylon/-/babylon-6.17.0.tgz#37da948878488b9c4e3c4038893fa3314b3fc932"
 
 balanced-match@0.1.0:
   version "0.1.0"
@@ -1165,14 +1168,14 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
-browserslist@1.7.5, browserslist@^1.0.0, browserslist@^1.3.6, browserslist@^1.4.0:
+browserslist@1.7.5, browserslist@^1.4.0:
   version "1.7.5"
   resolved "http://npm-registry.tvg.com/repository/npm/browserslist/-/browserslist-1.7.5.tgz#eca4713897b51e444283241facf3985de49a9e2b"
   dependencies:
     caniuse-db "^1.0.30000624"
     electron-to-chromium "^1.2.3"
 
-browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.5.2, browserslist@^1.7.6:
+browserslist@^1.0.0, browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.3.6, browserslist@^1.5.2, browserslist@^1.7.6:
   version "1.7.7"
   resolved "http://npm-registry.tvg.com/repository/npm/browserslist/-/browserslist-1.7.7.tgz#0bd76704258be829b2398bb50e4b62d1a166b0b9"
   dependencies:
@@ -1257,13 +1260,13 @@ caniuse-api@^1.5.2, caniuse-api@^1.5.3:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-db@1.0.30000626, caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000624:
+caniuse-db@1.0.30000626, caniuse-db@^1.0.30000624:
   version "1.0.30000626"
   resolved "http://npm-registry.tvg.com/repository/npm/caniuse-db/-/caniuse-db-1.0.30000626.tgz#44363dc86857efaf758fea9faef6a15ed93d8f33"
 
-caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000655"
-  resolved "http://npm-registry.tvg.com/repository/npm/caniuse-db/-/caniuse-db-1.0.30000655.tgz#e40b6287adc938848d6708ef83d65b5f54ac1874"
+caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
+  version "1.0.30000657"
+  resolved "http://npm-registry.tvg.com/repository/npm/caniuse-db/-/caniuse-db-1.0.30000657.tgz#8192aec745019cc050217ad049c60dad21e3d1bc"
 
 case-sensitive-paths-webpack-plugin@^2.0.0:
   version "2.0.0"
@@ -1468,7 +1471,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.9.0:
+commander@^2.8.1, commander@^2.9.0:
   version "2.9.0"
   resolved "http://npm-registry.tvg.com/repository/npm/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
   dependencies:
@@ -1481,6 +1484,15 @@ commondir@^1.0.1:
 complex.js@2.0.1:
   version "2.0.1"
   resolved "http://npm-registry.tvg.com/repository/npm/complex.js/-/complex.js-2.0.1.tgz#ea90c7a05aeceaf3a376d2c0f6a78421727d6879"
+
+compression-webpack-plugin@^0.4.0:
+  version "0.4.0"
+  resolved "http://npm-registry.tvg.com/repository/npm/compression-webpack-plugin/-/compression-webpack-plugin-0.4.0.tgz#811de04215f811ea6a12d4d8aed8457d758f13ac"
+  dependencies:
+    async "0.2.x"
+    webpack-sources "^0.1.0"
+  optionalDependencies:
+    node-zopfli "^2.0.0"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -1836,6 +1848,12 @@ default-require-extensions@^1.0.0:
   dependencies:
     strip-bom "^2.0.0"
 
+defaults@^1.0.2:
+  version "1.0.3"
+  resolved "http://npm-registry.tvg.com/repository/npm/defaults/-/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d"
+  dependencies:
+    clone "^1.0.2"
+
 define-properties@^1.1.2:
   version "1.1.2"
   resolved "http://npm-registry.tvg.com/repository/npm/define-properties/-/define-properties-1.1.2.tgz#83a73f2fea569898fb737193c8f873caf6d45c94"
@@ -1964,8 +1982,8 @@ ejs@^2.5.6:
   resolved "http://npm-registry.tvg.com/repository/npm/ejs/-/ejs-2.5.6.tgz#479636bfa3fe3b1debd52087f0acb204b4f19c88"
 
 electron-to-chromium@^1.2.3, electron-to-chromium@^1.2.7:
-  version "1.3.4"
-  resolved "http://npm-registry.tvg.com/repository/npm/electron-to-chromium/-/electron-to-chromium-1.3.4.tgz#e51769c0cf550e0cf5aedf6aa2b803a264b3a900"
+  version "1.3.7"
+  resolved "http://npm-registry.tvg.com/repository/npm/electron-to-chromium/-/electron-to-chromium-1.3.7.tgz#9fb75a2417f28114425d364de118d1cfd681432b"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -2155,7 +2173,7 @@ eslint-plugin-compat@^1.0.2:
     caniuse-db "1.0.30000626"
     requireindex "^1.1.0"
 
-eslint-plugin-flowtype@^2.30.4:
+eslint-plugin-flowtype@^2.32.1:
   version "2.32.1"
   resolved "http://npm-registry.tvg.com/repository/npm/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.32.1.tgz#bbee185dedf97e5f63ec975cdcddd199bd2a2501"
   dependencies:
@@ -2242,8 +2260,8 @@ eslint@^3.19.0:
     user-home "^2.0.0"
 
 espree@^3.4.0:
-  version "3.4.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/espree/-/espree-3.4.1.tgz#28a83ab4aaed71ed8fe0f5efe61b76a05c13c4d2"
+  version "3.4.2"
+  resolved "http://npm-registry.tvg.com/repository/npm/espree/-/espree-3.4.2.tgz#38dbdedbedc95b8961a1fbf04734a8f6a9c8c592"
   dependencies:
     acorn "^5.0.1"
     acorn-jsx "^3.0.0"
@@ -2631,8 +2649,8 @@ gather-stream@^1.0.0:
   resolved "http://npm-registry.tvg.com/repository/npm/gather-stream/-/gather-stream-1.0.0.tgz#b33994af457a8115700d410f317733cbe7a0904b"
 
 gauge@~2.7.1:
-  version "2.7.3"
-  resolved "http://npm-registry.tvg.com/repository/npm/gauge/-/gauge-2.7.3.tgz#1c23855f962f17b3ad3d0dc7443f304542edfe09"
+  version "2.7.4"
+  resolved "http://npm-registry.tvg.com/repository/npm/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
   dependencies:
     aproba "^1.0.3"
     console-control-strings "^1.0.0"
@@ -3607,10 +3625,8 @@ jsprim@^1.2.2:
     verror "1.3.6"
 
 jsx-ast-utils@^1.0.0, jsx-ast-utils@^1.3.4:
-  version "1.4.0"
-  resolved "http://npm-registry.tvg.com/repository/npm/jsx-ast-utils/-/jsx-ast-utils-1.4.0.tgz#5afe38868f56bc8cc7aeaef0100ba8c75bd12591"
-  dependencies:
-    object-assign "^4.1.0"
+  version "1.4.1"
+  resolved "http://npm-registry.tvg.com/repository/npm/jsx-ast-utils/-/jsx-ast-utils-1.4.1.tgz#3867213e8dd79bf1e8f2300c0cfc1efb182c0df1"
 
 kind-of@^3.0.2:
   version "3.1.0"
@@ -3673,18 +3689,9 @@ loader-runner@^2.3.0:
   version "2.3.0"
   resolved "http://npm-registry.tvg.com/repository/npm/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
 
-loader-utils@0.2.16:
+loader-utils@0.2.16, loader-utils@^0.2.16, loader-utils@~0.2.13:
   version "0.2.16"
   resolved "http://npm-registry.tvg.com/repository/npm/loader-utils/-/loader-utils-0.2.16.tgz#f08632066ed8282835dff88dfb52704765adee6d"
-  dependencies:
-    big.js "^3.1.3"
-    emojis-list "^2.0.0"
-    json5 "^0.5.0"
-    object-assign "^4.0.1"
-
-loader-utils@^0.2.16, loader-utils@~0.2.13:
-  version "0.2.17"
-  resolved "http://npm-registry.tvg.com/repository/npm/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
   dependencies:
     big.js "^3.1.3"
     emojis-list "^2.0.0"
@@ -4087,7 +4094,7 @@ mute-stream@0.0.5:
   version "0.0.5"
   resolved "http://npm-registry.tvg.com/repository/npm/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
 
-nan@^2.3.0:
+nan@^2.0.0, nan@^2.3.0:
   version "2.6.2"
   resolved "http://npm-registry.tvg.com/repository/npm/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
@@ -4147,7 +4154,7 @@ node-notifier@^5.0.1:
     shellwords "^0.1.0"
     which "^1.2.12"
 
-node-pre-gyp@^0.6.29:
+node-pre-gyp@^0.6.29, node-pre-gyp@^0.6.4:
   version "0.6.34"
   resolved "http://npm-registry.tvg.com/repository/npm/node-pre-gyp/-/node-pre-gyp-0.6.34.tgz#94ad1c798a11d7fc67381b50d47f8cc18d9799f7"
   dependencies:
@@ -4161,6 +4168,15 @@ node-pre-gyp@^0.6.29:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
+node-zopfli@^2.0.0:
+  version "2.0.2"
+  resolved "http://npm-registry.tvg.com/repository/npm/node-zopfli/-/node-zopfli-2.0.2.tgz#a7a473ae92aaea85d4c68d45bbf2c944c46116b8"
+  dependencies:
+    commander "^2.8.1"
+    defaults "^1.0.2"
+    nan "^2.0.0"
+    node-pre-gyp "^0.6.4"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "http://npm-registry.tvg.com/repository/npm/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -4169,8 +4185,8 @@ nopt@^4.0.1:
     osenv "^0.1.4"
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
-  version "2.3.6"
-  resolved "http://npm-registry.tvg.com/repository/npm/normalize-package-data/-/normalize-package-data-2.3.6.tgz#498fa420c96401f787402ba21e600def9f981fff"
+  version "2.3.8"
+  resolved "http://npm-registry.tvg.com/repository/npm/normalize-package-data/-/normalize-package-data-2.3.8.tgz#d819eda2a9dedbd1ffa563ea4071d936782295bb"
   dependencies:
     hosted-git-info "^2.1.4"
     is-builtin-module "^1.0.0"
@@ -4224,6 +4240,10 @@ npmlog@^4.0.2:
     console-control-strings "~1.1.0"
     gauge "~2.7.1"
     set-blocking "~2.0.0"
+
+null-loader@^0.1.1:
+  version "0.1.1"
+  resolved "http://npm-registry.tvg.com/repository/npm/null-loader/-/null-loader-0.1.1.tgz#17be9abfcd3ff0e1512f6fc4afcb1f5039378fae"
 
 num2fraction@^1.2.2:
   version "1.2.2"
@@ -5016,20 +5036,20 @@ postcss-selector-parser@^2.0.0, postcss-selector-parser@^2.1.1, postcss-selector
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss-smart-import@^0.6.11:
-  version "0.6.11"
-  resolved "http://npm-registry.tvg.com/repository/npm/postcss-smart-import/-/postcss-smart-import-0.6.11.tgz#d9982611d063985e91c0a2e2462ed5c068d8bb8e"
+postcss-smart-import@^0.6.12:
+  version "0.6.12"
+  resolved "http://npm-registry.tvg.com/repository/npm/postcss-smart-import/-/postcss-smart-import-0.6.12.tgz#6bd50846547383d15332206615265b87b4a6ae89"
   dependencies:
     babel-runtime "^6.23.0"
     lodash "^4.17.4"
     object-assign "^4.1.1"
-    postcss "^5.2.16"
+    postcss "^5.2.17"
     postcss-sass "^0.1.0"
     postcss-scss "^0.4.1"
     postcss-value-parser "^3.3.0"
     promise-each "^2.2.0"
     read-cache "^1.0.0"
-    resolve "^1.3.2"
+    resolve "^1.3.3"
     sugarss "^0.2.0"
 
 postcss-svgo@^2.1.1:
@@ -5061,7 +5081,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.18, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.20, postcss@^5.0.21, postcss@^5.0.3, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.1.1, postcss@^5.2.0, postcss@^5.2.12, postcss@^5.2.13, postcss@^5.2.15, postcss@^5.2.16, postcss@^5.2.4, postcss@^5.2.6:
+postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.18, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.20, postcss@^5.0.21, postcss@^5.0.3, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.1.1, postcss@^5.2.0, postcss@^5.2.12, postcss@^5.2.13, postcss@^5.2.15, postcss@^5.2.16, postcss@^5.2.17, postcss@^5.2.4, postcss@^5.2.6:
   version "5.2.17"
   resolved "http://npm-registry.tvg.com/repository/npm/postcss/-/postcss-5.2.17.tgz#cf4f597b864d65c8a492b2eabe9d706c879c388b"
   dependencies:
@@ -5365,7 +5385,7 @@ readable-stream@^1.0.33, readable-stream@~1.1.9:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-"readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.1.4, readable-stream@^2.2.2, readable-stream@^2.2.6:
+readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.2.2, readable-stream@^2.2.6:
   version "2.2.9"
   resolved "http://npm-registry.tvg.com/repository/npm/readable-stream/-/readable-stream-2.2.9.tgz#cf78ec6f4a6d1eb43d26488cac97f042e74b7fc8"
   dependencies:
@@ -5576,16 +5596,16 @@ resolve-from@^2.0.0:
   resolved "http://npm-registry.tvg.com/repository/npm/resolve-from/-/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
 
 resolve-pathname@^2.0.0:
-  version "2.0.2"
-  resolved "http://npm-registry.tvg.com/repository/npm/resolve-pathname/-/resolve-pathname-2.0.2.tgz#e55c016eb2e9df1de98e85002282bfb38c630436"
+  version "2.1.0"
+  resolved "http://npm-registry.tvg.com/repository/npm/resolve-pathname/-/resolve-pathname-2.1.0.tgz#e8358801b86b83b17560d4e3c382d7aef2100944"
 
 resolve@1.1.7:
   version "1.1.7"
   resolved "http://npm-registry.tvg.com/repository/npm/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-resolve@^1.1.6, resolve@^1.2.0, resolve@^1.3.2:
-  version "1.3.2"
-  resolved "http://npm-registry.tvg.com/repository/npm/resolve/-/resolve-1.3.2.tgz#1f0442c9e0cbb8136e87b9305f932f46c7f28235"
+resolve@^1.1.6, resolve@^1.2.0, resolve@^1.3.3:
+  version "1.3.3"
+  resolved "http://npm-registry.tvg.com/repository/npm/resolve/-/resolve-1.3.3.tgz#655907c3469a8680dc2de3a275a8fdd69691f0e5"
   dependencies:
     path-parse "^1.0.5"
 
@@ -6252,7 +6272,7 @@ tvg-conf@^0.3.0:
     lodash "^4.17.2"
     require-dir "^0.3.1"
 
-tvg-mediator@^0.6.0:
+tvg-mediator@^0.6.8:
   version "0.6.8"
   resolved "http://npm-registry.tvg.com/repository/npm/tvg-mediator/-/tvg-mediator-0.6.8.tgz#5aeeb9ffd5c56b299143ef64d88ebefab1d55322"
 
@@ -6260,9 +6280,9 @@ tvg-mediator@^0.6.0:
   version "0.6.8"
   resolved "git+ssh://git@tvg.bitbucket.org:betfair-us/tvg-mediator.git#7a08ffeaf520d71636a1badf8787dbf157b0aa90"
 
-tvg-ui-bootstrap@^4.1.3:
-  version "4.1.4"
-  resolved "http://npm-registry.tvg.com/repository/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-4.1.4.tgz#d3a12c7e2423946eab9cf6da75cfad3c66cf03e5"
+tvg-ui-bootstrap@^4.1.8:
+  version "4.1.8"
+  resolved "http://npm-registry.tvg.com/repository/npm/tvg-ui-bootstrap/-/tvg-ui-bootstrap-4.1.8.tgz#f9086ab2ffc273d3ee5083889f1f0fa40bd3ae78"
   dependencies:
     axios "0.16.0"
     classnames "2.2.5"
@@ -6388,8 +6408,8 @@ validate-npm-package-license@^3.0.1:
     spdx-expression-parse "~1.0.0"
 
 value-equal@^0.2.0:
-  version "0.2.0"
-  resolved "http://npm-registry.tvg.com/repository/npm/value-equal/-/value-equal-0.2.0.tgz#4f41c60a3fc011139a2ec3d3340a8998ae8b69c0"
+  version "0.2.1"
+  resolved "http://npm-registry.tvg.com/repository/npm/value-equal/-/value-equal-0.2.1.tgz#c220a304361fce6994dbbedaa3c7e1a1b895871d"
 
 vary@~1.1.0:
   version "1.1.1"
@@ -6462,9 +6482,9 @@ webpack-bundle-analyzer@^2.4.0:
     mkdirp "^0.5.1"
     opener "^1.4.3"
 
-webpack-dev-middleware@^1.10.1:
-  version "1.10.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/webpack-dev-middleware/-/webpack-dev-middleware-1.10.1.tgz#c6b4cf428139cf1aefbe06a0c00fdb4f8da2f893"
+webpack-dev-middleware@^1.10.2:
+  version "1.10.2"
+  resolved "http://npm-registry.tvg.com/repository/npm/webpack-dev-middleware/-/webpack-dev-middleware-1.10.2.tgz#2e252ce1dfb020dbda1ccb37df26f30ab014dbd1"
   dependencies:
     memory-fs "~0.4.1"
     mime "^1.3.4"

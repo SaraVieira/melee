@@ -6,6 +6,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const HappyPack = require('happypack');
+const happyThreadPool = require('./happypack/threadPool');
 
 const toBoolean = (x) => {
   if (x === 'true') { return true; }
@@ -62,8 +63,24 @@ module.exports = (opts = { optimize: false }) => {
           loader: 'babel-loader',
           options: { cacheDirectory: path.join(dir.TMP, 'babel') },
         }],
-        tempDir: path.resolve(dir.TMP, 'happypack'),
-        enabled: true,
+        threadPool: happyThreadPool,
+        tempDir: path.resolve(dir.TMP, 'happypack/js'),
+      }),
+      new HappyPack({
+        id: 'css',
+        loaders: [{
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            camelCase: true,
+            sourceMaps: true,
+            importLoaders: 1,
+            localIdentName: '[local]-[hash:base64:5]',
+          },
+        },
+        { loader: 'postcss-loader' }],
+        threadPool: happyThreadPool,
+        tempDir: path.resolve(dir.TMP, 'happypack/css'),
       }),
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
@@ -89,23 +106,10 @@ module.exports = (opts = { optimize: false }) => {
         { test: /\.svg$/, loaders: ['babel-loader', 'react-svg-loader'], include: dir.SOURCE },
         { test: /\.(jpe?g|png|gif)/, loader: 'url-loader', options: { limit: 10000 } },
         { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
-        {
-          test: /\.css$/,
+        { test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: true,
-                  camelCase: true,
-                  sourceMaps: true,
-                  importLoaders: 1,
-                  localIdentName: '[local]-[hash:base64:5]',
-                },
-              },
-              { loader: 'postcss-loader' },
-            ],
+            use: ['happypack/loader?id=css'],
           }),
         },
       ].filter(Boolean),
@@ -117,7 +121,7 @@ module.exports = (opts = { optimize: false }) => {
 
     cache: !options.optimize,
 
-    bail: true,
+    bail: options.optimize,
 
   };
 };

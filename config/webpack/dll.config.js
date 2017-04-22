@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NyanProgressPlugin = require('nyan-progress-webpack-plugin');
 const HappyPack = require('happypack');
+const happyThreadPool = require('./happypack/threadPool');
 const clientConfig = require('./client.config');
 
 const dir = {
@@ -39,7 +40,7 @@ module.exports = () => ({
   },
 
   plugins: [
-    new NyanProgressPlugin({ }),
+    new NyanProgressPlugin({ restoreCursorPosition: true }),
     new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
     new HappyPack({
       id: 'js',
@@ -48,7 +49,23 @@ module.exports = () => ({
         options: { cacheDirectory: path.join(dir.TMP, 'babel') },
       }],
       tempDir: path.resolve(dir.TMP, 'happypack'),
-      enabled: true,
+      threadPool: happyThreadPool,
+    }),
+    new HappyPack({
+      id: 'css',
+      loaders: [{
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          camelCase: true,
+          sourceMaps: true,
+          importLoaders: 1,
+          localIdentName: '[local]-[hash:base64:5]',
+        },
+      },
+      { loader: 'postcss-loader' }],
+      tempDir: path.resolve(dir.TMP, 'happypack/css'),
+      threadPool: happyThreadPool,
     }),
     new webpack.DllPlugin({
       name: '[name]',

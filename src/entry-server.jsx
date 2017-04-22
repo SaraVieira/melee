@@ -10,19 +10,19 @@ import type { $Request, $Response } from 'express';
 import configureStore from './configureStore';
 import App from './pages';
 
-export function render(req: $Request, res: $Response): { body: string, preloadedState: * } {
-  const store = configureStore();
-
-  return {
-    body: renderToString(
-      <Provider store={store} >
+export function render(req: $Request, res: $Response): Promise<{ body: string, preloadedState: * }> {
+  return new Promise((resolve) => {
+    const preloadedState = configureStore();
+    const body = renderToString(
+      <Provider store={preloadedState} >
         <Router location={req.url} context={{ req, res }}>
           <App />
         </Router>
       </Provider>,
-    ),
-    preloadedState: store.getState(),
-  };
+    );
+
+    return resolve({ body, preloadedState });
+  });
 }
 
 export function renderError(req: $Request, res: $Response): string {
