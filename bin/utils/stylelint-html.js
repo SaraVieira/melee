@@ -1,6 +1,11 @@
-const replaceRuleLink = (text, rule) => text.replace(rule, `<a href="https://stylelint.io/user-guide/rules/${rule}/">${rule}</a>`);
+const replaceRuleLink = (text, rule) =>
+  text.replace(
+    rule,
+    `<a href="https://stylelint.io/user-guide/rules/${rule}/">${rule}</a>`,
+  );
 
-const warning = warn => `<li>
+const warning = warn =>
+  `<li>
   <p>
     <span class="label label-${warn.severity === 'error' ? 'danger' : 'warning'}">${warn.severity === 'error' ? 'Error' : 'Warning'}</span>
     <strong>${warn.line}:${warn.column}</strong>
@@ -8,17 +13,21 @@ const warning = warn => `<li>
   </p>
 </li>`;
 
-const node = result => `
+const node = result =>
+  `
   <li class="row ${result.warnings.length ? 'collapsable' : ''} alert alert-${result.errored ? 'danger' : 'success'} ">
     <div>
       <span class="badge">${result.warnings.length}</span>
       <strong>${result.source}</strong>
     </div>
-    <ul class="error-list hidden">${result.warnings.map(warning).join('\n')}</ul>
+    <ul class="error-list hidden">${result.warnings
+    .map(warning)
+    .join('\n')}</ul>
   </li>
 `;
 
-module.exports = results => `<!DOCTYPE html>
+module.exports = results =>
+  `<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="utf-8">

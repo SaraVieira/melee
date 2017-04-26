@@ -15,8 +15,8 @@ const cli = new CLIEngine({
   ignorePath: '.eslintignore',
   extensions: ['.js', '.jsx'],
   parserOptions: {
-    codeFrame: false
-  }
+    codeFrame: false,
+  },
 });
 
 const report = cli.executeOnFiles(['.']);
@@ -25,19 +25,19 @@ const formatters = {
   html: cli.getFormatter('html'),
 };
 
-mkdirp(outputDir, (err) => {
-  if (err) { throw err; }
-  fs.writeFile(
-    outputFile,
-    formatters.html(report.results),
-    (error) => {
-      if (error) { throw error; }
-
-      process.stdout.write(formatters.stylish(report.results));
-      // We need to fail if eslint fails
-      if (report.errorCount) {
-        process.exit(1);
-      }
+mkdirp(outputDir, err => {
+  if (err) {
+    throw err;
+  }
+  fs.writeFile(outputFile, formatters.html(report.results), error => {
+    if (error) {
+      throw error;
     }
-  );
+
+    process.stdout.write(formatters.stylish(report.results));
+    // We need to fail if eslint fails
+    if (report.errorCount) {
+      process.exit(1);
+    }
+  });
 });

@@ -44,26 +44,30 @@ module.exports = () => ({
     new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
     new HappyPack({
       id: 'js',
-      loaders: [{
-        loader: 'babel-loader',
-        options: { cacheDirectory: path.join(dir.TMP, 'babel') },
-      }],
+      loaders: [
+        {
+          loader: 'babel-loader',
+          options: { cacheDirectory: path.join(dir.TMP, 'babel') },
+        },
+      ],
       tempDir: path.resolve(dir.TMP, 'happypack'),
       threadPool: happyThreadPool,
     }),
     new HappyPack({
       id: 'css',
-      loaders: [{
-        loader: 'css-loader',
-        options: {
-          modules: true,
-          camelCase: true,
-          sourceMaps: true,
-          importLoaders: 1,
-          localIdentName: '[local]-[hash:base64:5]',
+      loaders: [
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            camelCase: true,
+            sourceMaps: true,
+            importLoaders: 1,
+            localIdentName: '[local]-[hash:base64:5]',
+          },
         },
-      },
-      { loader: 'postcss-loader' }],
+        { loader: 'postcss-loader' },
+      ],
       tempDir: path.resolve(dir.TMP, 'happypack/css'),
       threadPool: happyThreadPool,
     }),
@@ -83,5 +87,4 @@ module.exports = () => ({
   stats: 'errors-only',
   bail: true,
   cache: true,
-
 });

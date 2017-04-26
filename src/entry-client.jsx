@@ -13,23 +13,20 @@ delete window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
 
 const store = configureStore(preloadedState);
 
-const hotRender = Component => render(
-  <Provider store={store}>
-    <Router>
-      <Component />
-    </Router>
-  </Provider>,
-  document.getElementById('app'),
-);
+const hotRender = Component =>
+  render(
+    <Provider store={store}>
+      <Router>
+        <Component />
+      </Router>
+    </Provider>,
+    document.getElementById('app'),
+  );
 
 if (module.hot) {
   module.hot.accept('./pages', () => {
-    System
-      .import('./pages')
-      .then(AppModule => hotRender(AppModule.default));
-    System
-      .import('./configureStore')
-      .then(() => hotRender(App));
+    System.import('./pages').then(AppModule => hotRender(AppModule.default));
+    System.import('./configureStore').then(() => hotRender(App));
   });
 }
 

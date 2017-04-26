@@ -8,9 +8,13 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const HappyPack = require('happypack');
 const happyThreadPool = require('./happypack/threadPool');
 
-const toBoolean = (x) => {
-  if (x === 'true') { return true; }
-  if (x === 'false') { return false; }
+const toBoolean = x => {
+  if (x === 'true') {
+    return true;
+  }
+  if (x === 'false') {
+    return false;
+  }
   return Boolean(x);
 };
 
@@ -26,16 +30,12 @@ module.exports = (opts = { optimize: false }) => {
   });
 
   return {
-
     name: 'server',
 
     target: 'node',
 
     entry: {
-      server: [
-        path.resolve(dir.SOURCE, 'entry-server.jsx'),
-      ].filter(Boolean),
-
+      server: [path.resolve(dir.SOURCE, 'entry-server.jsx')].filter(Boolean),
     },
 
     output: {
@@ -59,26 +59,30 @@ module.exports = (opts = { optimize: false }) => {
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
       new HappyPack({
         id: 'js',
-        loaders: [{
-          loader: 'babel-loader',
-          options: { cacheDirectory: path.join(dir.TMP, 'babel') },
-        }],
+        loaders: [
+          {
+            loader: 'babel-loader',
+            options: { cacheDirectory: path.join(dir.TMP, 'babel') },
+          },
+        ],
         threadPool: happyThreadPool,
         tempDir: path.resolve(dir.TMP, 'happypack/js'),
       }),
       new HappyPack({
         id: 'css',
-        loaders: [{
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            camelCase: true,
-            sourceMaps: true,
-            importLoaders: 1,
-            localIdentName: '[local]-[hash:base64:5]',
+        loaders: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              sourceMaps: true,
+              importLoaders: 1,
+              localIdentName: '[local]-[hash:base64:5]',
+            },
           },
-        },
-        { loader: 'postcss-loader' }],
+          { loader: 'postcss-loader' },
+        ],
         threadPool: happyThreadPool,
         tempDir: path.resolve(dir.TMP, 'happypack/css'),
       }),
@@ -97,16 +101,24 @@ module.exports = (opts = { optimize: false }) => {
       //   context: process.cwd(),
       //   manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),
       // }),
-
     ].filter(Boolean),
 
     module: {
       rules: [
         { test: /\.jsx?$/, loader: 'happypack/loader?id=js' },
-        { test: /\.svg$/, loaders: ['babel-loader', 'react-svg-loader'], include: dir.SOURCE },
-        { test: /\.(jpe?g|png|gif)/, loader: 'url-loader', options: { limit: 10000 } },
+        {
+          test: /\.svg$/,
+          loaders: ['babel-loader', 'react-svg-loader'],
+          include: dir.SOURCE,
+        },
+        {
+          test: /\.(jpe?g|png|gif)/,
+          loader: 'url-loader',
+          options: { limit: 10000 },
+        },
         { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
-        { test: /\.css$/,
+        {
+          test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: ['happypack/loader?id=css'],
@@ -115,13 +127,10 @@ module.exports = (opts = { optimize: false }) => {
       ].filter(Boolean),
     },
 
-    devtool: options.optimize ?
-      'source-map' :
-      'cheap-eval-source-map',
+    devtool: options.optimize ? 'source-map' : 'cheap-eval-source-map',
 
     cache: !options.optimize,
 
     bail: options.optimize,
-
   };
 };

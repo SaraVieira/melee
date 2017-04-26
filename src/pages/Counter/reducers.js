@@ -3,8 +3,8 @@
 import type { Action } from './actions';
 
 export type State = {
-  value: number
-}
+  value: number,
+};
 
 export default (state: State = { value: 0 }, action: Action): State => {
   switch (action.type) {

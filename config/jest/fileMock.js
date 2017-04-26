@@ -1,1 +1,1 @@
-module.exports = 'fileMock-resolved-mock';
+module.exports = 'FileMockResolvedMock';

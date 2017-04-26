@@ -20,31 +20,34 @@ const html = require('../src/index.html');
 
 let bundledServer;
 
-
 const app = express();
 const server = http.createServer(app);
 
 const compiler = {
   client: webpack(webpackClientConfig({ optimize: false })),
-  server: webpack(webpackServerConfig({ optimize: false }))
+  server: webpack(webpackServerConfig({ optimize: false })),
 };
 
 const webpackDevMiddlewareInstance = webpackDevMiddleware(compiler.client, {
   publicPath: '/assets/',
   noInfo: true,
   serverSideRender: true,
-  hot: true
+  hot: true,
 });
 
 webpackDevMiddlewareInstance.waitUntilValid(() => {
   logger.info('Finished building client code');
-  if (!bundledServer) { webpackDevMiddlewareInstance.invalidate(); }
+  if (!bundledServer) {
+    webpackDevMiddlewareInstance.invalidate();
+  }
   opn(`http://localhost:${server.address().port}`);
 });
 
 // Keep updating with the newly built bundle
-compiler.server.watch({}, (err) => {
-  if (err) { return logger.error(err); }
+compiler.server.watch({}, err => {
+  if (err) {
+    return logger.error(err);
+  }
 
   const file = '../build/server.js';
   delete require.cache[require.resolve(file)];
@@ -52,7 +55,6 @@ compiler.server.watch({}, (err) => {
 
   return logger.info('Finished building server code');
 });
-
 
 app.set('env', 'DEBUG');
 
@@ -63,25 +65,35 @@ app.use(webpackHotMiddleware(compiler.client));
 // Return static files before attending to any unknown route
 app.use('/assets', express.static(path.join(__dirname, '../build')));
 
-app.use((req, res, next) => bundledServer.render(req, res)
-  .then(({ body, preloadedState }) => res.format({
-    html: () => res.send(html({
-      body,
-      preloadedState,
-      manifest: res.locals.webpackStats.toJson().assetsByChunkName,
-      publicPath: '/assets/',
-      dll: 'vendors.dll.js'
-    })),
+app.use((req, res, next) =>
+  bundledServer
+    .render(req, res)
+    .then(({ body, preloadedState }) =>
+      res.format({
+        html: () =>
+          res.send(
+            html({
+              body,
+              preloadedState,
+              manifest: res.locals.webpackStats.toJson().assetsByChunkName,
+              publicPath: '/assets/',
+              dll: 'vendors.dll.js',
+            }),
+          ),
 
-    default: () => res.json({ body, preloadedState }),
-  }))
-  .catch(next));
+        default: () => res.json({ body, preloadedState }),
+      }),
+    )
+    .catch(next),
+);
 
 app.use(logger.requestError);
 app.use((err, req, res) => res.send(err));
 
-
-getPort(8080).then(port => server.listen(port, () => {
-  logger.info(`Server started with environment: ${app.settings.env}`);
-  logger.info(`Server started on: ${server.address().address}:${server.address().port}`);
-}));
+getPort(8080).then(port =>
+  server.listen(port, () => {
+    const { address } = server.address();
+    logger.info(`Server started with environment: ${app.settings.env}`);
+    logger.info(`Server started on: ${address}:${port}`);
+  }),
+);

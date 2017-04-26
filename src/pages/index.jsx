@@ -1,6 +1,5 @@
 // @flow
 
-
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import 'tvg-ui-bootstrap/assets/fonts/LinotypeUnivers-CondBold/LinotypeUnivers-CondBold.css';

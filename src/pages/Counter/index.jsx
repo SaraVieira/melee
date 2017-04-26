@@ -19,17 +19,19 @@ import styles from './styles.css';
 type Props = {
   value: number,
   onIncrement: ActionCreator<IncrementAction, *>,
-  onDecrement: ActionCreator<DecrementAction, *>
-}
+  onDecrement: ActionCreator<DecrementAction, *>,
+};
 
-const mapStateToProps = (state: State): CounterState => (state.counter);
+const mapStateToProps = (state: State): CounterState => state.counter;
 
 const mapDispatchToProps = {
   onIncrement: actions.increment,
   onDecrement: actions.decrement,
 };
 
-const Counter = ({ onIncrement, onDecrement, value = 0 }: Props): Element<*> => (
+const Counter = ({ onIncrement, onDecrement, value = 6 }: Props): Element<
+  *
+> => (
   <div className={styles.counter}>
     <Button onClick={onIncrement}>+</Button>
     <Button onClick={onDecrement}>-</Button>
@@ -38,7 +40,4 @@ const Counter = ({ onIncrement, onDecrement, value = 0 }: Props): Element<*> => 
   </div>
 );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

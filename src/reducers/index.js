@@ -6,7 +6,7 @@ import type { State as CounterState } from '../pages/Counter/reducers';
 
 export type State = {
   root: {},
-  counter: CounterState
+  counter: CounterState,
 };
 
 export default combineReducers({

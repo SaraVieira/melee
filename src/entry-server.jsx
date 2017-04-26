@@ -6,15 +6,20 @@ import { StaticRouter as Router } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
 import type { $Request, $Response } from 'express';
-
+import type { Store } from 'redux';
 import configureStore from './configureStore';
 import App from './pages';
 
-export function render(req: $Request, res: $Response): Promise<{ body: string, preloadedState: * }> {
-  return new Promise((resolve) => {
+type Response = {
+  body: string,
+  preloadedState: Store<*, *>,
+};
+
+export function render(req: $Request, res: $Response): Promise<Response> {
+  return new Promise(resolve => {
     const preloadedState = configureStore();
     const body = renderToString(
-      <Provider store={preloadedState} >
+      <Provider store={preloadedState}>
         <Router location={req.url} context={{ req, res }}>
           <App />
         </Router>

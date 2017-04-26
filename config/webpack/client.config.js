@@ -6,13 +6,18 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HappyPack = require('happypack');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 const happyThreadPool = require('./happypack/threadPool');
 
-const toBoolean = (x) => {
-  if (x === 'true') { return true; }
-  if (x === 'false') { return false; }
+const toBoolean = x => {
+  if (x === 'true') {
+    return true;
+  }
+  if (x === 'false') {
+    return false;
+  }
   return Boolean(x);
 };
 
@@ -29,7 +34,6 @@ module.exports = (opts = { optimize: false }) => {
   });
 
   return {
-
     name: 'client',
 
     target: 'web',
@@ -58,35 +62,40 @@ module.exports = (opts = { optimize: false }) => {
       !options.optimize && new webpack.HotModuleReplacementPlugin(),
       !options.optimize && new webpack.NamedModulesPlugin(),
       !options.optimize && new webpack.NoEmitOnErrorsPlugin(),
-      !options.optimize && new webpack.DllReferencePlugin({
-        context: process.cwd(),
-        manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),
-      }),
+      !options.optimize &&
+        new webpack.DllReferencePlugin({
+          context: process.cwd(),
+          manifest: path.join(dir.BUILD, 'vendors.dll.manifest.json'),
+        }),
       new CircularDependencyPlugin({ failOnError: options.optimize }),
       new CaseSensitivePathsPlugin(),
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
       new HappyPack({
         id: 'js',
-        loaders: [{
-          loader: 'babel-loader',
-          options: { cacheDirectory: path.join(dir.TMP, 'babel') },
-        }],
+        loaders: [
+          {
+            loader: 'babel-loader',
+            options: { cacheDirectory: path.join(dir.TMP, 'babel') },
+          },
+        ],
         threadPool: happyThreadPool,
         tempDir: path.resolve(dir.TMP, 'happypack/js'),
       }),
       new HappyPack({
         id: 'css',
-        loaders: [{
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            camelCase: true,
-            sourceMaps: true,
-            importLoaders: 1,
-            localIdentName: '[local]-[hash:base64:5]',
+        loaders: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              sourceMaps: true,
+              importLoaders: 1,
+              localIdentName: '[local]-[hash:base64:5]',
+            },
           },
-        },
-        { loader: 'postcss-loader' }],
+          { loader: 'postcss-loader' },
+        ],
         threadPool: happyThreadPool,
         tempDir: path.resolve(dir.TMP, 'happypack/css'),
       }),
@@ -101,26 +110,31 @@ module.exports = (opts = { optimize: false }) => {
         disable: !options.optimize,
       }),
       options.optimize && new LodashModuleReplacementPlugin(),
-      options.optimize && new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendors',
-        filename: options.optimize ? 'chunk.[name].[hash].js' : 'chunk.[name].js',
-        minChunks: module => /node_modules/.test(module.resource),
-      }),
-      options.optimize && new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          screw_ie8: true, // React doesn't support IE8
-          warnings: false,
-          global_defs: { DEVELOPMENT: !options.optimize },
-        },
-        mangle: { screw_ie8: true },
-        output: { comments: false, screw_ie8: true },
-      }),
+      options.optimize &&
+        new webpack.optimize.CommonsChunkPlugin({
+          name: 'vendors',
+          filename: options.optimize
+            ? 'chunk.[name].[hash].js'
+            : 'chunk.[name].js',
+          minChunks: module => /node_modules/.test(module.resource),
+        }),
+      options.optimize &&
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            screw_ie8: true, // React doesn't support IE8
+            warnings: false,
+            global_defs: { DEVELOPMENT: !options.optimize },
+          },
+          mangle: { screw_ie8: true },
+          output: { comments: false, screw_ie8: true },
+        }),
 
-      options.optimize && new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        reportFilename: path.resolve(dir.REPORTS, 'bundle/index.html'),
-        openAnalyzer: false,
-      }),
+      options.optimize &&
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: path.resolve(dir.REPORTS, 'bundle/index.html'),
+          openAnalyzer: false,
+        }),
 
       new StatsWriterPlugin({ filename: 'client.manifest.json' }),
     ].filter(Boolean),
@@ -128,10 +142,19 @@ module.exports = (opts = { optimize: false }) => {
     module: {
       rules: [
         { test: /\.jsx?$/, loader: 'happypack/loader?id=js' },
-        { test: /\.svg$/, loaders: ['babel-loader', 'react-svg-loader'], include: dir.SOURCE },
-        { test: /\.(jpe?g|png|gif)/, loader: 'url-loader', options: { limit: 10000 } },
+        {
+          test: /\.svg$/,
+          loaders: ['babel-loader', 'react-svg-loader'],
+          include: dir.SOURCE,
+        },
+        {
+          test: /\.(jpe?g|png|gif)/,
+          loader: 'url-loader',
+          options: { limit: 10000 },
+        },
         { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
-        { test: /\.css$/,
+        {
+          test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: ['happypack/loader?id=css'],
@@ -140,13 +163,10 @@ module.exports = (opts = { optimize: false }) => {
       ].filter(Boolean),
     },
 
-    devtool: options.optimize ?
-      'source-map' :
-      'cheap-eval-source-map',
+    devtool: options.optimize ? 'source-map' : 'cheap-eval-source-map',
 
     cache: !options.optimize,
 
     bail: true,
-
   };
 };

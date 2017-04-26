@@ -14,28 +14,40 @@ const outputFile = path.join(outputDir, 'index.html');
 
 const formatters = {
   verbose: require('stylelint/lib/formatters/stringFormatter'),
-  html: require('./utils/stylelint-html')
+  html: require('./utils/stylelint-html'),
 };
 
-stylelint.lint({
-  files: './src/**/*.css',
-  formatter: (result) => {
-    process.stdout.write(formatters.verbose(result));
-    return result;
-  },
-  cache: true,
-  cacheLocation
-})
-.then(result => new Promise((resolve, reject) => {
-  mkdirp(outputDir, (err) => {
-    if (err) { return reject(err); }
-    fs.writeFile(outputFile, formatters.html(result.results), (error) => {
-      if (error) { return reject(error); }
-      return resolve(result);
-    });
+stylelint
+  .lint({
+    files: './src/**/*.css',
+    formatter: result => {
+      process.stdout.write(formatters.verbose(result));
+      return result;
+    },
+    cache: true,
+    cacheLocation,
+  })
+  .then(
+    result =>
+      new Promise((resolve, reject) => {
+        mkdirp(outputDir, err => {
+          if (err) {
+            return reject(err);
+          }
+          fs.writeFile(outputFile, formatters.html(result.results), error => {
+            if (error) {
+              return reject(error);
+            }
+            return resolve(result);
+          });
+        });
+      }),
+  )
+  .then(result => {
+    if (result.errored) {
+      process.exit(1);
+    }
+  })
+  .catch(err => {
+    throw err;
   });
-}))
-.then((result) => {
-  if (result.errored) { process.exit(1); }
-})
-.catch((err) => { throw err; });

@@ -3,9 +3,13 @@ module.exports = {
   "extends": [
     "airbnb",
     "plugin:flowtype/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
   ],
   "env": {
+    "es6": true,
     "browser": true,
     "node": true,
     "jest/globals": true
@@ -16,7 +20,8 @@ module.exports = {
     "import",
     "flowtype",
     "compat",
-    "jest"
+    "jest",
+    "prettier"
   ],
   "rules": {
     "compat/compat": 2,
@@ -30,6 +35,14 @@ module.exports = {
           "config/**/*.js",
           "bin/*"
         ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "parser": "flow",
+        "singleQuote": true,
+        "trailingComma": "all",
       }
     ]
   },

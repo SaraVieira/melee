@@ -9,9 +9,9 @@ module.exports = ({ json }) => {
   const expressFormat = !json;
   const meta = json;
 
-  const winstonInstance = json ?
-      winstonGKE(new winston.Logger()) :
-      new winston.Logger({
+  const winstonInstance = json
+    ? winstonGKE(new winston.Logger())
+    : new winston.Logger({
         transports: [new winston.transports.Console({ json, colorize })],
       });
 
