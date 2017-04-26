@@ -25,6 +25,7 @@ module.exports = ({
   <head>
     <meta charset="utf-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     ${walkManifest(manifest, file => file.endsWith('.css'))
     .map(link(publicPath))
     .join('\n')}

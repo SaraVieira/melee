@@ -2,6 +2,7 @@
 
 /* eslint-disable comma-dangle, import/no-dynamic-require, global-require */
 const path = require('path');
+const config = require('config');
 const express = require('express');
 const http = require('http');
 const getPort = require('get-port');
@@ -78,13 +79,14 @@ app.use((req, res, next) =>
               manifest: res.locals.webpackStats.toJson().assetsByChunkName,
               publicPath: '/assets/',
               dll: 'vendors.dll.js',
-            }),
+              title: config.get('title'),
+            })
           ),
 
         default: () => res.json({ body, preloadedState }),
-      }),
+      })
     )
-    .catch(next),
+    .catch(next)
 );
 
 app.use(logger.requestError);
@@ -95,5 +97,5 @@ getPort(8080).then(port =>
     const { address } = server.address();
     logger.info(`Server started with environment: ${app.settings.env}`);
     logger.info(`Server started on: ${address}:${port}`);
-  }),
+  })
 );

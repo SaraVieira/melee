@@ -31,7 +31,7 @@ app.get('/boilerplate/v1/health', (req, res) =>
     html: () => res.send('<p>OK</p>'),
     json: () => res.json({ status: 'OK' }),
     default: () => res.json({ status: 'OK' }),
-  }),
+  })
 );
 
 // Static Files
@@ -47,8 +47,9 @@ app.get('*', (req, res) =>
             manifest: clientManifest.assetsByChunkName,
             publicPath: '/assets/',
             body,
+            title: config.get('title'),
             preloadedState,
-          }),
+          })
         ),
 
       default: () =>
@@ -58,8 +59,8 @@ app.get('*', (req, res) =>
           body,
           preloadedState,
         }),
-    }),
-  ),
+    })
+  )
 );
 
 // Log and handle errors
@@ -70,15 +71,15 @@ const server = http.createServer(app);
 
 server.listen(config.get('port'), () => {
   logger.debug(
-    `Express started in production mode: ${app.settings.env === 'production'}`,
+    `Express started in production mode: ${app.settings.env === 'production'}`
   );
   logger.debug(
     `Server loaded configuration for environment: ${config.util.getEnv('NODE_ENV')}`,
-    config,
+    config
   );
   logger.info(
     `Server started on: ${server.address().address}:${server.address().port}`,
-    server.address(),
+    server.address()
   );
 
   // Fetch Google Cloud Metadata
