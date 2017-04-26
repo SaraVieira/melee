@@ -42,7 +42,7 @@ module.exports = {
       {
         "parser": "flow",
         "singleQuote": true,
-        "trailingComma": "all",
+        "trailingComma": "es5",
       }
     ]
   },

@@ -29,19 +29,24 @@ stylelint
   })
   .then(
     result =>
-      new Promise((resolve, reject) => {
+      new Promise((resolve, reject) =>
         mkdirp(outputDir, err => {
           if (err) {
             return reject(err);
           }
-          fs.writeFile(outputFile, formatters.html(result.results), error => {
-            if (error) {
-              return reject(error);
+
+          return fs.writeFile(
+            outputFile,
+            formatters.html(result.results),
+            error => {
+              if (error) {
+                return reject(error);
+              }
+              return resolve(result);
             }
-            return resolve(result);
-          });
-        });
-      }),
+          );
+        })
+      )
   )
   .then(result => {
     if (result.errored) {

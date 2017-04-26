@@ -20,7 +20,7 @@ const hotRender = Component =>
         <Component />
       </Router>
     </Provider>,
-    document.getElementById('app'),
+    document.getElementById('app')
   );
 
 if (module.hot) {

@@ -23,7 +23,7 @@ export function render(req: $Request, res: $Response): Promise<Response> {
         <Router location={req.url} context={{ req, res }}>
           <App />
         </Router>
-      </Provider>,
+      </Provider>
     );
 
     return resolve({ body, preloadedState });
@@ -35,6 +35,6 @@ export function renderError(req: $Request, res: $Response): string {
   return renderToString(
     <Router location={req.url} context={{ req, res }}>
       <App />
-    </Router>,
+    </Router>
   );
 }

@@ -6,7 +6,7 @@ const url = require('url');
 const options = Object.assign(
   {},
   url.parse('http://metadata.google.internal/computeMetadata/v1/instance/zone'),
-  { headers: { 'Metadata-Flavor': 'Google' } },
+  { headers: { 'Metadata-Flavor': 'Google' } }
 );
 
 const request = () =>

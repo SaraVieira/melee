@@ -1,7 +1,7 @@
 const replaceRuleLink = (text, rule) =>
   text.replace(
     rule,
-    `<a href="https://stylelint.io/user-guide/rules/${rule}/">${rule}</a>`,
+    `<a href="https://stylelint.io/user-guide/rules/${rule}/">${rule}</a>`
   );
 
 const warning = warn =>
