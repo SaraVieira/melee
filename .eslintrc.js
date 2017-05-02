@@ -44,7 +44,8 @@ module.exports = {
         "singleQuote": true,
         "trailingComma": "es5",
       }
-    ]
+    ],
+    "flowtype/no-weak-types": [1]
   },
   "globals": {
     "DEVELOPMENT": true,

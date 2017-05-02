@@ -72,6 +72,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "flow-bin": "^0.44.2",
+    "flow-coverage-report": "^0.3.0",
     "get-port": "^3.1.0",
     "happypack": "^3.0.3",
     "identity-obj-proxy": "^3.0.0",
@@ -106,7 +107,8 @@
     "collectCoverage": true,
     "coverageReporters": [
       "html",
-      "text"
+      "text",
+      "lcov"
     ],
     "coverageDirectory": "reports/coverage/",
     "transformIgnorePatterns": [
@@ -115,13 +117,14 @@
     ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy"
+      "\\.(css)$": "identity-obj-proxy"
     }
   },
   "scripts": {
     "start": "npm run start:prod",
-    "test": "run-p flow eslint stylelint jest",
+    "test": "run-s stylelint eslint flow flow-coverage jest",
     "flow": "flow --temp-dir=./.tmp/flow/; test $? -eq 0 -o $? -eq 2",
+    "flow-coverage": "flow-coverage-report -o reports/flow/ -t html -t text -i 'src/**/*.js' -i 'src/**/*.jsx'",
     "eslint": "./bin/eslint",
     "stylelint": "./bin/stylelint",
     "jest": "jest",
