@@ -1,3 +1,7 @@
+## 03/05/2017
+
+  * Enable source-maps on UglifyJsPlugin. [webpack #1385](https://github.com/webpack/webpack/issues/1385)
+
 ## 02/05/2017
 
   * Update dependencies.
