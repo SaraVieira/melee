@@ -1,3 +1,9 @@
+## 04/05/2017
+
+  * Enable Json support for server
+  * Fix css chunk names
+  * Fix svg loads
+
 ## 03/05/2017
 
   * Enable source-maps on UglifyJsPlugin. [webpack #1385](https://github.com/webpack/webpack/issues/1385)
