@@ -1273,8 +1273,8 @@ caniuse-db@1.0.30000626:
   resolved "http://npm-registry.tvg.com/repository/npm/caniuse-db/-/caniuse-db-1.0.30000626.tgz#44363dc86857efaf758fea9faef6a15ed93d8f33"
 
 caniuse-db@^1.0.30000187, caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000624, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000664"
-  resolved "http://npm-registry.tvg.com/repository/npm/caniuse-db/-/caniuse-db-1.0.30000664.tgz#e16316e5fdabb9c7209b2bf0744ffc8a14201f22"
+  version "1.0.30000665"
+  resolved "http://npm-registry.tvg.com/repository/npm/caniuse-db/-/caniuse-db-1.0.30000665.tgz#e84f4277935f295f546f8533cb0b410a8415b972"
 
 case-sensitive-paths-webpack-plugin@^2.0.0:
   version "2.0.0"
@@ -1506,10 +1506,11 @@ concat-stream@^1.5.2:
     typedarray "^0.0.6"
 
 config@^1.25.1:
-  version "1.25.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/config/-/config-1.25.1.tgz#72ac51cde81e2c77c6b3b66d0130dae527a19c92"
+  version "1.26.1"
+  resolved "http://npm-registry.tvg.com/repository/npm/config/-/config-1.26.1.tgz#f647ce32c345e80ba73a8eaa7a9a4b4e5b290ca1"
   dependencies:
     json5 "0.4.0"
+    os-homedir "1.0.2"
 
 console-browserify@^1.1.0:
   version "1.1.0"
@@ -2281,6 +2282,10 @@ esprima@^2.6.0, esprima@^2.7.1:
   version "2.7.3"
   resolved "http://npm-registry.tvg.com/repository/npm/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
 
+esprima@^3.1.1:
+  version "3.1.3"
+  resolved "http://npm-registry.tvg.com/repository/npm/esprima/-/esprima-3.1.3.tgz#fdca51cee6133895e3c88d535ce49dbff62a4633"
+
 esquery@^1.0.0:
   version "1.0.0"
   resolved "http://npm-registry.tvg.com/repository/npm/esquery/-/esquery-1.0.0.tgz#cfba8b57d7fba93f17298a8a006a04cda13d80fa"
@@ -2582,9 +2587,9 @@ flow-coverage-report@^0.3.0:
     terminal-table "0.0.12"
     yargs "5.0.0"
 
-flow-parser@0.43.0:
-  version "0.43.0"
-  resolved "http://npm-registry.tvg.com/repository/npm/flow-parser/-/flow-parser-0.43.0.tgz#e2b8eb1ac83dd53f7b6b04a7c35b6a52c33479b7"
+flow-parser@0.45.0:
+  version "0.45.0"
+  resolved "http://npm-registry.tvg.com/repository/npm/flow-parser/-/flow-parser-0.45.0.tgz#aa29d4ae27f06aa02817772bba0fcbefef7e62f0"
 
 follow-redirects@1.0.0:
   version "1.0.0"
@@ -2817,8 +2822,8 @@ gzip-size@^3.0.0:
     duplexer "^0.1.1"
 
 handlebars@^4.0.3:
-  version "4.0.7"
-  resolved "http://npm-registry.tvg.com/repository/npm/handlebars/-/handlebars-4.0.7.tgz#e97325aeb8ea0b9e12b9c4dd73c4c312ad0ede59"
+  version "4.0.8"
+  resolved "http://npm-registry.tvg.com/repository/npm/handlebars/-/handlebars-4.0.8.tgz#22b875cd3f0e6cbea30314f144e82bc7a72ff420"
   dependencies:
     async "^1.4.0"
     optimist "^0.6.1"
@@ -3568,14 +3573,21 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "http://npm-registry.tvg.com/repository/npm/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@~3.6.0:
+js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.7.0:
+  version "3.8.3"
+  resolved "http://npm-registry.tvg.com/repository/npm/js-yaml/-/js-yaml-3.8.3.tgz#33a05ec481c850c8875929166fe1beb61c728766"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^3.1.1"
+
+js-yaml@~3.6.0:
   version "3.6.1"
   resolved "http://npm-registry.tvg.com/repository/npm/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
-js-yaml@^3.7.0, js-yaml@~3.7.0:
+js-yaml@~3.7.0:
   version "3.7.0"
   resolved "http://npm-registry.tvg.com/repository/npm/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
   dependencies:
@@ -4284,7 +4296,7 @@ os-browserify@^0.2.0:
   version "0.2.1"
   resolved "http://npm-registry.tvg.com/repository/npm/os-browserify/-/os-browserify-0.2.1.tgz#63fc4ccee5d2d7763d26bbf8601078e6c2e0044f"
 
-os-homedir@^1.0.0, os-homedir@^1.0.1:
+os-homedir@1.0.2, os-homedir@^1.0.0, os-homedir@^1.0.1:
   version "1.0.2"
   resolved "http://npm-registry.tvg.com/repository/npm/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
@@ -5034,15 +5046,15 @@ preserve@^0.2.0:
   resolved "http://npm-registry.tvg.com/repository/npm/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
 prettier@^1.2.2:
-  version "1.2.2"
-  resolved "http://npm-registry.tvg.com/repository/npm/prettier/-/prettier-1.2.2.tgz#22d17c1132faaaea1f1d4faea31f19f7a1959f3e"
+  version "1.3.1"
+  resolved "http://npm-registry.tvg.com/repository/npm/prettier/-/prettier-1.3.1.tgz#fa0ea84b45ac0ba6de6a1e4cecdcff900d563151"
   dependencies:
     ast-types "0.9.8"
     babel-code-frame "6.22.0"
     babylon "7.0.0-beta.8"
     chalk "1.1.3"
     esutils "2.0.2"
-    flow-parser "0.43.0"
+    flow-parser "0.45.0"
     get-stdin "5.0.1"
     glob "7.1.1"
     jest-validate "19.0.0"
@@ -5592,13 +5604,13 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.6.1:
+rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   version "2.6.1"
   resolved "http://npm-registry.tvg.com/repository/npm/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
   dependencies:
     glob "^7.0.5"
 
-rimraf@~2.2.6:
+rimraf@^2.2.8, rimraf@~2.2.6:
   version "2.2.8"
   resolved "http://npm-registry.tvg.com/repository/npm/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
 
@@ -5757,8 +5769,8 @@ source-list-map@^0.1.7, source-list-map@~0.1.7:
   resolved "http://npm-registry.tvg.com/repository/npm/source-list-map/-/source-list-map-0.1.8.tgz#c550b2ab5427f6b3f21f5afead88c4f5587b2106"
 
 source-list-map@^1.1.1:
-  version "1.1.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/source-list-map/-/source-list-map-1.1.1.tgz#1a33ac210ca144d1e561f906ebccab5669ff4cb4"
+  version "1.1.2"
+  resolved "http://npm-registry.tvg.com/repository/npm/source-list-map/-/source-list-map-1.1.2.tgz#9889019d1024cce55cdc069498337ef6186a11a1"
 
 source-map-support@^0.4.2:
   version "0.4.15"
@@ -6245,8 +6257,8 @@ tvg-conf@0.1.0:
     require-dir "^0.3.1"
 
 tvg-conf@^0.4.1:
-  version "0.4.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/tvg-conf/-/tvg-conf-0.4.1.tgz#698d62e0c6fd7fa9c9cb12b38416e529e8624570"
+  version "0.4.4"
+  resolved "http://npm-registry.tvg.com/repository/npm/tvg-conf/-/tvg-conf-0.4.4.tgz#76326f619d10725e7425a597914943f20319f2be"
   dependencies:
     debug "~2.2.0"
     lodash "^4.17.2"
@@ -6499,8 +6511,8 @@ webpack-stats-plugin@^0.1.5:
   resolved "http://npm-registry.tvg.com/repository/npm/webpack-stats-plugin/-/webpack-stats-plugin-0.1.5.tgz#29e5f12ebfd53158d31d656a113ac1f7b86179d9"
 
 webpack@^2.4.1:
-  version "2.4.1"
-  resolved "http://npm-registry.tvg.com/repository/npm/webpack/-/webpack-2.4.1.tgz#15a91dbe34966d8a4b99c7d656efd92a2e5a6f6a"
+  version "2.5.0"
+  resolved "http://npm-registry.tvg.com/repository/npm/webpack/-/webpack-2.5.0.tgz#5a17089f8d0e43442e606d6cf9b2a146c8ed9911"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"

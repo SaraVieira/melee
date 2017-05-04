@@ -1,8 +1,9 @@
 ## 04/05/2017
-
-  * Enable Json support for server
-  * Fix css chunk names
-  * Fix svg loads
+  
+  * Update dependencies
+  * Enable JSON support for server
+  * Fix CSS chunk names
+  * Fix SVG loads
 
 ## 03/05/2017
 
