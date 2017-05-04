@@ -10,23 +10,24 @@ const walkManifest = (manifest, predicate) =>
     .filter(Boolean)
     .filter(predicate);
 
-const getJSFiles = (manifest) => {
+const getJSFiles = manifest => {
   let files = [];
 
   if (manifest.vendors) {
-    files = files.concat(manifest.vendors).filter(file => file.endsWith('.js'))
+    files = files.concat(manifest.vendors).filter(file => file.endsWith('.js'));
   }
   if (manifest.main) {
-    files = files.concat(manifest.main).filter(file => file.endsWith('.js'))
+    files = files.concat(manifest.main).filter(file => file.endsWith('.js'));
   }
 
   return files;
 };
 
-const getScripts = (dll, preloadedState) => {
-  const scripts = [`<script>
-    window.__PRELOADED_STATE__ = ${serialize(preloadedState, {isJSON: true,})}
-    </script>`
+const getScripts = (dll, preloadedState, publicPath) => {
+  const scripts = [
+    `<script>
+    window.__PRELOADED_STATE__ = ${serialize(preloadedState, { isJSON: true })}
+    </script>`,
   ];
 
   if (dll) {
@@ -46,5 +47,5 @@ module.exports = ({
   html: body,
   js: getJSFiles(manifest),
   css: walkManifest(manifest, file => file.endsWith('.css')),
-  script: getScripts(dll, preloadedState)
+  script: getScripts(dll, preloadedState, publicPath),
 });
