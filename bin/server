@@ -10,6 +10,7 @@ const Statful = require('statful-client');
 const gce = require('./utils/gce');
 const logger = require('./utils/logger')({ json: true });
 const html = require('../src/index.html');
+const json = require('../src/index.json');
 
 const app = express();
 const statful = new Statful(config.get('statful'));
@@ -41,6 +42,16 @@ app.use('/assets', express.static(path.join(__dirname, '../build')));
 app.get('*', (req, res) =>
   bundledServer.render(req, res).then(({ body, preloadedState }) =>
     res.format({
+      json: () =>
+        res.send(
+          json({
+            manifest: clientManifest.assetsByChunkName,
+            publicPath: '/assets/',
+            body,
+            title: config.get('title'),
+            preloadedState,
+          })
+        ),
       html: () =>
         res.send(
           html({

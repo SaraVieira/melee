@@ -105,7 +105,7 @@ module.exports = (opts = { optimize: false }) => {
         DEVELOPMENT: !options.optimize,
       }),
       new ExtractTextPlugin({
-        filename: 'styles.[hash].css',
+        filename: 'styles.[chunkhash].css',
         allChunks: true,
         disable: !options.optimize,
       }),
@@ -146,14 +146,15 @@ module.exports = (opts = { optimize: false }) => {
         {
           test: /\.svg$/,
           loaders: ['babel-loader', 'react-svg-loader'],
-          include: dir.SOURCE,
+          issuer: /\.jsx?$/
         },
         {
           test: /\.(jpe?g|png|gif)/,
           loader: 'url-loader',
           options: { limit: 10000 },
         },
-        { test: /\.(eot|ttf|svg|woff2?)/, loader: 'file-loader' },
+        { test: /\.(eot|ttf|woff2?)/, loader: 'file-loader'},
+        { test: /\.svg$/, loader: 'file-loader', issuer: /\.css$/},
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
