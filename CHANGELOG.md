@@ -1,5 +1,11 @@
+# Changelog
+
+## 05/05/2017
+
+  * Update Flowtype module map to help with [CSS Modules coverage](https://github.com/ckknight/css-module-flow). More info here: https://gist.github.com/lambdahands/d19e0da96285b749f0ef
+
 ## 04/05/2017
-  
+
   * Update dependencies
   * Enable JSON support for server
   * Fix CSS chunk names
