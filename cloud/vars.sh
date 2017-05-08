@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Unofficial Bash Strict Mode
 set -euo pipefail
 IFS=$'\n\t'
 
-SERVICE_GROUP="frontend"
-SERVICE_NAME="funds"
-HEALTHCHECK_PATH="/funds/v1/health"
+export SERVICE_GROUP="frontend"
+export SERVICE_NAME="funds"
+export HEALTHCHECK_PATH="/funds/v1/health"
