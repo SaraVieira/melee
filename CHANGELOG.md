@@ -2,8 +2,7 @@
 
 ## 08/05/2017
 
-  * Add
-      [.codacy.yml](https://support.codacy.com/hc/en-us/articles/115002130625-Codacy-Configuration-File) to exclude files per project.
+  * Add [.codacy.yml](https://support.codacy.com/hc/en-us/articles/115002130625-Codacy-Configuration-File) to exclude files per project.
 
 ## 05/05/2017
 
