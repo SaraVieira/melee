@@ -1,4 +1,5 @@
 #!/bin/bash
+
 source $(dirname "${BASH_SOURCE[0]}")/vars.sh
 
 TAGS=""
@@ -14,8 +15,8 @@ cd $TARGET_DIR
 git init
 git pull --depth 1 git@tvg.bitbucket.org:betfair-us/tvg-cloud-sdk.git $TAGS
 if [ $? != 0 ]; then
-    echo "\nCan't access to " git@tvg.bitbucket.org:betfair-us/tvg-cloud-sdk.git
-    echo "\nTrying " git@bitbucket.org:betfair-us/tvg-cloud-sdk.git
+    echo -e "\nCan't access to " git@tvg.bitbucket.org:betfair-us/tvg-cloud-sdk.git
+    echo -e "\nTrying " git@bitbucket.org:betfair-us/tvg-cloud-sdk.git
 
     git pull --depth 1 git@bitbucket.org:betfair-us/tvg-cloud-sdk.git $TAGS
 fi
