@@ -1,8 +1,4 @@
 ---
-engine:
-  csslint:
-    enabled: false
-
 exclude_paths:
   - flow-typed
   - reports
