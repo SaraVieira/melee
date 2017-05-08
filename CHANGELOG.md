@@ -2,6 +2,7 @@
 
 ## 08/05/2017
 
+  * Update [postcss-loader](https://github.com/postcss/postcss-loader) to version [2.0.1](https://github.com/postcss/postcss-loader/blob/master/CHANGELOG.md#201-2017-05-08)
   * Update [jest](https://github.com/facebook/jest) to version [20.0.0](https://github.com/facebook/jest/blob/2a9d2daf2f320da2ce828e618b7f4ce37133bb8d/CHANGELOG.md#jest-2000)
   * Add [.codacy.yml](https://support.codacy.com/hc/en-us/articles/115002130625-Codacy-Configuration-File) to exclude files per project.
 
