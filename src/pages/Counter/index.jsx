@@ -29,9 +29,11 @@ const mapDispatchToProps = {
   onDecrement: actions.decrement,
 };
 
-const Counter = ({ onIncrement, onDecrement, value = 6 }: Props): Element<
-  *
-> => (
+const Counter = ({
+  onIncrement,
+  onDecrement,
+  value = 6,
+}: Props): Element<*> => (
   <div className={styles.counter}>
     <Button onClick={onIncrement}>+</Button>
     <Button onClick={onDecrement}>-</Button>

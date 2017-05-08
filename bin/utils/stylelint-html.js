@@ -21,8 +21,8 @@ const node = result =>
       <strong>${result.source}</strong>
     </div>
     <ul class="error-list hidden">${result.warnings
-    .map(warning)
-    .join('\n')}</ul>
+                                    .map(warning)
+                                    .join('\n')}</ul>
   </li>
 `;
 

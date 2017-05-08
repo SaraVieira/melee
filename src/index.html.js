@@ -27,8 +27,8 @@ module.exports = ({
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ${walkManifest(manifest, file => file.endsWith('.css'))
-    .map(link(publicPath))
-    .join('\n')}
+      .map(link(publicPath))
+      .join('\n')}
   </head>
   <body>
     <div id="app">${body}</div>
@@ -36,20 +36,20 @@ module.exports = ({
       // WARNING: See the following for security issues around embedding JSON in HTML:
       // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
       window.__PRELOADED_STATE__ = ${serialize(preloadedState, {
-    isJSON: true,
-  })}
+                                     isJSON: true,
+                                   })}
     </script>
     ${dll ? script(publicPath)(dll) : ''}
     ${manifest.vendors ? []
-        .concat(manifest.vendors)
-        .filter(file => file.endsWith('.js'))
-        .map(script(publicPath))
-        .join('\n') : ''}
+          .concat(manifest.vendors)
+          .filter(file => file.endsWith('.js'))
+          .map(script(publicPath))
+          .join('\n') : ''}
     ${manifest.main ? []
-        .concat(manifest.main)
-        .filter(file => file.endsWith('.js'))
-        .map(script(publicPath))
-        .join('\n') : ''}
+          .concat(manifest.main)
+          .filter(file => file.endsWith('.js'))
+          .map(script(publicPath))
+          .join('\n') : ''}
   </body>
 </html>
 `;
