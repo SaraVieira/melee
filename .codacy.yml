@@ -1,9 +1,5 @@
 ---
-engine:
-  csslint:
-    enabled: false
-
 exclude_paths:
-  - flow-typed
-  - reports
-  - .tmp
+  - flow-typed/
+  - reports/
+  - .tmp/

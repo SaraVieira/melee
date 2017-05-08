@@ -1,5 +1,9 @@
 # Changelog
 
+## 08/05/2017
+
+  * Add [.codacy.yml](https://support.codacy.com/hc/en-us/articles/115002130625-Codacy-Configuration-File) to exclude files per project.
+
 ## 05/05/2017
 
   * Update Flowtype module map to help with [CSS Modules coverage](https://github.com/ckknight/css-module-flow). More info here: https://gist.github.com/lambdahands/d19e0da96285b749f0ef
