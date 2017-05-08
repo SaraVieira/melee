@@ -1,4 +1,6 @@
 # TVG-React-Boilerplate
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c9f22f13f8ef41659aa44c4599a8fdac)](https://www.codacy.com?utm_source=git@bitbucket.org&amp;utm_medium=referral&amp;utm_content=betfair-us/tvg-react-boilerplate&amp;utm_campaign=Badge_Grade)
+---
 
 ![Skeletor Mirror Exit](http://i.imgur.com/KEN2jpA.gif)
 
