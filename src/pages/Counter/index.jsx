@@ -7,8 +7,6 @@ import Button from 'tvg-ui-bootstrap/components/Buttons';
 import Input from 'tvg-ui-bootstrap/components/Form/Input';
 import Plus from 'tvg-ui-bootstrap/assets/svg/plus.svg';
 
-console.log(Plus);
-
 import type { Element } from 'react';
 import type { ActionCreator } from 'redux';
 
@@ -18,6 +16,8 @@ import type { State } from '../../reducers';
 import type { State as CounterState } from './reducers';
 
 import styles from './styles.css';
+
+console.log('Plus Icon', Plus);
 
 type Props = {
   value: number,

@@ -5,6 +5,7 @@
   * Force application to server static files under its prefix path: `/assets/` -> `/boilerplate/`
   * Always serve JSON content if requested with `accept: application/json`.
   * Always use `[name]` and `[chunkhash]` for CSS assets to avoid collisions.
+  * Update [tvg-conf](https://bitbucket.org/betfair-us/tvg-conf) to v0.5.0.
 
 ## 08/05/2017
 
