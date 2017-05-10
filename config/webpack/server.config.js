@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const config = require('config');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -42,7 +43,7 @@ module.exports = (opts = { optimize: false }) => {
       filename: '[name].js',
       path: dir.BUILD,
       libraryTarget: 'commonjs2',
-      publicPath: '/assets/',
+      publicPath: config.get('publicPath'),
     },
 
     recordsPath: path.join(dir.BUILD, 'server.recordsPath.json'),
@@ -93,7 +94,7 @@ module.exports = (opts = { optimize: false }) => {
       }),
 
       new ExtractTextPlugin({
-        filename: 'styles.[hash].css',
+        filename: '[name].[chunkhash].css',
         allChunks: true,
       }),
       options.optimize && new LodashModuleReplacementPlugin(),

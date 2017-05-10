@@ -1,7 +1,13 @@
 # Changelog
 
+## 10/05/2017
+
+  * Force application to server static files under its prefix path: `/assets/` -> `/boilerplate/`
+  * Always serve JSON content if requested with `accept: application/json`.
+  * Always use `[name]` and `[chunkhash]` for CSS assets to avoid collisions.
+
 ## 08/05/2017
-  
+
   * Update [eslint-config-react](https://github.com/yannickcr/eslint-plugin-react) to version [7.0.0](https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06).
   * Update [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to version [2.0.0](https://github.com/prettier/eslint-config-prettier/blob/master/CHANGELOG.md#version-200-2017-05-07).
   * Update [postcss-loader](https://github.com/postcss/postcss-loader) to version [2.0.1](https://github.com/postcss/postcss-loader/blob/master/CHANGELOG.md#201-2017-05-08)

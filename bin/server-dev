@@ -18,6 +18,7 @@ const webpackServerConfig = require('../config/webpack/server.config');
 
 // HTML Formatter
 const html = require('../src/index.html');
+const json = require('../src/index.json');
 
 let bundledServer;
 
@@ -30,7 +31,7 @@ const compiler = {
 };
 
 const webpackDevMiddlewareInstance = webpackDevMiddleware(compiler.client, {
-  publicPath: '/assets/',
+  publicPath: config.get('publicPath'),
   noInfo: true,
   serverSideRender: true,
   hot: true,
@@ -64,28 +65,30 @@ app.use(webpackDevMiddlewareInstance);
 app.use(webpackHotMiddleware(compiler.client));
 
 // Return static files before attending to any unknown route
-app.use('/assets', express.static(path.join(__dirname, '../build')));
+app.use(
+  config.get('publicPath'),
+  express.static(path.join(__dirname, '../build'))
+);
 
 app.use((req, res, next) =>
   bundledServer
     .render(req, res)
-    .then(({ body, preloadedState }) =>
-      res.format({
-        html: () =>
-          res.send(
-            html({
-              body,
-              preloadedState,
-              manifest: res.locals.webpackStats.toJson().assetsByChunkName,
-              publicPath: '/assets/',
-              dll: 'vendors.dll.js',
-              title: config.get('title'),
-            })
-          ),
+    .then(({ body, preloadedState }) => {
+      const payload = {
+        body,
+        preloadedState,
+        publicPath: config.get('publicPath'),
+        manifest: res.locals.webpackStats.toJson().assetsByChunkName,
+        dll: 'vendors.dll.js',
+        title: config.get('title'),
+      };
 
-        default: () => res.json({ body, preloadedState }),
-      })
-    )
+      return res.format({
+        html: () => res.send(html(payload)),
+        json: () => res.send(json(payload)),
+        default: () => res.send(html(payload)),
+      });
+    })
     .catch(next)
 );
 

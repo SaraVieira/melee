@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const config = require('config');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -49,7 +50,7 @@ module.exports = (opts = { optimize: false }) => {
     output: {
       filename: options.optimize ? '[name].[hash].js' : '[name].js',
       path: dir.BUILD,
-      publicPath: '/assets/',
+      publicPath: config.get('publicPath'),
     },
 
     recordsPath: path.join(dir.BUILD, 'client.recordsPath.json'),
@@ -105,7 +106,7 @@ module.exports = (opts = { optimize: false }) => {
         DEVELOPMENT: !options.optimize,
       }),
       new ExtractTextPlugin({
-        filename: 'styles.[chunkhash].css',
+        filename: '[name].[chunkhash].css',
         allChunks: true,
         disable: !options.optimize,
       }),
@@ -143,6 +144,7 @@ module.exports = (opts = { optimize: false }) => {
     module: {
       rules: [
         { test: /\.jsx?$/, loader: 'happypack/loader?id=js' },
+        { test: /\.svg$/, loader: 'file-loader', issuer: /\.css$/ },
         {
           test: /\.svg$/,
           loaders: ['babel-loader', 'react-svg-loader'],
@@ -154,7 +156,6 @@ module.exports = (opts = { optimize: false }) => {
           options: { limit: 10000 },
         },
         { test: /\.(eot|ttf|woff2?)/, loader: 'file-loader' },
-        { test: /\.svg$/, loader: 'file-loader', issuer: /\.css$/ },
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({

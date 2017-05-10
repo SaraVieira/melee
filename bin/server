@@ -26,7 +26,7 @@ app.set('x-powered-by', false);
 app.use(logger.request);
 
 // Healthcheck
-app.get('/boilerplate/v1/health', (req, res) =>
+app.get(`${config.get('publicPath')}v1/health`, (req, res) =>
   res.format({
     text: () => res.send('OK'),
     html: () => res.send('<p>OK</p>'),
@@ -36,42 +36,31 @@ app.get('/boilerplate/v1/health', (req, res) =>
 );
 
 // Static Files
-app.use('/assets', express.static(path.join(__dirname, '../build')));
+app.use(
+  config.get('publicPath'),
+  express.static(path.join(__dirname, '../build'))
+);
 
 // React Application Code
-app.get('*', (req, res) =>
-  bundledServer.render(req, res).then(({ body, preloadedState }) =>
-    res.format({
-      json: () =>
-        res.send(
-          json({
-            manifest: clientManifest.assetsByChunkName,
-            publicPath: '/assets/',
-            body,
-            title: config.get('title'),
-            preloadedState,
-          })
-        ),
-      html: () =>
-        res.send(
-          html({
-            manifest: clientManifest.assetsByChunkName,
-            publicPath: '/assets/',
-            body,
-            title: config.get('title'),
-            preloadedState,
-          })
-        ),
+app.get('*', (req, res, next) =>
+  bundledServer
+    .render(req, res)
+    .then(({ body, preloadedState }) => {
+      const payload = {
+        body,
+        preloadedState,
+        manifest: clientManifest.assetsByChunkName,
+        publicPath: config.get('publicPath'),
+        title: config.get('title'),
+      };
 
-      default: () =>
-        res.json({
-          manifest: clientManifest.assetsByChunkName,
-          publicPath: '/assets/',
-          body,
-          preloadedState,
-        }),
+      return res.format({
+        json: () => res.send(json(payload)),
+        html: () => res.send(html(payload)),
+        default: () => res.json(json(payload)),
+      });
     })
-  )
+    .catch(next)
 );
 
 // Log and handle errors

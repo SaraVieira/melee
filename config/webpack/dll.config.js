@@ -76,7 +76,7 @@ module.exports = () => ({
       path: path.join(dir.BUILD, '[name].dll.manifest.json'),
     }),
     new ExtractTextPlugin({
-      filename: 'styles.[hash].css',
+      filename: '[name].[chunkhash].css',
       allChunks: true,
       disable: true,
     }),
