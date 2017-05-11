@@ -17,6 +17,8 @@ import type { State as CounterState } from './reducers';
 
 import styles from './styles.css';
 
+console.log('Plus Icon', Plus);
+
 type Props = {
   value: number,
   onIncrement: ActionCreator<IncrementAction, *>,
