@@ -146,14 +146,13 @@
     "start:prod": "run-s build:prod server:prod",
     "postinstall": "run-s createtmp build:dll",
     "createtmp": "mkdirp .tmp reports",
-    "prepush": "npm test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
-      "git add",
-      "jest --bail --findRelatedTests"
+      "jest --bail --findRelatedTests",
+      "git add"
     ],
     "*.css": [
       "stylefmt",
