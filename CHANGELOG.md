@@ -1,5 +1,11 @@
 # Changelog
 
+## 11/05/2017
+
+  * Added Lint Staged to run eslint and jest on js and jsx files [lint-staged](https://github.com/okonet/lint-staged)
+  * Added lint staged that fixes stylint issues and then runs it again to check [stylefmt](https://github.com/morishitter/stylefmt)
+  * Removed pre push hook
+
 ## 10/05/2017
 
   * Force application to server static files under its prefix path: `/assets/` -> `/boilerplate/`

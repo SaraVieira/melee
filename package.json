@@ -76,8 +76,10 @@
     "flow-coverage-report": "^0.3.0",
     "get-port": "^3.1.0",
     "happypack": "^3.0.3",
+    "husky": "^0.13.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.0",
+    "lint-staged": "^3.4.1",
     "lodash-webpack-plugin": "^0.11.3",
     "mkdirp": "^0.5.1",
     "null-loader": "^0.1.1",
@@ -91,6 +93,7 @@
     "react-svg-loader": "^1.1.1",
     "react-test-renderer": "^15.5.4",
     "style-loader": "^0.17.0",
+    "stylefmt": "^5.3.2",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "webpack": "^2.4.1",
@@ -143,6 +146,18 @@
     "start:prod": "run-s build:prod server:prod",
     "postinstall": "run-s createtmp build:dll",
     "createtmp": "mkdirp .tmp reports",
-    "prepush": "npm test"
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "jest --bail --findRelatedTests",
+      "git add"
+    ],
+    "*.css": [
+      "stylefmt",
+      "stylelint",
+      "git add"
+    ]
   }
 }
