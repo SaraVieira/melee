@@ -1,4 +1,6 @@
 FROM node:6.10.1-alpine
+LABEL maintainer "tvg-frontend@mindera.com"
+
 ARG configuration
 
 RUN mkdir -p /usr/opt/boilerplate
@@ -12,4 +14,5 @@ COPY build build
 COPY node_modules node_modules
 
 EXPOSE 8080
-CMD ["npm", "run", "server:prod", "--", "--NODE_ENV=${ENVIRONMENT}"]
+
+CMD ["sh", "-c", "./bin/server --NODE_ENV=${ENVIRONMENT}"]
