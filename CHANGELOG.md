@@ -1,5 +1,12 @@
 # Changelog
 
+## 14/05/2017
+
+  * Update dependencies:
+    * [cross-env](https://github.com/kentcdodds/cross-env) to version [v5.0.0](https://github.com/kentcdodds/cross-env/releases/tag/v5.0.0)
+    * [flow-bin](https://github.com/flowtype/flow-bin) to version [v0.46.0](https://github.com/facebook/flow/releases/tag/v0.46.0)
+    * [postcss-smart-import](https://github.com/sebastian-software/postcss-smart-import) to version [v0.7.0](https://github.com/sebastian-software/postcss-smart-import/releases/tag/0.7.0)
+    
 ## 11/05/2017
 
   * Added Lint Staged to run eslint and jest on js and jsx files [lint-staged](https://github.com/okonet/lint-staged)
@@ -15,10 +22,11 @@
 
 ## 08/05/2017
 
-  * Update [eslint-config-react](https://github.com/yannickcr/eslint-plugin-react) to version [7.0.0](https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06).
-  * Update [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to version [2.0.0](https://github.com/prettier/eslint-config-prettier/blob/master/CHANGELOG.md#version-200-2017-05-07).
-  * Update [postcss-loader](https://github.com/postcss/postcss-loader) to version [2.0.1](https://github.com/postcss/postcss-loader/blob/master/CHANGELOG.md#201-2017-05-08)
-  * Update [jest](https://github.com/facebook/jest) to version [20.0.0](https://github.com/facebook/jest/blob/2a9d2daf2f320da2ce828e618b7f4ce37133bb8d/CHANGELOG.md#jest-2000)
+  * Update dependencies
+    * Update [eslint-config-react](https://github.com/yannickcr/eslint-plugin-react) to version [7.0.0](https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06).
+    * Update [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) to version [2.0.0](https://github.com/prettier/eslint-config-prettier/blob/master/CHANGELOG.md#version-200-2017-05-07).
+    * Update [postcss-loader](https://github.com/postcss/postcss-loader) to version [2.0.1](https://github.com/postcss/postcss-loader/blob/master/CHANGELOG.md#201-2017-05-08)
+    * Update [jest](https://github.com/facebook/jest) to version [20.0.0](https://github.com/facebook/jest/blob/2a9d2daf2f320da2ce828e618b7f4ce37133bb8d/CHANGELOG.md#jest-2000)
   * Add [.codacy.yml](https://support.codacy.com/hc/en-us/articles/115002130625-Codacy-Configuration-File) to exclude files per project.
 
 ## 05/05/2017
