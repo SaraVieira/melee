@@ -1,12 +1,18 @@
 # Changelog
 
+# 15/05/2017
+
+  * Update dependencies:
+    * [eslint-config-airbnb](https://github.com/airbnb/javascript) to [v.15.0.0](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/CHANGELOG.md#1500--2017-05-14)
+    * [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) to [v5.0.1](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/CHANGELOG.md#500--2017-05-05)
+
 ## 14/05/2017
 
   * Update dependencies:
     * [cross-env](https://github.com/kentcdodds/cross-env) to version [v5.0.0](https://github.com/kentcdodds/cross-env/releases/tag/v5.0.0)
     * [flow-bin](https://github.com/flowtype/flow-bin) to version [v0.46.0](https://github.com/facebook/flow/releases/tag/v0.46.0)
     * [postcss-smart-import](https://github.com/sebastian-software/postcss-smart-import) to version [v0.7.0](https://github.com/sebastian-software/postcss-smart-import/releases/tag/0.7.0)
-    
+
 ## 11/05/2017
 
   * Added Lint Staged to run eslint and jest on js and jsx files [lint-staged](https://github.com/okonet/lint-staged)
