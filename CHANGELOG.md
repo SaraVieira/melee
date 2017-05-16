@@ -1,5 +1,10 @@
 # Changelog
 
+# 16/05/2017
+
+  * Update dependencies:
+    * [prettier](https://github.com/prettier/prettier) to [v.1.3.1](https://github.com/prettier/prettier/releases/tag/1.3.0)
+
 # 15/05/2017
 
   * Update dependencies:
