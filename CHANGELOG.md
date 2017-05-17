@@ -6,6 +6,7 @@
   * Add .idea/ folder to .gitignore
   * Add application prefix to output, redux store.
   * Fix scripts to not include script tag.
+  * Update flow-typed defs.
   * Update dependencies (minor versions):
     * tvg-conf                    ^0.5.0  →   ^0.5.3
     * babel-jest                 ^20.0.0  →  ^20.0.1
