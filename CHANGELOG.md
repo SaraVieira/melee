@@ -2,9 +2,23 @@
 
 # 17/05/2017
 
+
   * Add .idea/ folder to .gitignore
   * Add application prefix to output, redux store.
   * Fix scripts to not include script tag.
+  * Update dependencies (minor versions):
+    * tvg-conf                    ^0.5.0  →   ^0.5.3
+    * babel-jest                 ^20.0.0  →  ^20.0.1
+    * eslint-config-airbnb       ^15.0.0  →  ^15.0.1
+    * eslint-config-airbnb-base  ^11.1.3  →  ^11.2.0
+    * eslint-config-prettier      ^2.0.0  →   ^2.1.0
+    * eslint-plugin-flowtype     ^2.32.1  →  ^2.33.0
+    * eslint-plugin-jest         ^20.0.0  →  ^20.0.1
+    * eslint-plugin-react         ^7.0.0  →   ^7.0.1
+    * jest                       ^20.0.0  →  ^20.0.1
+    * postcss-cssnext            ^2.10.0  →  ^2.11.0
+    * postcss-loader              ^2.0.1  →   ^2.0.5
+    * webpack-bundle-analyzer     ^2.4.0  →   ^2.8.1
 
 # 16/05/2017
 
