@@ -8,8 +8,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from './configureStore';
 import App from './pages';
 
-const preloadedState = window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
-delete window.__PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
+const preloadedState = window.__BOILERPLATE_PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
+delete window.__BOILERPLATE_PRELOADED_STATE__; // eslint-disable-line no-underscore-dangle
 
 const store = configureStore(preloadedState);
 

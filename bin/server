@@ -51,6 +51,7 @@ app.get('*', (req, res, next) =>
         preloadedState,
         manifest: clientManifest.assetsByChunkName,
         publicPath: config.get('publicPath'),
+        prefix: config.get('prefix'),
         title: config.get('title'),
       };
 
