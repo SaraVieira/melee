@@ -2,9 +2,9 @@
 
 # 17/05/2017
 
-    * Add .idea/ folder to .gitignore
-    * Add application prefix to output, redux store.
-    * Fix scripts to not include script tag
+  * Add .idea/ folder to .gitignore
+  * Add application prefix to output, redux store.
+  * Fix scripts to not include script tag.
 
 # 16/05/2017
 
