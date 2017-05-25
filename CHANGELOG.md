@@ -2,6 +2,7 @@
 
 # 25/05/2017
 
+  * **Regression**: Revert postcss-loader to v.1.3.3
   * Update style-loader to version v0.18.1
     * express                  ^4.15.2  →  ^4.15.3
     * react-redux               ^5.0.4  →   ^5.0.5
