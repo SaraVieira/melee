@@ -24,6 +24,8 @@
     * webpack                   ^2.5.1  →   ^2.6.0
     * webpack-bundle-analyzer   ^2.8.1  →   ^2.8.2
   * Lock all dependencies to fixed versions.
+  * Specify and lock caniuse-db version in yarn.lock file. See more here: https://github.com/MoOx/postcss-cssnext/issues/357
+  * Update flow-typed definitions to match the current version of project's dependencies.
 
 # 17/05/2017
 
