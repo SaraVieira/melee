@@ -1,7 +1,31 @@
 # Changelog
 
-# 17/05/2017
+# 25/05/2017
 
+  * Update style-loader to version v0.18.1
+    * express                  ^4.15.2  →  ^4.15.3
+    * react-redux               ^5.0.4  →   ^5.0.5
+    * tvg-conf                  ^0.5.3  →   ^0.5.4
+    * tvg-ui-bootstrap         ^4.1.12  →  ^4.1.17
+    * babel-jest               ^20.0.1  →  ^20.0.3
+    * babel-preset-env          ^1.4.0  →   ^1.5.1
+    * css-loader               ^0.28.1  →  ^0.28.2
+    * eslint-config-prettier    ^2.1.0  →   ^2.1.1
+    * eslint-plugin-import      ^2.2.0  →   ^2.3.0
+    * eslint-plugin-jest       ^20.0.1  →  ^20.0.3
+    * eslint-plugin-jsx-a11y    ^5.0.1  →   ^5.0.3
+    * eslint-plugin-prettier    ^2.0.1  →   ^2.1.1
+    * happypack                 ^3.0.3  →   ^3.1.0
+    * jest                     ^20.0.1  →  ^20.0.4
+    * lint-staged               ^3.4.1  →   ^3.4.2
+    * lodash-webpack-plugin    ^0.11.3  →  ^0.11.4
+    * postcss-smart-import      ^0.7.0  →   ^0.7.2
+    * style-loader             ^0.17.0  →  ^0.18.1
+    * webpack                   ^2.5.1  →   ^2.6.0
+    * webpack-bundle-analyzer   ^2.8.1  →   ^2.8.2
+  * Lock all dependencies to fixed versions.
+
+# 17/05/2017
 
   * Add .idea/ folder to .gitignore
   * Add application prefix to output, redux store.
