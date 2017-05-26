@@ -22,9 +22,6 @@ module.exports = () => ({
       'react-router',
       'react-router-dom',
       'redux',
-      'tvg-conf',
-      'tvg-mediator',
-      'tvg-ui-bootstrap',
     ],
   },
 

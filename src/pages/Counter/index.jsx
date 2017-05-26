@@ -3,10 +3,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Button from 'tvg-ui-bootstrap/components/Buttons';
-import Input from 'tvg-ui-bootstrap/components/Form/Input';
-import Plus from 'tvg-ui-bootstrap/assets/svg/plus.svg';
-
 import type { Element } from 'react';
 import type { ActionCreator } from 'redux';
 
@@ -36,9 +32,9 @@ const Counter = ({
   value = 6,
 }: Props): Element<*> => (
   <div className={styles.counter}>
-    <Button onClick={onIncrement}><Plus /></Button>
-    <Button onClick={onDecrement}>-</Button>
-    <Input type="number" value={value} />
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
+    <input type="number" value={value} />
     <p>Value in store is: {value}</p>
   </div>
 );
