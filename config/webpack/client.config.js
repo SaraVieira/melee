@@ -36,9 +36,10 @@ module.exports = (opts = { optimize: false }) => {
 
   return {
     name: 'client',
-
     target: 'web',
-
+    node: {
+      fs: 'empty',
+    },
     entry: {
       main: [
         !options.optimize && 'react-hot-loader/patch',
@@ -143,6 +144,10 @@ module.exports = (opts = { optimize: false }) => {
 
     module: {
       rules: [
+        {
+          test: /\.json$/,
+          loader: 'json-loader',
+        },
         { test: /\.jsx?$/, loader: 'happypack/loader?id=js' },
         { test: /\.svg$/, loader: 'file-loader', issuer: /\.css$/ },
         {

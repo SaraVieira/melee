@@ -8,6 +8,7 @@ import type { Element } from 'react';
 import About from './About';
 import Menu from './Menu';
 import Counter from './Counter';
+import Main from './Main';
 
 import styles from './styles.css';
 
@@ -24,5 +25,6 @@ export default (): Element<*> => (
     <Route path="/about" component={About} />
     <Route path="/menu" component={Menu} />
     <Route path="/counter" component={Counter} />
+    <Route path="/" component={Main} />
   </div>
 );
