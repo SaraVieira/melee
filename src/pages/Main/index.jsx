@@ -47,7 +47,7 @@ class Main extends Component {
           }}
           onChange={() => this.updateMarkdown(this.text.value)}
         />
-        <div>
+        <div className={style.html}>
           {Parser(converter.makeHtml(this.state.text))}
         </div>
       </section>

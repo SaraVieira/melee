@@ -1,4 +1,4 @@
-const prefix = 'boilerplate';
+const prefix = 'sara';
 
 module.exports = {
   prefix,

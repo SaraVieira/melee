@@ -5,15 +5,12 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const config = require('config');
-const Statful = require('statful-client');
 
-const gce = require('./utils/gce');
 const logger = require('./utils/logger')({ json: true });
 const html = require('../src/index.html');
 const json = require('../src/index.json');
 
 const app = express();
-const statful = new Statful(config.get('statful'));
 
 // @NOTE this requires only work after the first build
 // @TODO find a way to validate that a correct build is present
@@ -82,18 +79,4 @@ server.listen(config.get('port'), () => {
     `Server started on: ${server.address().address}:${server.address().port}`,
     server.address()
   );
-
-  // Fetch Google Cloud Metadata
-  gce()
-    .then(({ zone, region }) => {
-      statful.tags.zone = zone;
-      statful.tags.region = region;
-
-      logger.debug('Google Cloud Region:', { zone, region });
-      statful.counter('application_start', 1, { sample_rate: 100 });
-    })
-    .catch(e => {
-      logger.error('Failed to fetch Google Cloud Region', e);
-      statful.counter('application_start_error', 1, { sample_rage: 100 });
-    });
 });

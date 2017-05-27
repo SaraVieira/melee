@@ -17,23 +17,17 @@ if (DEVELOPMENT) {
 
 export default (initialState: *): Store<*, *> => {
   const middlewares = [];
-  const enhancer = composeEnhancers(
-    applyMiddleware(...middlewares),
-  );
+  const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
-  const store = createStore(
-    reducers,
-    initialState,
-    enhancer,
-  );
+  const store = createStore(reducers, initialState, enhancer);
 
   if (module.hot) {
     module.hot.accept('./reducers', () =>
       System.import('./reducers').then(reducerModule =>
-        store.replaceReducer(reducerModule.default)),
+        store.replaceReducer(reducerModule.default)
+      )
     );
   }
-
 
   return store;
 };

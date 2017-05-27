@@ -36,10 +36,6 @@ module.exports = (opts = { optimize: false }) => {
 
   return {
     name: 'client',
-    target: 'web',
-    node: {
-      fs: 'empty',
-    },
     entry: {
       main: [
         !options.optimize && 'react-hot-loader/patch',
